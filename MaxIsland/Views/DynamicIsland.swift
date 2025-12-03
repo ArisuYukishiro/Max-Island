@@ -62,7 +62,7 @@ struct DynamicIsland: View {
           case .compact:
               return 37
           case .expanded:
-              return 200
+              return 300
           }
       }
       
