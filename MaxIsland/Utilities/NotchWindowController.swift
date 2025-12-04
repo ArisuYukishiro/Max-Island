@@ -8,9 +8,11 @@ class NotchWindowController: NSWindowController {
             self.init(window: nil)
             return
         }
-        
+        let screenSafe = screen.visibleFrame
+        let screenWidth = screenSafe.width
         let screenFrame = screen.frame
-        let notchWidth: CGFloat = 240
+        print(screenWidth)
+        let notchWidth: CGFloat = min(max(screenWidth/4,200),300)
         let notchHeight: CGFloat = 37
         
         // Position at top center (where notch is)
