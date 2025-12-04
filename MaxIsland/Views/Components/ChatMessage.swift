@@ -2,14 +2,22 @@ import SwiftUI
 
 struct ChatMessage: View {
     @StateObject private var viewModel = ChatViewModel()
-    @State private var messageText = ""
-    @State private var messages: [Message] = [
-        Message(text: "Hello! How can I help you?", isUser: false),
-    ]
         
     var body: some View {
         //TODO : neeed improvement on the render first inital chat in the bottom instead of on the top, currently its work on but it rotate and scroll bar is on left side instead of the right side
         VStack(spacing: 0) {
+//            HStack{
+//                Spacer()
+//                
+//                Button(action:{viewModel.clearChat()}){
+//                    Image(systemName: "trash")
+//                    .foregroundColor(.red)
+//                    .background(
+//                      RoundedRectangle(cornerRadius: 10).fill(.ultraThinMaterial)
+//                    )
+//                }
+//            }.padding(.bottom, 12)
+            
             ScrollViewReader { proxy in
                 ScrollView(showsIndicators: false){
                     LazyVStack(spacing: 12) {
@@ -24,7 +32,6 @@ struct ChatMessage: View {
                             HStack {
                                 ProgressView()
                                     .progressViewStyle(CircularProgressViewStyle())
-                                Text("Typing...")
                                     .foregroundColor(.gray)
                                     .font(.caption)
                                 Spacer()
@@ -51,8 +58,8 @@ struct ChatMessage: View {
                     
                 }
                 .rotationEffect(.degrees(180))
-                .onChange(of: messages.count) { _,_ in
-                    if let lastMessage = messages.last {
+                .onChange(of: viewModel.messages.count) { _,_ in
+                    if let lastMessage = viewModel.messages.last {
                         withAnimation {
                             proxy.scrollTo(lastMessage.id, anchor: .bottom)
                         }
