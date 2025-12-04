@@ -37,12 +37,21 @@ struct DynamicIsland: View {
                 Spacer()
             }
         }
-//        .onTapGesture {
-//            toggleState()
-//        }
-        .onHover { hovering in
-            isHovering = hovering
+
+        .onTapGesture {
+            if islandState == .expanded {
+                toggleState(to: .compact)
+            }
         }
+        
+        .onHover { hovering in
+              isHovering = hovering
+              
+              if hovering && islandState == .compact {
+                  print("Expanding on hover")
+                  toggleState(to: .expanded)
+              }
+          }
         .onChange(of: islandState) { oldValue, newValue in
             updateWindowSize()
         }
@@ -84,12 +93,19 @@ struct DynamicIsland: View {
         }
     }
     
-    private func toggleState() {
-        print("Island State", islandState);
-        if islandState == .compact {
-            islandState = .expanded
+    private func toggleState(to newState: IslandState? = nil) {
+        print("Island State", islandState)
+        
+        if let newState = newState {
+            // Set to specific state
+            islandState = newState
         } else {
-            islandState = .compact
+            // Toggle between states
+            if islandState == .compact {
+                islandState = .expanded
+            } else {
+                islandState = .compact
+            }
         }
     }
     
