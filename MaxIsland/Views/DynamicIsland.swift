@@ -3,7 +3,6 @@ import SwiftUI
 struct DynamicIsland: View {
     @State private var islandState: IslandState = .compact
     @State private var isHovering = false
-    
     var body: some View {
         ZStack {
             NotchShape(topCornerRadius: topCorner, bottomCornerRadius: bottomCorner)
@@ -55,16 +54,39 @@ struct DynamicIsland: View {
         .onChange(of: islandState) { oldValue, newValue in
             updateWindowSize()
         }
+       
+        .onExitCommand {
+            toggleState(to: .compact)
+        }
+        
     }
     
+    
+//    private var islandWidth: CGFloat {
+//        
+//            switch islandState {
+//            case .compact:
+//                return 240
+//            case .expanded:
+//                return 580
+//            }
+//    }
     private var islandWidth: CGFloat {
-            switch islandState {
-            case .compact:
-                return 240
-            case .expanded:
-                return 580
-            }
+        guard let screenWidth = NSScreen.main?.visibleFrame.width else {
+            // fallback width
+            return islandState == .compact ? 240 : 580
+        }
+        
+        switch islandState {
+        case .compact:
+            // e.g., use 25% of the screen width, min 200, max 300
+            return min(max(screenWidth * 0.25, 200), 300)
+        case .expanded:
+            // e.g., 50% of the screen width, min 400, max 600
+            return min(max(screenWidth * 0.5, 400), 600)
+        }
     }
+
     
     private var islandHeight: CGFloat {
           switch islandState {
