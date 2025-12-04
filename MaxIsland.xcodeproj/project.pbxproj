@@ -24,6 +24,13 @@
 		52A932E92EDE844100E4DE14 /* ChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932E82EDE844100E4DE14 /* ChatInput.swift */; };
 		52A932EB2EDE943F00E4DE14 /* NotchShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932EA2EDE943F00E4DE14 /* NotchShape.swift */; };
 		52A932ED2EDED01C00E4DE14 /* Config.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932EC2EDED01C00E4DE14 /* Config.swift .swift */; };
+		52A932EF2EDED31600E4DE14 /* ChatApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932EE2EDED31600E4DE14 /* ChatApiService.swift */; };
+		52A932F12EDED34E00E4DE14 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F02EDED34E00E4DE14 /* ChatModel.swift */; };
+		52A932F32EDED3A700E4DE14 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F22EDED3A700E4DE14 /* ChatViewModel.swift */; };
+		52A932F52EDED3D300E4DE14 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F42EDED3D300E4DE14 /* MessageBubble.swift */; };
+		52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F62EDED40300E4DE14 /* ErrorView.swift */; };
+		52A932F92EDED41A00E4DE14 /* LoadingView.swift  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */; };
+		52A932FD2EDEF73800E4DE14 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52A932FC2EDEF73800E4DE14 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +72,13 @@
 		52A932E82EDE844100E4DE14 /* ChatInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInput.swift; sourceTree = "<group>"; };
 		52A932EA2EDE943F00E4DE14 /* NotchShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchShape.swift; sourceTree = "<group>"; };
 		52A932EC2EDED01C00E4DE14 /* Config.swift .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Config.swift .swift"; sourceTree = "<group>"; };
+		52A932EE2EDED31600E4DE14 /* ChatApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatApiService.swift; sourceTree = "<group>"; };
+		52A932F02EDED34E00E4DE14 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		52A932F22EDED3A700E4DE14 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		52A932F42EDED3D300E4DE14 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		52A932F62EDED40300E4DE14 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingView.swift  .swift"; sourceTree = "<group>"; };
+		52A932FA2EDEDA9D00E4DE14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A932FD2EDEF73800E4DE14 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +130,7 @@
 		52A0B3392EDD318A0094E9F1 /* MaxIsland */ = {
 			isa = PBXGroup;
 			children = (
+				52A932FA2EDEDA9D00E4DE14 /* Info.plist */,
 				52A0B36A2EDD334F0094E9F1 /* Utilities */,
 				52A0B3692EDD33460094E9F1 /* Services */,
 				52A0B3682EDD33390094E9F1 /* Views */,
@@ -159,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				52A0B36B2EDD33CE0094E9F1 /* IslandContent.swift */,
+				52A932F02EDED34E00E4DE14 /* ChatModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +183,7 @@
 		52A0B3672EDD332E0094E9F1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				52A932F22EDED3A700E4DE14 /* ChatViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -184,6 +202,7 @@
 		52A0B3692EDD33460094E9F1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				52A932EE2EDED31600E4DE14 /* ChatApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -202,6 +221,9 @@
 				52A932E52EDD421900E4DE14 /* Shapes */,
 				52A932E62EDDA9ED00E4DE14 /* ChatMessage.swift */,
 				52A932E82EDE844100E4DE14 /* ChatInput.swift */,
+				52A932F42EDED3D300E4DE14 /* MessageBubble.swift */,
+				52A932F62EDED40300E4DE14 /* ErrorView.swift */,
+				52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -231,6 +253,9 @@
 			dependencies = (
 			);
 			name = MaxIsland;
+			packageProductDependencies = (
+				52A932FC2EDEF73800E4DE14 /* MarkdownUI */,
+			);
 			productName = MaxIsland;
 			productReference = 52A0B3372EDD318A0094E9F1 /* MaxIsland.app */;
 			productType = "com.apple.product-type.application";
@@ -303,6 +328,9 @@
 				Base,
 			);
 			mainGroup = 52A0B32E2EDD318A0094E9F1;
+			packageReferences = (
+				52A932FB2EDEF73800E4DE14 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+			);
 			productRefGroup = 52A0B3382EDD318A0094E9F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -345,8 +373,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A932EF2EDED31600E4DE14 /* ChatApiService.swift in Sources */,
 				52A932E72EDDA9ED00E4DE14 /* ChatMessage.swift in Sources */,
 				52A932DC2EDD39EA00E4DE14 /* ExpandedView.swift in Sources */,
+				52A932F12EDED34E00E4DE14 /* ChatModel.swift in Sources */,
+				52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */,
 				52A0B33D2EDD318A0094E9F1 /* ContentView.swift in Sources */,
 				52A932ED2EDED01C00E4DE14 /* Config.swift .swift in Sources */,
 				52A0B33B2EDD318A0094E9F1 /* MaxIslandApp.swift in Sources */,
@@ -354,9 +385,12 @@
 				52A0B36C2EDD33CE0094E9F1 /* IslandContent.swift in Sources */,
 				52A932E02EDD3AE100E4DE14 /* DynamicIsland.swift in Sources */,
 				52A932EB2EDE943F00E4DE14 /* NotchShape.swift in Sources */,
+				52A932F92EDED41A00E4DE14 /* LoadingView.swift  .swift in Sources */,
 				52A932DA2EDD39D500E4DE14 /* CompactView.swift in Sources */,
 				52A932E92EDE844100E4DE14 /* ChatInput.swift in Sources */,
+				52A932F32EDED3A700E4DE14 /* ChatViewModel.swift in Sources */,
 				52A932E22EDD3CA600E4DE14 /* NotchWindowController.swift in Sources */,
+				52A932F52EDED3D300E4DE14 /* MessageBubble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +557,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MaxIsland/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MaxIsland/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -548,6 +583,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MaxIsland/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MaxIsland/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -669,6 +705,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52A932FB2EDEF73800E4DE14 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52A932FC2EDEF73800E4DE14 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52A932FB2EDEF73800E4DE14 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 52A0B32F2EDD318A0094E9F1 /* Project object */;
 }
