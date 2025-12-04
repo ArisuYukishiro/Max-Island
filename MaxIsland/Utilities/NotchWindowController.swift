@@ -37,6 +37,9 @@ class NotchWindowController: NSWindowController {
         window.isMovableByWindowBackground = false
         window.hasShadow = false
         
+        window.acceptsMouseMovedEvents = true
+        window.ignoresMouseEvents = false
+        
         // Set SwiftUI content
         let contentView = NSHostingView(rootView: DynamicIsland())
         contentView.frame = window.contentView?.bounds ?? .zero

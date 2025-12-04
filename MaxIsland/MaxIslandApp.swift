@@ -13,6 +13,8 @@ struct DynamicIslandApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     var notchWindowController: NotchWindowController?
+    var eventTap: CFMachPort?
+
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
@@ -23,5 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         notchWindowController = NotchWindowController()
         notchWindowController?.showWindow(nil)
+        
+        
     }
 }

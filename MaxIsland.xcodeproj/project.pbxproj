@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		528EA6022EE140D500C37845 /* ChatStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6012EE140D500C37845 /* ChatStorageManager.swift */; };
+		528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6042EE17FA700C37845 /* KeybindHook.swift */; };
 		52A0B33B2EDD318A0094E9F1 /* MaxIslandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0B33A2EDD318A0094E9F1 /* MaxIslandApp.swift */; };
 		52A0B33D2EDD318A0094E9F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0B33C2EDD318A0094E9F1 /* ContentView.swift */; };
 		52A0B33F2EDD318C0094E9F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A0B33E2EDD318C0094E9F1 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		528EA6012EE140D500C37845 /* ChatStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStorageManager.swift; sourceTree = "<group>"; };
+		528EA6042EE17FA700C37845 /* KeybindHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindHook.swift; sourceTree = "<group>"; };
 		52A0B3372EDD318A0094E9F1 /* MaxIsland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaxIsland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A0B33A2EDD318A0094E9F1 /* MaxIslandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxIslandApp.swift; sourceTree = "<group>"; };
 		52A0B33C2EDD318A0094E9F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		528EA6032EE17F8D00C37845 /* Hooks */ = {
+			isa = PBXGroup;
+			children = (
+				528EA6042EE17FA700C37845 /* KeybindHook.swift */,
+			);
+			path = Hooks;
+			sourceTree = "<group>";
+		};
 		52A0B32E2EDD318A0094E9F1 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 		52A0B3392EDD318A0094E9F1 /* MaxIsland */ = {
 			isa = PBXGroup;
 			children = (
+				528EA6032EE17F8D00C37845 /* Hooks */,
 				528EA6002EE140C700C37845 /* Managers */,
 				52A932FA2EDEDA9D00E4DE14 /* Info.plist */,
 				52A0B36A2EDD334F0094E9F1 /* Utilities */,
@@ -387,6 +398,7 @@
 				52A932EF2EDED31600E4DE14 /* ChatApiService.swift in Sources */,
 				52A932E72EDDA9ED00E4DE14 /* ChatMessage.swift in Sources */,
 				52A932DC2EDD39EA00E4DE14 /* ExpandedView.swift in Sources */,
+				528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */,
 				52A932F12EDED34E00E4DE14 /* ChatModel.swift in Sources */,
 				52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */,
 				52A0B33D2EDD318A0094E9F1 /* ContentView.swift in Sources */,
