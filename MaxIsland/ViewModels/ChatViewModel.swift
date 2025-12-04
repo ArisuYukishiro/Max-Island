@@ -3,14 +3,22 @@ import SwiftUI
 
 @MainActor
 class ChatViewModel: ObservableObject {
-    @Published var messages: [Message] = [
-        Message(text: "Hello! How can I help you?", isUser: false)
-    ]
+    @Published var messages: [Message] = []
     @Published var messageText = ""
     @Published var isLoading = false
     @Published var errorMessage: String?
     
     private let apiService = ChatAPIService()
+    
+    private let storageManager = ChatStorageManager.shared
+      
+      init() {
+          loadMessages()
+      }
+      
+      func loadMessages() {
+          messages = storageManager.loadMessages()
+      }
     
     func sendMessage(text : String) async {
         let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -18,6 +26,7 @@ class ChatViewModel: ObservableObject {
         
         let userMessage = Message(text: trimmedText, isUser: true)
         messages.append(userMessage)
+        saveMessages()
         
         messageText = ""
         errorMessage = nil
@@ -28,6 +37,7 @@ class ChatViewModel: ObservableObject {
             
             let botMessage = Message(text: responseText, isUser: false)
             messages.append(botMessage)
+            saveMessages()
             
         } catch let error as APIError {
             handleError(error)
@@ -36,6 +46,15 @@ class ChatViewModel: ObservableObject {
         }
         
         isLoading = false
+    }
+    
+    private func saveMessages() {
+        storageManager.saveMessages(messages)
+    }
+    
+    func clearChat() {
+        messages = [Message(text: "Hello! How can I help you?", isUser: false)]
+        storageManager.clearMessages()
     }
     
     private func handleError(_ error: APIError) {

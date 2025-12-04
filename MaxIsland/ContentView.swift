@@ -7,10 +7,6 @@ struct ContentView: View {
                 .frame(height: 20)
             
             DynamicIsland()
-            
-            Spacer()
-            
-            DemoControls()
         }
         .preferredColorScheme(.dark)
     }
