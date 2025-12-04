@@ -3,6 +3,7 @@ import SwiftUI
 struct DynamicIsland: View {
     @State private var islandState: IslandState = .compact
     @State private var isHovering = false
+//    @FocusState private var isFocused: Bool
     
     var body: some View {
         ZStack {
@@ -43,6 +44,16 @@ struct DynamicIsland: View {
                 toggleState(to: .compact)
             }
         }
+//        .focusable()
+//        .focused($isFocused)
+//        .onKeyPress(.escape) {
+//            print("key press escape")
+//            if islandState == .expanded {
+//                toggleState(to: .compact)
+//                return .handled
+//            }
+//            return .ignored
+//        }
         
         .onHover { hovering in
               isHovering = hovering
@@ -54,6 +65,7 @@ struct DynamicIsland: View {
           }
         .onChange(of: islandState) { oldValue, newValue in
             updateWindowSize()
+            print("new value", newValue)
         }
     }
     
@@ -129,3 +141,4 @@ struct DynamicIsland: View {
         }
     }
 }
+
