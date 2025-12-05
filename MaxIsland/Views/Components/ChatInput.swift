@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ChatInputView: View {
     @Binding var text: String
-    @ObservedObject private var theme = ThemeManager.shared 
     var placeholder: String
     var onSend: (String) -> Void
     
@@ -31,15 +30,13 @@ struct ChatInputView: View {
                     .padding(.horizontal, 12)
                     .frame(height: 30)
                     .textFieldStyle(.plain)
-                    .foregroundColor(Color.theme.text)      // 👈 text color
-                    .accentColor(Color.theme.accent)
                     .onSubmit {
                         sendMessage()
                     }
             }
             .background(
                 RoundedRectangle(cornerRadius: 15)
-                    .fill(Color.theme.background)
+                    .fill(Color(red: 0.18, green: 0.18, blue: 0.18))
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 15)
