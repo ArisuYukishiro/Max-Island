@@ -1,10 +1,6 @@
 import SwiftUI
 import MarkdownUI
-extension Color {
-    init(r: Double, g: Double, b: Double, opacity: Double = 1.0) {
-        self.init(red: r/255, green: g/255, blue: b/255, opacity: opacity)
-    }
-}
+
 struct MessageBubble: View {
     @State private var showCopied = false
     @State private var isHovering = false
@@ -53,7 +49,7 @@ struct MessageBubble: View {
                         }
                     }
             }
-            .background(message.isUser ? Color(r: 0, g: 191, b: 225): Color.gray.opacity(0.2))
+            .background(message.isUser ? Color.blue : Color.gray.opacity(0.2))
             .foregroundColor(message.isUser ? .white : .primary)
             .cornerRadius(18)
             .onHover { hovering in isHovering = hovering }

@@ -3,14 +3,12 @@ import SwiftUI
 struct DynamicIsland: View {
     @State private var islandState: IslandState = .compact
     @State private var isHovering = false
-    @AppStorage("AppTheme") private var appTheme: AppTheme = .systemDefault
 //    @FocusState private var isFocused: Bool
-    
+
     var body: some View {
-        
         ZStack {
             NotchShape(topCornerRadius: topCorner, bottomCornerRadius: bottomCorner)
-                .fill(.thickMaterial)
+                .fill(Color.black.opacity(0.95))
             
             Group {
                 switch islandState {
@@ -26,42 +24,20 @@ struct DynamicIsland: View {
             
             VStack {
                 HStack {
-                    
-                    // LEFT SIDE BUTTON (existing state toggle)
-                    Button(action: { toggleState() }) {
+                    Button(action: {toggleState()}) {
                         Circle()
                             .fill(islandState == .compact ? Color.green : Color.red)
                             .frame(width: 12, height: 12)
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .padding(.leading, islandState == .compact ? 16 : 32)
-                    .padding(.top, islandState == .compact ? 10 : 12)
-
+                    .padding(.leading, islandState  == .compact ? 16 : 32 )
+                    .padding(.top,islandState == .compact ? 10 : 12)
+                    
                     Spacer()
-
-                    // RIGHT SIDE BUTTON (theme toggle)
-                    Button(action: {ThemeManager.shared.toggle()}) {
-                        Image(systemName: appTheme == .light ? "sun.max.fill" :
-                                            appTheme == .dark ? "moon.stars.fill" :
-                                            "circle.lefthalf.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: 12, weight: .bold))
-                            .frame(width: 18, height: 18)
-                            .padding(6)
-                            .background(.thinMaterial)
-                            .clipShape(Circle())
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding(.trailing, islandState == .compact ? 16 : 32)
-                    .padding(.top, islandState == .compact ? 10 : 12)
                 }
-
                 Spacer()
             }
-
-
         }
-            
 
         .onTapGesture {
             if islandState == .expanded {
@@ -108,29 +84,6 @@ struct DynamicIsland: View {
 //                return 580
 //            }
 //    }
-    private func toggleTheme() {
-            switch appTheme {
-            case .systemDefault:
-                appTheme = .light
-            case .light:
-                appTheme = .dark
-            case .dark:
-                appTheme = .systemDefault
-            }
-        applyTheme()
-            print("appTheme is now", appTheme.rawValue)
-        }
-    private func applyTheme() {
-        switch appTheme {
-        case .light:
-            NSApp.appearance = NSAppearance(named: .aqua)
-        case .dark:
-            NSApp.appearance = NSAppearance(named: .darkAqua)
-        case .systemDefault:
-            NSApp.appearance = nil
-        }
-    }
-
     private var islandWidth: CGFloat {
         guard let screenWidth = NSScreen.main?.visibleFrame.width else {
             // fallback width
