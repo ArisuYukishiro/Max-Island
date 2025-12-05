@@ -8,6 +8,12 @@ struct DynamicIslandApp: App {
         Settings {
             EmptyView()
         }
+        WindowGroup {
+            
+                ContentView()
+                    .frame(minWidth: 500, minHeight: 350)
+            }
+        
     }
 }
 
