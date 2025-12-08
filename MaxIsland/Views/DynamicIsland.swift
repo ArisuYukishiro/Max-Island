@@ -35,6 +35,22 @@ struct DynamicIsland: View {
                     .padding(.top,islandState == .compact ? 10 : 12)
                     
                     Spacer()
+
+                    // RIGHT SIDE BUTTON (theme toggle) dark
+                    Button(action: {ThemeManager.shared.toggle()}) {
+                        Image(systemName: appTheme == .light ? "sun.max.fill" :
+                                            appTheme == .dark ? "moon.stars.fill" :
+                                            "circle.lefthalf.fill")
+                            .foregroundColor(.white)
+                            .font(.system(size: 12, weight: .bold))
+                            .frame(width: 18, height: 18)
+                            .padding(6)
+                            .background(.thinMaterial)
+                            .clipShape(Circle())
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.trailing, islandState == .compact ? 16 : 32)
+                    .padding(.top, islandState == .compact ? 10 : 12)
                 }
                 Spacer()
             }
