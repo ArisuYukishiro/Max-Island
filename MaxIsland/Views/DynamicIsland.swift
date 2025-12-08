@@ -5,12 +5,11 @@ struct DynamicIsland: View {
     @State private var isHovering = false
     @AppStorage("AppTheme") private var appTheme: AppTheme = .systemDefault
 //    @FocusState private var isFocused: Bool
-    
+
     var body: some View {
-        
         ZStack {
             NotchShape(topCornerRadius: topCorner, bottomCornerRadius: bottomCorner)
-                .fill(.thickMaterial)
+                .fill(Color.black.opacity(0.95))
             
             Group {
                 switch islandState {
@@ -26,17 +25,15 @@ struct DynamicIsland: View {
             
             VStack {
                 HStack {
-                    
-                    // LEFT SIDE BUTTON (existing state toggle)
-                    Button(action: { toggleState() }) {
+                    Button(action: {toggleState()}) {
                         Circle()
                             .fill(islandState == .compact ? Color.green : Color.red)
                             .frame(width: 12, height: 12)
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .padding(.leading, islandState == .compact ? 16 : 32)
-                    .padding(.top, islandState == .compact ? 10 : 12)
-
+                    .padding(.leading, islandState  == .compact ? 16 : 32 )
+                    .padding(.top,islandState == .compact ? 10 : 12)
+                    
                     Spacer()
 
                     // RIGHT SIDE BUTTON (theme toggle) dark
@@ -55,13 +52,9 @@ struct DynamicIsland: View {
                     .padding(.trailing, islandState == .compact ? 16 : 32)
                     .padding(.top, islandState == .compact ? 10 : 12)
                 }
-
                 Spacer()
             }
-
-
         }
-            
 
         .onTapGesture {
             if islandState == .expanded {
