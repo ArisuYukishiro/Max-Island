@@ -3,6 +3,7 @@ import SwiftUI
 struct DynamicIsland: View {
     @State private var islandState: IslandState = .compact
     @State private var isHovering = false
+    @AppStorage("AppTheme") private var appTheme: AppTheme = .systemDefault
 //    @FocusState private var isFocused: Bool
 
     var body: some View {
@@ -84,6 +85,30 @@ struct DynamicIsland: View {
 //                return 580
 //            }
 //    }
+    //dark mode switch
+    private func toggleTheme() {
+            switch appTheme {
+            case .systemDefault:
+                appTheme = .light
+            case .light:
+                appTheme = .dark
+            case .dark:
+                appTheme = .systemDefault
+            }
+        applyTheme()
+            print("appTheme is now", appTheme.rawValue)
+        }
+    private func applyTheme() {
+        switch appTheme {
+        case .light:
+            NSApp.appearance = NSAppearance(named: .aqua)
+        case .dark:
+            NSApp.appearance = NSAppearance(named: .darkAqua)
+        case .systemDefault:
+            NSApp.appearance = nil
+        }
+    }
+
     private var islandWidth: CGFloat {
         guard let screenWidth = NSScreen.main?.visibleFrame.width else {
             // fallback width
