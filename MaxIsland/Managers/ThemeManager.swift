@@ -7,18 +7,55 @@ class ThemeManager: ObservableObject {
     @Published var currentTheme: AppTheme = .systemDefault
     
     private init() {
-        currentTheme = storedTheme
+        if storedTheme == .systemDefault {
+            currentTheme = checkSystemAppearance()
+            print("🌓 System default resolved to: \(currentTheme.displayName)")
+        } else {
+            currentTheme = storedTheme
+        }
+        
         applyAppearance()
+        
+        DistributedNotificationCenter.default.addObserver(
+            self,
+            selector: #selector(systemThemeChanged),
+            name: Notification.Name("AppleInterfaceThemeChangedNotification"),
+            object: nil
+        )
+    }
+    
+    @objc private func systemThemeChanged() {
+        if storedTheme == .systemDefault {
+            let newTheme = checkSystemAppearance()
+            if newTheme != currentTheme {
+                currentTheme = newTheme
+                applyAppearance()
+                print("🌓 System theme changed to: \(currentTheme.displayName)")
+            }
+        }
+    }
+    
+    private func checkSystemAppearance() -> AppTheme {
+        let appearance = NSApp.effectiveAppearance
+        let aquaAppearance = appearance.bestMatch(from: [.darkAqua, .aqua])
+        return aquaAppearance == .darkAqua ? .dark : .light
     }
     
     func set(_ theme: AppTheme) {
         storedTheme = theme
-        currentTheme = theme
+        
+        if theme == .systemDefault {
+            currentTheme = checkSystemAppearance()
+            print("🌓 Set to system default, resolved to: \(currentTheme.displayName)")
+        } else {
+            currentTheme = theme
+        }
+        
         applyAppearance()
     }
     
     func toggle() {
-        switch currentTheme {
+        switch storedTheme {
         case .systemDefault: set(.light)
         case .light: set(.dark)
         case .dark: set(.systemDefault)
@@ -32,8 +69,13 @@ class ThemeManager: ObservableObject {
         case .dark:
             NSApp.appearance = NSAppearance(named: .darkAqua)
         case .systemDefault:
+            // This shouldn't happen since we resolve it, but just in case
             NSApp.appearance = nil
         }
+    }
+    
+    deinit {
+        DistributedNotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -47,9 +89,15 @@ enum AppTheme: String, CaseIterable {
         case .systemDefault: return nil
         }
     }
+    
+    var displayName: String {
+        switch self {
+        case .light: return "Light"
+        case .dark: return "Dark"
+        case .systemDefault: return "System"
+        }
+    }
 }
-
-
 
 struct ThemeSwitch<Content: View>: View {
     @ObservedObject private var theme = ThemeManager.shared
