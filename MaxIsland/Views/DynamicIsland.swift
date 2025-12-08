@@ -39,7 +39,7 @@ struct DynamicIsland: View {
 
                     Spacer()
 
-                    // RIGHT SIDE BUTTON (theme toggle)
+                    // RIGHT SIDE BUTTON (theme toggle) dark
                     Button(action: {ThemeManager.shared.toggle()}) {
                         Image(systemName: appTheme == .light ? "sun.max.fill" :
                                             appTheme == .dark ? "moon.stars.fill" :
