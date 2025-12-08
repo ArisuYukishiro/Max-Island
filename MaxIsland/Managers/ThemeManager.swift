@@ -67,14 +67,18 @@ class ThemeManager: ObservableObject {
     }
     
     private func applyAppearance() {
-        switch currentTheme {
+        // CRITICAL: When using system default, we must set NSApp.appearance to nil
+        // so that it actually follows the system theme in real-time
+        switch storedTheme {
         case .light:
             NSApp.appearance = NSAppearance(named: .aqua)
+            print("Applied Light appearance (fixed)")
         case .dark:
             NSApp.appearance = NSAppearance(named: .darkAqua)
+            print("Applied Dark appearance (fixed)")
         case .systemDefault:
-            // This shouldn't happen since we resolve it, but just in case
             NSApp.appearance = nil
+            print("Applied System appearance (dynamic)")
         }
     }
     
