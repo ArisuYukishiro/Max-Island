@@ -108,6 +108,7 @@ struct DynamicIsland: View {
 //                return 580
 //            }
 //    }
+    //dark mode switch
     private func toggleTheme() {
             switch appTheme {
             case .systemDefault:
