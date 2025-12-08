@@ -4,13 +4,30 @@ struct DynamicIsland: View {
     @State private var islandState: IslandState = .compact
     @State private var isHovering = false
     @AppStorage("AppTheme") private var appTheme: AppTheme = .systemDefault
+    @ObservedObject private var themeManager = ThemeManager.shared
+
 //    @FocusState private var isFocused: Bool
 
     var body: some View {
         ZStack {
             NotchShape(topCornerRadius: topCorner, bottomCornerRadius: bottomCorner)
-                .fill(.thickMaterial)
+                .fill(themeManager.currentTheme == .dark ? .black : .white)
             
+//            Spacer()
+//                .frame(
+//                 width: islandWidth,
+//                 height: islandHeight
+//                )
+//                .glassEffect(
+//                .regular,
+//                    in: NotchShape(
+//                        topCornerRadius: topCorner,
+//                        bottomCornerRadius: bottomCorner
+//                     )
+//                )
+//                .animation(.spring(response: 0.4, dampingFraction: 0.8), value: islandState)
+                  
+        
             Group {
                 switch islandState {
                 case .compact:
@@ -31,7 +48,7 @@ struct DynamicIsland: View {
                         Image(systemName: appTheme == .light ? "sun.max.fill" :
                                 appTheme == .dark ? "moon.stars.fill" :
                                 "circle.lefthalf.fill")
-                        .foregroundColor(.white)
+                        .foregroundColor(themeManager.currentTheme == .dark ? .white : .black)
                         .font(.system(size: 14, weight: .bold))
                         
                         .background(.thinMaterial)

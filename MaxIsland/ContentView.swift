@@ -2,14 +2,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ThemeSwitch{
+        ThemeSwitch {
             VStack {
                 Spacer()
                     .frame(height: 20)
                 
                 DynamicIsland()
             }
-            .preferredColorScheme(.dark)
         }
     }
 }
