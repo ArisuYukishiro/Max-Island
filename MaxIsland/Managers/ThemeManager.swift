@@ -1,10 +1,3 @@
-//
-//  ThemeManager.swift
-//  MaxIsland
-//
-//  Created by seang kimsinh on 5/12/25.
-//
-
 import SwiftUI
 
 class ThemeManager: ObservableObject {
