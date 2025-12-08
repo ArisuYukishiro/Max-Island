@@ -6,17 +6,6 @@ struct ChatMessage: View {
     var body: some View {
         //TODO : neeed improvement on the render first inital chat in the bottom instead of on the top, currently its work on but it rotate and scroll bar is on left side instead of the right side
         VStack(spacing: 0) {
-//            HStack{
-//                Spacer()
-//                
-//                Button(action:{viewModel.clearChat()}){
-//                    Image(systemName: "trash")
-//                    .foregroundColor(.red)
-//                    .background(
-//                      RoundedRectangle(cornerRadius: 10).fill(.ultraThinMaterial)
-//                    )
-//                }
-//            }.padding(.bottom, 12)
             
             ScrollViewReader { proxy in
                 ScrollView(showsIndicators: false){

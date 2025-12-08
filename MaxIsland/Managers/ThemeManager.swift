@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 class ThemeManager: ObservableObject {
     static let shared = ThemeManager()
@@ -6,19 +7,59 @@ class ThemeManager: ObservableObject {
     @AppStorage("AppTheme") private var storedTheme: AppTheme = .systemDefault
     @Published var currentTheme: AppTheme = .systemDefault
     
+    private var cancellables = Set<AnyCancellable>()
+    private var appearanceObservation: NSKeyValueObservation?
+    
     private init() {
-        currentTheme = storedTheme
+        // Initialize current theme
+        updateCurrentTheme()
         applyAppearance()
+        
+        appearanceObservation = NSApp.observe(\.effectiveAppearance, options: [.new]) { [weak self] _, _ in
+            DispatchQueue.main.async {
+                self?.systemThemeChanged()
+            }
+        }
+    }
+    
+    @objc private func systemThemeChanged() {
+        guard storedTheme == .systemDefault else { return }
+        
+        let newTheme = checkSystemAppearance()
+        if newTheme != currentTheme {
+            currentTheme = newTheme
+            applyAppearance()
+            print("🌓 System theme changed to: \(currentTheme.displayName)")
+        }
+    }
+    
+    private func updateCurrentTheme() {
+        if storedTheme == .systemDefault {
+            currentTheme = checkSystemAppearance()
+            print("🌓 System initialized, resolve to: \(currentTheme.displayName)")
+        } else {
+            currentTheme = storedTheme
+        }
+    }
+    
+    private func checkSystemAppearance() -> AppTheme {
+        let appearance = NSApp.effectiveAppearance
+        let aquaAppearance = appearance.bestMatch(from: [.darkAqua, .aqua])
+        return aquaAppearance == .darkAqua ? .dark : .light
     }
     
     func set(_ theme: AppTheme) {
         storedTheme = theme
-        currentTheme = theme
+        updateCurrentTheme()
         applyAppearance()
+        
+        if theme == .systemDefault {
+            print("🌓 Set to system default, resolved to: \(currentTheme.displayName)")
+        }
     }
     
     func toggle() {
-        switch currentTheme {
+        switch storedTheme {
         case .systemDefault: set(.light)
         case .light: set(.dark)
         case .dark: set(.systemDefault)
@@ -26,14 +67,25 @@ class ThemeManager: ObservableObject {
     }
     
     private func applyAppearance() {
-        switch currentTheme {
+        // CRITICAL: When using system default, we must set NSApp.appearance to nil
+        // so that it actually follows the system theme in real-time
+        switch storedTheme {
         case .light:
             NSApp.appearance = NSAppearance(named: .aqua)
+            print("Applied Light appearance (fixed)")
         case .dark:
             NSApp.appearance = NSAppearance(named: .darkAqua)
+            print("Applied Dark appearance (fixed)")
         case .systemDefault:
             NSApp.appearance = nil
+            print("Applied System appearance (dynamic)")
         }
+    }
+    
+    deinit {
+        DistributedNotificationCenter.default.removeObserver(self)
+        appearanceObservation?.invalidate()
+        cancellables.removeAll()
     }
 }
 
@@ -47,9 +99,15 @@ enum AppTheme: String, CaseIterable {
         case .systemDefault: return nil
         }
     }
+    
+    var displayName: String {
+        switch self {
+        case .light: return "Light"
+        case .dark: return "Dark"
+        case .systemDefault: return "System"
+        }
+    }
 }
-
-
 
 struct ThemeSwitch<Content: View>: View {
     @ObservedObject private var theme = ThemeManager.shared
