@@ -15,8 +15,8 @@ struct DynamicIsland: View {
                 switch islandState {
                 case .compact:
                     CompactView()
-                     .padding(.horizontal, 16)
-                     .padding(.vertical, 8)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
                 case .expanded:
                     ExpandedView()
                         .padding(.horizontal, 24)
@@ -25,33 +25,23 @@ struct DynamicIsland: View {
             
             VStack {
                 HStack {
-                    Button(action: {toggleState()}) {
-                        Circle()
-                            .fill(islandState == .compact ? Color.green : Color.red)
-                            .frame(width: 12, height: 12)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding(.leading, islandState  == .compact ? 16 : 32 )
-                    .padding(.top,islandState == .compact ? 10 : 12)
-                    
                     Spacer()
-
-                    // RIGHT SIDE BUTTON (theme toggle) dark
+                    
                     Button(action: {ThemeManager.shared.toggle()}) {
                         Image(systemName: appTheme == .light ? "sun.max.fill" :
-                                            appTheme == .dark ? "moon.stars.fill" :
-                                            "circle.lefthalf.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: 12, weight: .bold))
-                            .frame(width: 18, height: 18)
-                            .padding(6)
-                            .background(.thinMaterial)
-                            .clipShape(Circle())
+                                appTheme == .dark ? "moon.stars.fill" :
+                                "circle.lefthalf.fill")
+                        .foregroundColor(.white)
+                        .font(.system(size: 14, weight: .bold))
+                        
+                        .background(.thinMaterial)
+                        .clipShape(Circle())
                     }
                     .buttonStyle(PlainButtonStyle())
                     .padding(.trailing, islandState == .compact ? 16 : 32)
-                    .padding(.top, islandState == .compact ? 10 : 12)
+                    .padding(.top, islandState == .compact ? 6 : 8)
                 }
+                
                 Spacer()
             }
         }
@@ -91,16 +81,6 @@ struct DynamicIsland: View {
         
     }
     
-    
-//    private var islandWidth: CGFloat {
-//        
-//            switch islandState {
-//            case .compact:
-//                return 240
-//            case .expanded:
-//                return 580
-//            }
-//    }
     //dark mode switch
     private func toggleTheme() {
             switch appTheme {
@@ -127,16 +107,14 @@ struct DynamicIsland: View {
 
     private var islandWidth: CGFloat {
         guard let screenWidth = NSScreen.main?.visibleFrame.width else {
-            // fallback width
             return islandState == .compact ? 240 : 580
         }
         
+        print("screen width", screenWidth)
         switch islandState {
         case .compact:
-            // e.g., use 25% of the screen width, min 200, max 300
-            return min(max(screenWidth * 0.25, 200), 300)
+            return min(max(screenWidth * 0.25, 150), 250)
         case .expanded:
-            // e.g., 50% of the screen width, min 400, max 600
             return min(max(screenWidth * 0.5, 400), 600)
         }
     }
@@ -145,7 +123,7 @@ struct DynamicIsland: View {
     private var islandHeight: CGFloat {
           switch islandState {
           case .compact:
-              return 37
+              return 32
           case .expanded:
               return 300
           }

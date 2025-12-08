@@ -64,5 +64,3 @@ struct ThemeSwitch<Content: View>: View {
             .preferredColorScheme(theme.currentTheme.colorScheme)
     }
 }
-
-
