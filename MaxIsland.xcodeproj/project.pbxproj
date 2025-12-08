@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F62EDED40300E4DE14 /* ErrorView.swift */; };
 		52A932F92EDED41A00E4DE14 /* LoadingView.swift  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */; };
 		52A932FD2EDEF73800E4DE14 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52A932FC2EDEF73800E4DE14 /* MarkdownUI */; };
+		69E8E7192EE69FFA005280B4 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8E7182EE69FFA005280B4 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +84,12 @@
 		52A932F62EDED40300E4DE14 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingView.swift  .swift"; sourceTree = "<group>"; };
 		52A932FA2EDEDA9D00E4DE14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		69E8E7182EE69FFA005280B4 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		69E8E71A2EE6A0AC005280B4 /* Theme */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Theme; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		52A0B3342EDD318A0094E9F1 /* Frameworks */ = {
@@ -115,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				528EA6012EE140D500C37845 /* ChatStorageManager.swift */,
+				69E8E7182EE69FFA005280B4 /* ThemeManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -150,6 +157,7 @@
 		52A0B3392EDD318A0094E9F1 /* MaxIsland */ = {
 			isa = PBXGroup;
 			children = (
+				69E8E71A2EE6A0AC005280B4 /* Theme */,
 				528EA6032EE17F8D00C37845 /* Hooks */,
 				528EA6002EE140C700C37845 /* Managers */,
 				52A932FA2EDEDA9D00E4DE14 /* Info.plist */,
@@ -273,6 +281,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				69E8E71A2EE6A0AC005280B4 /* Theme */,
 			);
 			name = MaxIsland;
 			packageProductDependencies = (
@@ -415,6 +426,7 @@
 				52A932F32EDED3A700E4DE14 /* ChatViewModel.swift in Sources */,
 				52A932E22EDD3CA600E4DE14 /* NotchWindowController.swift in Sources */,
 				52A932F52EDED3D300E4DE14 /* MessageBubble.swift in Sources */,
+				69E8E7192EE69FFA005280B4 /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

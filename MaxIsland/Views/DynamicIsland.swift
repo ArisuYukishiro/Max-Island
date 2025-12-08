@@ -9,7 +9,7 @@ struct DynamicIsland: View {
     var body: some View {
         ZStack {
             NotchShape(topCornerRadius: topCorner, bottomCornerRadius: bottomCorner)
-                .fill(Color.black.opacity(0.95))
+                .fill(.thickMaterial)
             
             Group {
                 switch islandState {
