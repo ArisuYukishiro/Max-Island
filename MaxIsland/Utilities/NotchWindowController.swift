@@ -11,9 +11,8 @@ class NotchWindowController: NSWindowController {
         let screenSafe = screen.visibleFrame
         let screenWidth = screenSafe.width
         let screenFrame = screen.frame
-        print(screenWidth)
-        let notchWidth: CGFloat = min(max(screenWidth/4,200),300)
-        let notchHeight: CGFloat = 37
+        let notchWidth: CGFloat = min(max(screenWidth/4,150),250)
+        let notchHeight: CGFloat = 32
         
         // Position at top center (where notch is)
         let windowRect = NSRect(
