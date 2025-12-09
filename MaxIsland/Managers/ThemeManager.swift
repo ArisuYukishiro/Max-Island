@@ -29,14 +29,14 @@ class ThemeManager: ObservableObject {
         if newTheme != currentTheme {
             currentTheme = newTheme
             applyAppearance()
-            print("🌓 System theme changed to: \(currentTheme.displayName)")
+            print("System theme changed to: \(currentTheme.displayName)")
         }
     }
     
     private func updateCurrentTheme() {
         if storedTheme == .systemDefault {
             currentTheme = checkSystemAppearance()
-            print("🌓 System initialized, resolve to: \(currentTheme.displayName)")
+            print("System initialized, resolve to: \(currentTheme.displayName)")
         } else {
             currentTheme = storedTheme
         }
