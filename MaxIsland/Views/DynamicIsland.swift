@@ -1,17 +1,17 @@
 import SwiftUI
 
 struct DynamicIsland: View {
-    @State private var islandState: IslandState = .compact
     @State private var isHovering = false
     @AppStorage("AppTheme") private var appTheme: AppTheme = .systemDefault
     @ObservedObject private var themeManager = ThemeManager.shared
-
-//    @FocusState private var isFocused: Bool
+    @ObservedObject private var stateManager = IslandStateManager.shared
+    @ObservedObject private var islandAnimation = IslandAnimation.shared
 
     var body: some View {
         ZStack {
             NotchShape(topCornerRadius: topCorner, bottomCornerRadius: bottomCorner)
                 .fill(themeManager.currentTheme == .dark ? .black : .white)
+            
             
 //            Spacer()
 //                .frame(
@@ -29,7 +29,7 @@ struct DynamicIsland: View {
                   
         
             Group {
-                switch islandState {
+                switch stateManager.islandState {
                 case .compact:
                     CompactView()
                         .padding(.horizontal, 16)
@@ -55,8 +55,8 @@ struct DynamicIsland: View {
                         .clipShape(Circle())
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .padding(.trailing, islandState == .compact ? 16 : 32)
-                    .padding(.top, islandState == .compact ? 6 : 8)
+                    .padding(.trailing, stateManager.islandState == .compact ? 16 : 32)
+                    .padding(.top, stateManager.islandState == .compact ? 6 : 8)
                 }
                 
                 Spacer()
@@ -64,30 +64,19 @@ struct DynamicIsland: View {
         }
 
         .onTapGesture {
-            if islandState == .expanded {
+            if stateManager.islandState == .expanded {
                 toggleState(to: .compact)
             }
         }
-//        .focusable()
-//        .focused($isFocused)
-//        .onKeyPress(.escape) {
-//            print("key press escape")
-//            if islandState == .expanded {
-//                toggleState(to: .compact)
-//                return .handled
-//            }
-//            return .ignored
-//        }
-        
         .onHover { hovering in
               isHovering = hovering
               
-              if hovering && islandState == .compact {
+              if hovering && stateManager.islandState == .compact {
                   print("Expanding on hover")
                   toggleState(to: .expanded)
               }
           }
-        .onChange(of: islandState) { oldValue, newValue in
+        .onChange(of: stateManager.islandState) { oldValue, newValue in
             updateWindowSize()
             print("new value", newValue)
         }
@@ -98,7 +87,6 @@ struct DynamicIsland: View {
         
     }
     
-    //dark mode switch
     private func toggleTheme() {
             switch appTheme {
             case .systemDefault:
@@ -111,6 +99,7 @@ struct DynamicIsland: View {
         applyTheme()
             print("appTheme is now", appTheme.rawValue)
         }
+    
     private func applyTheme() {
         switch appTheme {
         case .light:
@@ -124,11 +113,11 @@ struct DynamicIsland: View {
 
     private var islandWidth: CGFloat {
         guard let screenWidth = NSScreen.main?.visibleFrame.width else {
-            return islandState == .compact ? 240 : 580
+            return stateManager.islandState == .compact ? 240 : 580
         }
         
         print("screen width", screenWidth)
-        switch islandState {
+        switch stateManager.islandState {
         case .compact:
             return min(max(screenWidth * 0.25, 150), 250)
         case .expanded:
@@ -138,7 +127,7 @@ struct DynamicIsland: View {
 
     
     private var islandHeight: CGFloat {
-          switch islandState {
+          switch stateManager.islandState {
           case .compact:
               return 32
           case .expanded:
@@ -147,7 +136,7 @@ struct DynamicIsland: View {
       }
       
     private var topCorner: CGFloat {
-        switch islandState {
+        switch stateManager.islandState {
         case .compact:
             return 8
         case .expanded:
@@ -156,7 +145,7 @@ struct DynamicIsland: View {
     }
     
     private var bottomCorner: CGFloat {
-        switch islandState {
+        switch stateManager.islandState {
         case .compact:
             return 18.5
         case .expanded:
@@ -165,17 +154,15 @@ struct DynamicIsland: View {
     }
     
     private func toggleState(to newState: IslandState? = nil) {
-        print("Island State", islandState)
+        print("Island State", stateManager.islandState)
         
         if let newState = newState {
-            // Set to specific state
-            islandState = newState
+            stateManager.islandState = newState
         } else {
-            // Toggle between states
-            if islandState == .compact {
-                islandState = .expanded
+            if stateManager.islandState == .compact {
+                stateManager.islandState = .expanded
             } else {
-                islandState = .compact
+                stateManager.islandState = .compact
             }
         }
     }
@@ -193,10 +180,19 @@ struct DynamicIsland: View {
         )
         print(newFrame)
         
+        islandAnimation.isAnimationLoading = false
+        
         NSAnimationContext.runAnimationGroup { context in
-            context.duration = 0.25
+            context.duration = 0.5
             context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
             window.animator().setFrame(newFrame, display: true)
+        } completionHandler: {
+            if stateManager.islandState == .expanded {
+                DispatchQueue.main.async {
+                    islandAnimation.isAnimationLoading = true
+                    print("Expansion animation completed successfully")
+                }
+            }
         }
     }
 }
