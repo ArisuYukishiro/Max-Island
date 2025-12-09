@@ -19,12 +19,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
 
+        ChatStorageManager.shared.clearMessages()
+
+        
         notchWindowController = NotchWindowController()
         notchWindowController?.showWindow(nil)
     }
 
-    func applicationWillTerminate(_ notification: Notification) {
-        // Clear chat messages when the application terminates
-        ChatStorageManager.shared.clearMessages()
-    }
 }
