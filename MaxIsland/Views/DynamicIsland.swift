@@ -5,7 +5,7 @@ struct DynamicIsland: View {
     @AppStorage("AppTheme") private var appTheme: AppTheme = .systemDefault
     @ObservedObject private var themeManager = ThemeManager.shared
     @ObservedObject private var stateManager = IslandStateManager.shared
-    @ObservedObject private var islandAnimation = IslandAnimation.shared
+    @ObservedObject private var islandAnimation = IslandAnimationManager.shared
 
     var body: some View {
         ZStack {
@@ -180,7 +180,7 @@ struct DynamicIsland: View {
         )
         print(newFrame)
         
-        islandAnimation.isAnimationLoading = false
+        islandAnimation.hasAnimationCompleted = true
         
         NSAnimationContext.runAnimationGroup { context in
             context.duration = 0.5
@@ -189,7 +189,7 @@ struct DynamicIsland: View {
         } completionHandler: {
             if stateManager.islandState == .expanded {
                 DispatchQueue.main.async {
-                    islandAnimation.isAnimationLoading = true
+                    islandAnimation.hasAnimationCompleted = false
                     print("Expansion animation completed successfully")
                 }
             }

@@ -3,11 +3,11 @@ import SwiftUI
 struct ChatMessage: View {
     @StateObject private var viewModel = ChatViewModel()
     @ObservedObject private var stateManager = IslandStateManager.shared
-    @ObservedObject private var islandAnimation = IslandAnimation.shared
+    @ObservedObject private var islandAnimation = IslandAnimationManager.shared
         
     var body: some View {
         if stateManager.islandState == .expanded {
-            if islandAnimation.isAnimationLoading == false {
+            if islandAnimation.hasAnimationCompleted == true {
                 skeletonContent
             } else {
                 chatContent

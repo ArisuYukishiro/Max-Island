@@ -15,10 +15,10 @@ class IslandStateManager: ObservableObject {
     private init() {}
 }
 
-class IslandAnimation: ObservableObject{
-    @Published var isAnimationLoading: Bool = false
+class IslandAnimationManager: ObservableObject {
+    @Published var hasAnimationCompleted: Bool = false
     
-    static let shared = IslandAnimation()
+    static let shared = IslandAnimationManager()
     
     private init() {}
 }
