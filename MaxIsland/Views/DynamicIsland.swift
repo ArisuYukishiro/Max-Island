@@ -68,6 +68,7 @@ struct DynamicIsland: View {
                 toggleState(to: .compact)
             }
         }
+        
         .onHover { hovering in
               isHovering = hovering
               
@@ -76,11 +77,12 @@ struct DynamicIsland: View {
                   toggleState(to: .expanded)
               }
           }
+        
         .onChange(of: stateManager.islandState) { oldValue, newValue in
             updateWindowSize()
             print("new value", newValue)
         }
-       
+        
         .onExitCommand {
             toggleState(to: .compact)
         }
