@@ -12,6 +12,12 @@
 		5271F3632EEA601100A0B4B5 /* SkeletonChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F35F2EEA601100A0B4B5 /* SkeletonChatInput.swift */; };
 		5271F3652EEA69BD00A0B4B5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3642EEA69BD00A0B4B5 /* SettingView.swift */; };
 		5271F3672EEA70BF00A0B4B5 /* SettingWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3662EEA70B200A0B4B5 /* SettingWindowController.swift */; };
+		5271F36D2EEA7D6700A0B4B5 /* SettingSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F36C2EEA7D6700A0B4B5 /* SettingSidebar.swift */; };
+		5271F36F2EEA7F8A00A0B4B5 /* AppearanceSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F36E2EEA7F8A00A0B4B5 /* AppearanceSettingView.swift */; };
+		5271F3712EEA82EC00A0B4B5 /* GeneralSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3702EEA82E900A0B4B5 /* GeneralSettingView.swift */; };
+		5271F3732EEA82F600A0B4B5 /* NotificationsSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3722EEA82F300A0B4B5 /* NotificationsSettingView.swift */; };
+		5271F3752EEA830100A0B4B5 /* AdvancedSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3742EEA82FD00A0B4B5 /* AdvancedSettingView.swift */; };
+		5271F3772EEA830E00A0B4B5 /* AboutSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3762EEA830A00A0B4B5 /* AboutSettingView.swift */; };
 		528EA6022EE140D500C37845 /* ChatStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6012EE140D500C37845 /* ChatStorageManager.swift */; };
 		528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6042EE17FA700C37845 /* KeybindHook.swift */; };
 		52A0B33B2EDD318A0094E9F1 /* MaxIslandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0B33A2EDD318A0094E9F1 /* MaxIslandApp.swift */; };
@@ -63,6 +69,12 @@
 		5271F3602EEA601100A0B4B5 /* SkeletonMessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonMessageBubble.swift; sourceTree = "<group>"; };
 		5271F3642EEA69BD00A0B4B5 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		5271F3662EEA70B200A0B4B5 /* SettingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWindowController.swift; sourceTree = "<group>"; };
+		5271F36C2EEA7D6700A0B4B5 /* SettingSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSidebar.swift; sourceTree = "<group>"; };
+		5271F36E2EEA7F8A00A0B4B5 /* AppearanceSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingView.swift; sourceTree = "<group>"; };
+		5271F3702EEA82E900A0B4B5 /* GeneralSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingView.swift; sourceTree = "<group>"; };
+		5271F3722EEA82F300A0B4B5 /* NotificationsSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingView.swift; sourceTree = "<group>"; };
+		5271F3742EEA82FD00A0B4B5 /* AdvancedSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingView.swift; sourceTree = "<group>"; };
+		5271F3762EEA830A00A0B4B5 /* AboutSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingView.swift; sourceTree = "<group>"; };
 		528EA6012EE140D500C37845 /* ChatStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStorageManager.swift; sourceTree = "<group>"; };
 		528EA6042EE17FA700C37845 /* KeybindHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindHook.swift; sourceTree = "<group>"; };
 		52A0B3372EDD318A0094E9F1 /* MaxIsland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaxIsland.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +149,7 @@
 		5271F36A2EEA759C00A0B4B5 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5271F36C2EEA7D6700A0B4B5 /* SettingSidebar.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -258,6 +271,11 @@
 		52A0B3682EDD33390094E9F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5271F3762EEA830A00A0B4B5 /* AboutSettingView.swift */,
+				5271F3742EEA82FD00A0B4B5 /* AdvancedSettingView.swift */,
+				5271F3722EEA82F300A0B4B5 /* NotificationsSettingView.swift */,
+				5271F3702EEA82E900A0B4B5 /* GeneralSettingView.swift */,
+				5271F36E2EEA7F8A00A0B4B5 /* AppearanceSettingView.swift */,
 				52A932D92EDD39D500E4DE14 /* CompactView.swift */,
 				52A932DB2EDD39EA00E4DE14 /* ExpandedView.swift */,
 				52A932DF2EDD3AE100E4DE14 /* DynamicIsland.swift */,
@@ -446,20 +464,26 @@
 				52A932E72EDDA9ED00E4DE14 /* ChatMessage.swift in Sources */,
 				5271F3672EEA70BF00A0B4B5 /* SettingWindowController.swift in Sources */,
 				52A932DC2EDD39EA00E4DE14 /* ExpandedView.swift in Sources */,
+				5271F3772EEA830E00A0B4B5 /* AboutSettingView.swift in Sources */,
 				528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */,
 				52A932F12EDED34E00E4DE14 /* ChatModel.swift in Sources */,
 				52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */,
 				52A0B33D2EDD318A0094E9F1 /* ContentView.swift in Sources */,
+				5271F3712EEA82EC00A0B4B5 /* GeneralSettingView.swift in Sources */,
 				52A932ED2EDED01C00E4DE14 /* Config.swift .swift in Sources */,
 				52A0B33B2EDD318A0094E9F1 /* MaxIslandApp.swift in Sources */,
 				528EA6022EE140D500C37845 /* ChatStorageManager.swift in Sources */,
 				52A0B36C2EDD33CE0094E9F1 /* IslandContent.swift in Sources */,
+				5271F3752EEA830100A0B4B5 /* AdvancedSettingView.swift in Sources */,
 				52A932E02EDD3AE100E4DE14 /* DynamicIsland.swift in Sources */,
+				5271F36D2EEA7D6700A0B4B5 /* SettingSidebar.swift in Sources */,
+				5271F36F2EEA7F8A00A0B4B5 /* AppearanceSettingView.swift in Sources */,
 				5271F35E2EEA5FDD00A0B4B5 /* IslandStateManager.swift in Sources */,
 				52A932EB2EDE943F00E4DE14 /* NotchShape.swift in Sources */,
 				52A932F92EDED41A00E4DE14 /* LoadingView.swift  .swift in Sources */,
 				52A932DA2EDD39D500E4DE14 /* CompactView.swift in Sources */,
 				52A932E92EDE844100E4DE14 /* ChatInput.swift in Sources */,
+				5271F3732EEA82F600A0B4B5 /* NotificationsSettingView.swift in Sources */,
 				5271F3622EEA601100A0B4B5 /* SkeletonMessageBubble.swift in Sources */,
 				5271F3632EEA601100A0B4B5 /* SkeletonChatInput.swift in Sources */,
 				5271F3652EEA69BD00A0B4B5 /* SettingView.swift in Sources */,
