@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DynamicIsland: View {
     @State private var isHovering = false
+
     @AppStorage("AppTheme") private var appTheme: AppTheme = .systemDefault
     @ObservedObject private var themeManager = ThemeManager.shared
     @ObservedObject private var stateManager = IslandStateManager.shared
@@ -44,19 +45,32 @@ struct DynamicIsland: View {
                 HStack {
                     Spacer()
                     
-                    Button(action: {ThemeManager.shared.toggle()}) {
-                        Image(systemName: appTheme == .light ? "sun.max.fill" :
-                                appTheme == .dark ? "moon.stars.fill" :
-                                "circle.lefthalf.fill")
-                        .foregroundColor(themeManager.currentTheme == .dark ? .white : .black)
-                        .font(.system(size: 14, weight: .bold))
-                        
-                        .background(.thinMaterial)
-                        .clipShape(Circle())
+                    Button(action: {
+                        NotificationCenter.default.post(name: NSNotification.Name("OpenSettings"), object: nil)
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundColor(themeManager.currentTheme == .dark ? .white : .black)
+                            .font(.system(size: 14, weight: .bold))
+                            .background(.thinMaterial)
+                            .clipShape(Circle())
                     }
                     .buttonStyle(PlainButtonStyle())
                     .padding(.trailing, stateManager.islandState == .compact ? 16 : 32)
                     .padding(.top, stateManager.islandState == .compact ? 6 : 8)
+                    
+//                    Button(action: {ThemeManager.shared.toggle()}) {
+//                        Image(systemName: appTheme == .light ? "sun.max.fill" :
+//                                appTheme == .dark ? "moon.stars.fill" :
+//                                "circle.lefthalf.fill")
+//                        .foregroundColor(themeManager.currentTheme == .dark ? .white : .black)
+//                        .font(.system(size: 14, weight: .bold))
+//                        
+//                        .background(.thinMaterial)
+//                        .clipShape(Circle())
+//                    }
+//                    .buttonStyle(PlainButtonStyle())
+//                    .padding(.trailing, stateManager.islandState == .compact ? 16 : 32)
+//                    .padding(.top, stateManager.islandState == .compact ? 6 : 8)
                 }
                 
                 Spacer()
