@@ -4,12 +4,12 @@ import AppKit
 class SettingWindowController: NSWindowController {
     convenience init() {
         let settingsWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 400, height: 300),
+            contentRect: NSRect(x: 0, y: 0, width: 600, height: 400),
             styleMask: [.titled, .closable, .fullSizeContentView],
             backing: .buffered,
             defer: false
         )
-        settingsWindow.title = "Settings"
+        settingsWindow.title = "Max Island"
         settingsWindow.center()
         
         settingsWindow.titlebarAppearsTransparent = true

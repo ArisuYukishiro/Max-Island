@@ -136,6 +136,25 @@
 			path = Skeletons;
 			sourceTree = "<group>";
 		};
+		5271F36A2EEA759C00A0B4B5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5271F36B2EEA75C000A0B4B5 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				52A932E62EDDA9ED00E4DE14 /* ChatMessage.swift */,
+				52A932E82EDE844100E4DE14 /* ChatInput.swift */,
+				52A932F42EDED3D300E4DE14 /* MessageBubble.swift */,
+				52A932F62EDED40300E4DE14 /* ErrorView.swift */,
+				52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		528EA6002EE140C700C37845 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,12 +289,9 @@
 		52A0B36F2EDD33FA0094E9F1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5271F36B2EEA75C000A0B4B5 /* Chat */,
+				5271F36A2EEA759C00A0B4B5 /* Settings */,
 				52A932E52EDD421900E4DE14 /* Shapes */,
-				52A932E62EDDA9ED00E4DE14 /* ChatMessage.swift */,
-				52A932E82EDE844100E4DE14 /* ChatInput.swift */,
-				52A932F42EDED3D300E4DE14 /* MessageBubble.swift */,
-				52A932F62EDED40300E4DE14 /* ErrorView.swift */,
-				52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */,
 				5271F3612EEA601100A0B4B5 /* Skeletons */,
 			);
 			path = Components;
