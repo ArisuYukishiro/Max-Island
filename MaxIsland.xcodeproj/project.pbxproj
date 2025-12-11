@@ -10,6 +10,8 @@
 		5271F35E2EEA5FDD00A0B4B5 /* IslandStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F35D2EEA5FDD00A0B4B5 /* IslandStateManager.swift */; };
 		5271F3622EEA601100A0B4B5 /* SkeletonMessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3602EEA601100A0B4B5 /* SkeletonMessageBubble.swift */; };
 		5271F3632EEA601100A0B4B5 /* SkeletonChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F35F2EEA601100A0B4B5 /* SkeletonChatInput.swift */; };
+		5271F3652EEA69BD00A0B4B5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3642EEA69BD00A0B4B5 /* SettingView.swift */; };
+		5271F3672EEA70BF00A0B4B5 /* SettingWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3662EEA70B200A0B4B5 /* SettingWindowController.swift */; };
 		528EA6022EE140D500C37845 /* ChatStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6012EE140D500C37845 /* ChatStorageManager.swift */; };
 		528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6042EE17FA700C37845 /* KeybindHook.swift */; };
 		52A0B33B2EDD318A0094E9F1 /* MaxIslandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0B33A2EDD318A0094E9F1 /* MaxIslandApp.swift */; };
@@ -60,6 +62,8 @@
 		5271F35D2EEA5FDD00A0B4B5 /* IslandStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandStateManager.swift; sourceTree = "<group>"; };
 		5271F35F2EEA601100A0B4B5 /* SkeletonChatInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonChatInput.swift; sourceTree = "<group>"; };
 		5271F3602EEA601100A0B4B5 /* SkeletonMessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonMessageBubble.swift; sourceTree = "<group>"; };
+		5271F3642EEA69BD00A0B4B5 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		5271F3662EEA70B200A0B4B5 /* SettingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWindowController.swift; sourceTree = "<group>"; };
 		528EA6012EE140D500C37845 /* ChatStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStorageManager.swift; sourceTree = "<group>"; };
 		528EA6042EE17FA700C37845 /* KeybindHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindHook.swift; sourceTree = "<group>"; };
 		52A0B3372EDD318A0094E9F1 /* MaxIsland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaxIsland.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +244,7 @@
 				52A932D92EDD39D500E4DE14 /* CompactView.swift */,
 				52A932DB2EDD39EA00E4DE14 /* ExpandedView.swift */,
 				52A932DF2EDD3AE100E4DE14 /* DynamicIsland.swift */,
+				5271F3642EEA69BD00A0B4B5 /* SettingView.swift */,
 				52A0B36F2EDD33FA0094E9F1 /* Components */,
 			);
 			path = Views;
@@ -256,6 +261,7 @@
 		52A0B36A2EDD334F0094E9F1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5271F3662EEA70B200A0B4B5 /* SettingWindowController.swift */,
 				52A932E12EDD3CA600E4DE14 /* NotchWindowController.swift */,
 			);
 			path = Utilities;
@@ -425,6 +431,7 @@
 			files = (
 				52A932EF2EDED31600E4DE14 /* ChatApiService.swift in Sources */,
 				52A932E72EDDA9ED00E4DE14 /* ChatMessage.swift in Sources */,
+				5271F3672EEA70BF00A0B4B5 /* SettingWindowController.swift in Sources */,
 				52A932DC2EDD39EA00E4DE14 /* ExpandedView.swift in Sources */,
 				528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */,
 				52A932F12EDED34E00E4DE14 /* ChatModel.swift in Sources */,
@@ -443,6 +450,7 @@
 				52A932E92EDE844100E4DE14 /* ChatInput.swift in Sources */,
 				5271F3622EEA601100A0B4B5 /* SkeletonMessageBubble.swift in Sources */,
 				5271F3632EEA601100A0B4B5 /* SkeletonChatInput.swift in Sources */,
+				5271F3652EEA69BD00A0B4B5 /* SettingView.swift in Sources */,
 				52A932F32EDED3A700E4DE14 /* ChatViewModel.swift in Sources */,
 				52A932E22EDD3CA600E4DE14 /* NotchWindowController.swift in Sources */,
 				52A932F52EDED3D300E4DE14 /* MessageBubble.swift in Sources */,
@@ -619,6 +627,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ArisuSak.MaxIsland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -645,6 +654,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ArisuSak.MaxIsland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
