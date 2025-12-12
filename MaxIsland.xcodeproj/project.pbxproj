@@ -18,6 +18,7 @@
 		5271F3732EEA82F600A0B4B5 /* NotificationsSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3722EEA82F300A0B4B5 /* NotificationsSettingView.swift */; };
 		5271F3752EEA830100A0B4B5 /* AdvancedSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3742EEA82FD00A0B4B5 /* AdvancedSettingView.swift */; };
 		5271F3772EEA830E00A0B4B5 /* AboutSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3762EEA830A00A0B4B5 /* AboutSettingView.swift */; };
+		5271F37B2EEBD48500A0B4B5 /* LLMConfigSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F37A2EEBD47F00A0B4B5 /* LLMConfigSettingView.swift */; };
 		528EA6022EE140D500C37845 /* ChatStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6012EE140D500C37845 /* ChatStorageManager.swift */; };
 		528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6042EE17FA700C37845 /* KeybindHook.swift */; };
 		52A0B33B2EDD318A0094E9F1 /* MaxIslandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0B33A2EDD318A0094E9F1 /* MaxIslandApp.swift */; };
@@ -75,6 +76,7 @@
 		5271F3722EEA82F300A0B4B5 /* NotificationsSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingView.swift; sourceTree = "<group>"; };
 		5271F3742EEA82FD00A0B4B5 /* AdvancedSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingView.swift; sourceTree = "<group>"; };
 		5271F3762EEA830A00A0B4B5 /* AboutSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingView.swift; sourceTree = "<group>"; };
+		5271F37A2EEBD47F00A0B4B5 /* LLMConfigSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfigSettingView.swift; sourceTree = "<group>"; };
 		528EA6012EE140D500C37845 /* ChatStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStorageManager.swift; sourceTree = "<group>"; };
 		528EA6042EE17FA700C37845 /* KeybindHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindHook.swift; sourceTree = "<group>"; };
 		52A0B3372EDD318A0094E9F1 /* MaxIsland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaxIsland.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,6 +273,7 @@
 		52A0B3682EDD33390094E9F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5271F37A2EEBD47F00A0B4B5 /* LLMConfigSettingView.swift */,
 				5271F3762EEA830A00A0B4B5 /* AboutSettingView.swift */,
 				5271F3742EEA82FD00A0B4B5 /* AdvancedSettingView.swift */,
 				5271F3722EEA82F300A0B4B5 /* NotificationsSettingView.swift */,
@@ -468,6 +471,7 @@
 				528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */,
 				52A932F12EDED34E00E4DE14 /* ChatModel.swift in Sources */,
 				52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */,
+				5271F37B2EEBD48500A0B4B5 /* LLMConfigSettingView.swift in Sources */,
 				52A0B33D2EDD318A0094E9F1 /* ContentView.swift in Sources */,
 				5271F3712EEA82EC00A0B4B5 /* GeneralSettingView.swift in Sources */,
 				52A932ED2EDED01C00E4DE14 /* Config.swift .swift in Sources */,

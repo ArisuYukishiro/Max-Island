@@ -9,6 +9,8 @@ enum APIError: Error {
 
 class ChatAPIService {
     private let baseURL = APIConfig.baseURL
+    private let modelParam = "model"
+    private let llmProdiver = "antrophic"
     
     func sendMessage(_ message: String) async throws -> String {
         guard let url = URL(string: "\(baseURL)\(APIConfig.Endpoints.chat)") else {
