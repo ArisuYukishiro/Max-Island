@@ -6,18 +6,7 @@ struct SettingsSidebar: View {
     @ObservedObject private var themeManager = ThemeManager.shared
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            // Header
-            HStack {
-                Image(systemName: "square.stack.3d.up.fill")
-                    .font(.title2)
-                Text("Max Island")
-                    .font(.title3)
-                    .bold()
-            }
-            .padding()
-            .foregroundColor(themeManager.currentTheme == .dark ? .white : .black)
-            
+        VStack(alignment: .center, spacing: 0) {
             // Sidebar items
             ScrollView {
                 VStack(alignment: .leading, spacing: 4) {
@@ -32,18 +21,8 @@ struct SettingsSidebar: View {
                 }
                 .padding(.vertical, 8)
             }
-            
-            Spacer()
-            
-            HStack {
-                Text("Version 1.0.0")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                Spacer()
-            }
-            .padding()
         }
-        .frame(width: 200)
+        .frame(width: 50)
         .background(themeManager.currentTheme == .dark ? Color.black.opacity(0.3) : Color.gray.opacity(0.1))
     }
 }
@@ -61,12 +40,12 @@ struct SidebarItem: View {
                     .font(.system(size: 14))
                     .frame(width: 20)
                 
-                Text(section.rawValue)
-                    .font(.system(size: 13))
+//                Text(section.rawValue)
+//                    .font(.system(size: 13))
                 
-                Spacer()
+//                Spacer()
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 10)
             .padding(.vertical, 10)
             .background(
                 isSelected ?
