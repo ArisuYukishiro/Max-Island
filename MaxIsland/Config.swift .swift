@@ -18,6 +18,8 @@ struct APIConfig {
     private static let developmentURL = "http://localhost:8000"
     private static let productionURL = "https://max-api.arisusak.com"
     
+    private static let chatAPIKey = "REDACTED_API_KEY"
+    
     static let baseURL: String = {
         if let customURL = Bundle.main.object(forInfoDictionaryKey: "API_BASE_URL") as? String {
             return customURL
@@ -33,6 +35,14 @@ struct APIConfig {
         }
     }()
     
+    static let apiKey: String = {
+        if let plistKey = Bundle.main.object(forInfoDictionaryKey: "CHAT_API_KEY") as? String, !plistKey.isEmpty {
+            return plistKey
+        }
+        
+        return chatAPIKey
+    }()
+
     struct Endpoints {
         static let chat = "/chat"
     }
