@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5255A4BF2EEFF66500AF04DD /* ConfigurationPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4BE2EEFF66100AF04DD /* ConfigurationPanel.swift */; };
+		5255A4C12EEFF68D00AF04DD /* ActiveModelBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C02EEFF68800AF04DD /* ActiveModelBanner.swift */; };
+		5255A4C32EEFF6CB00AF04DD /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C22EEFF6C700AF04DD /* ActionButton.swift */; };
+		5255A4C52EEFF73500AF04DD /* ProviderSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C42EEFF73300AF04DD /* ProviderSidebar.swift */; };
+		5255A4C72EEFF78A00AF04DD /* ProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C62EEFF78600AF04DD /* ProviderButton.swift */; };
+		5255A4C92EEFF82B00AF04DD /* ProviderHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C82EEFF82A00AF04DD /* ProviderHeader.swift */; };
+		5255A4CB2EEFF84500AF04DD /* APIKeySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4CA2EEFF84200AF04DD /* APIKeySection.swift */; };
+		5255A4CE2EEFF87B00AF04DD /* ModelSelectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4CD2EEFF87900AF04DD /* ModelSelectionSection.swift */; };
+		5255A4D02EEFF88C00AF04DD /* ModelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4CF2EEFF88B00AF04DD /* ModelRow.swift */; };
+		52587C212EEFC423001AFB0F /* LLMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52587C202EEFC416001AFB0F /* LLMModel.swift */; };
 		5271F35E2EEA5FDD00A0B4B5 /* IslandStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F35D2EEA5FDD00A0B4B5 /* IslandStateManager.swift */; };
 		5271F3622EEA601100A0B4B5 /* SkeletonMessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3602EEA601100A0B4B5 /* SkeletonMessageBubble.swift */; };
 		5271F3632EEA601100A0B4B5 /* SkeletonChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F35F2EEA601100A0B4B5 /* SkeletonChatInput.swift */; };
@@ -65,6 +75,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5255A4BE2EEFF66100AF04DD /* ConfigurationPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationPanel.swift; sourceTree = "<group>"; };
+		5255A4C02EEFF68800AF04DD /* ActiveModelBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveModelBanner.swift; sourceTree = "<group>"; };
+		5255A4C22EEFF6C700AF04DD /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		5255A4C42EEFF73300AF04DD /* ProviderSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderSidebar.swift; sourceTree = "<group>"; };
+		5255A4C62EEFF78600AF04DD /* ProviderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderButton.swift; sourceTree = "<group>"; };
+		5255A4C82EEFF82A00AF04DD /* ProviderHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderHeader.swift; sourceTree = "<group>"; };
+		5255A4CA2EEFF84200AF04DD /* APIKeySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeySection.swift; sourceTree = "<group>"; };
+		5255A4CD2EEFF87900AF04DD /* ModelSelectionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelectionSection.swift; sourceTree = "<group>"; };
+		5255A4CF2EEFF88B00AF04DD /* ModelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRow.swift; sourceTree = "<group>"; };
+		52587C202EEFC416001AFB0F /* LLMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMModel.swift; sourceTree = "<group>"; };
 		5271F35D2EEA5FDD00A0B4B5 /* IslandStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandStateManager.swift; sourceTree = "<group>"; };
 		5271F35F2EEA601100A0B4B5 /* SkeletonChatInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonChatInput.swift; sourceTree = "<group>"; };
 		5271F3602EEA601100A0B4B5 /* SkeletonMessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonMessageBubble.swift; sourceTree = "<group>"; };
@@ -139,6 +159,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5255A4CC2EEFF84E00AF04DD /* LLMs */ = {
+			isa = PBXGroup;
+			children = (
+				5255A4CF2EEFF88B00AF04DD /* ModelRow.swift */,
+				5255A4CD2EEFF87900AF04DD /* ModelSelectionSection.swift */,
+				5255A4CA2EEFF84200AF04DD /* APIKeySection.swift */,
+				5255A4C02EEFF68800AF04DD /* ActiveModelBanner.swift */,
+				5255A4BE2EEFF66100AF04DD /* ConfigurationPanel.swift */,
+				5255A4C82EEFF82A00AF04DD /* ProviderHeader.swift */,
+				5255A4C62EEFF78600AF04DD /* ProviderButton.swift */,
+				5255A4C42EEFF73300AF04DD /* ProviderSidebar.swift */,
+				5255A4C22EEFF6C700AF04DD /* ActionButton.swift */,
+			);
+			path = LLMs;
+			sourceTree = "<group>";
+		};
 		5271F3612EEA601100A0B4B5 /* Skeletons */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +187,7 @@
 		5271F36A2EEA759C00A0B4B5 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5255A4CC2EEFF84E00AF04DD /* LLMs */,
 				5271F36C2EEA7D6700A0B4B5 /* SettingSidebar.swift */,
 			);
 			path = Settings;
@@ -256,6 +293,7 @@
 		52A0B3662EDD33100094E9F1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				52587C202EEFC416001AFB0F /* LLMModel.swift */,
 				52A0B36B2EDD33CE0094E9F1 /* IslandContent.swift */,
 				52A932F02EDED34E00E4DE14 /* ChatModel.swift */,
 			);
@@ -463,27 +501,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5255A4D02EEFF88C00AF04DD /* ModelRow.swift in Sources */,
 				52A932EF2EDED31600E4DE14 /* ChatApiService.swift in Sources */,
 				52A932E72EDDA9ED00E4DE14 /* ChatMessage.swift in Sources */,
 				5271F3672EEA70BF00A0B4B5 /* SettingWindowController.swift in Sources */,
+				5255A4CB2EEFF84500AF04DD /* APIKeySection.swift in Sources */,
 				52A932DC2EDD39EA00E4DE14 /* ExpandedView.swift in Sources */,
 				5271F3772EEA830E00A0B4B5 /* AboutSettingView.swift in Sources */,
+				5255A4C12EEFF68D00AF04DD /* ActiveModelBanner.swift in Sources */,
 				528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */,
 				52A932F12EDED34E00E4DE14 /* ChatModel.swift in Sources */,
 				52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */,
 				5271F37B2EEBD48500A0B4B5 /* LLMConfigSettingView.swift in Sources */,
+				52587C212EEFC423001AFB0F /* LLMModel.swift in Sources */,
 				52A0B33D2EDD318A0094E9F1 /* ContentView.swift in Sources */,
 				5271F3712EEA82EC00A0B4B5 /* GeneralSettingView.swift in Sources */,
 				52A932ED2EDED01C00E4DE14 /* Config.swift .swift in Sources */,
 				52A0B33B2EDD318A0094E9F1 /* MaxIslandApp.swift in Sources */,
+				5255A4C72EEFF78A00AF04DD /* ProviderButton.swift in Sources */,
 				528EA6022EE140D500C37845 /* ChatStorageManager.swift in Sources */,
 				52A0B36C2EDD33CE0094E9F1 /* IslandContent.swift in Sources */,
 				5271F3752EEA830100A0B4B5 /* AdvancedSettingView.swift in Sources */,
 				52A932E02EDD3AE100E4DE14 /* DynamicIsland.swift in Sources */,
 				5271F36D2EEA7D6700A0B4B5 /* SettingSidebar.swift in Sources */,
 				5271F36F2EEA7F8A00A0B4B5 /* AppearanceSettingView.swift in Sources */,
+				5255A4C52EEFF73500AF04DD /* ProviderSidebar.swift in Sources */,
 				5271F35E2EEA5FDD00A0B4B5 /* IslandStateManager.swift in Sources */,
 				52A932EB2EDE943F00E4DE14 /* NotchShape.swift in Sources */,
+				5255A4CE2EEFF87B00AF04DD /* ModelSelectionSection.swift in Sources */,
 				52A932F92EDED41A00E4DE14 /* LoadingView.swift  .swift in Sources */,
 				52A932DA2EDD39D500E4DE14 /* CompactView.swift in Sources */,
 				52A932E92EDE844100E4DE14 /* ChatInput.swift in Sources */,
@@ -494,7 +539,10 @@
 				52A932F32EDED3A700E4DE14 /* ChatViewModel.swift in Sources */,
 				52A932E22EDD3CA600E4DE14 /* NotchWindowController.swift in Sources */,
 				52A932F52EDED3D300E4DE14 /* MessageBubble.swift in Sources */,
+				5255A4C92EEFF82B00AF04DD /* ProviderHeader.swift in Sources */,
+				5255A4C32EEFF6CB00AF04DD /* ActionButton.swift in Sources */,
 				69E8E7192EE69FFA005280B4 /* ThemeManager.swift in Sources */,
+				5255A4BF2EEFF66500AF04DD /* ConfigurationPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
