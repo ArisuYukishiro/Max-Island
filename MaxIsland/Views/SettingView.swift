@@ -4,6 +4,7 @@ import SwiftUI
 enum SettingSection: String, CaseIterable {
     case appearance = "Appearance"
     case general = "General"
+    case llmConfig = "LLM Config"
     case notifications = "Notifications"
     case advanced = "Advanced"
     case about = "About"
@@ -14,6 +15,8 @@ enum SettingSection: String, CaseIterable {
             return "paintbrush.fill"
         case .general:
             return "gearshape.fill"
+        case .llmConfig:
+            return "brain.fill"
         case .notifications:
             return "bell.fill"
         case .advanced:
@@ -65,6 +68,8 @@ struct SettingView: View {
             AppearanceSettingView()
         case .general:
             GeneralSettingView()
+        case .llmConfig:
+            LLMConfigSettingView()
         case .notifications:
             NotificationsSettingView()
         case .advanced:
