@@ -22,7 +22,7 @@ struct SettingsSidebar: View {
                 .padding(.vertical, 8)
             }
         }
-        .frame(width: 50)
+        .frame(width: 200)
         .background(themeManager.currentTheme == .dark ? Color.black.opacity(0.3) : Color.gray.opacity(0.1))
     }
 }
@@ -40,10 +40,10 @@ struct SidebarItem: View {
                     .font(.system(size: 14))
                     .frame(width: 20)
                 
-//                Text(section.rawValue)
-//                    .font(.system(size: 13))
+                Text(section.rawValue)
+                    .font(.system(size: 13))
                 
-//                Spacer()
+                Spacer()
             }
             .padding(.horizontal, 10)
             .padding(.vertical, 10)
