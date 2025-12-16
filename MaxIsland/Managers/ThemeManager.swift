@@ -67,7 +67,7 @@ class ThemeManager: ObservableObject {
     }
     
     private func applyAppearance() {
-        // CRITICAL: When using system default, we must set NSApp.appearance to nil
+        // When using system default, we must set NSApp.appearance to nil
         // so that it actually follows the system theme in real-time
         switch storedTheme {
         case .light:
