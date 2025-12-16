@@ -48,7 +48,6 @@ class ChatAPIService {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(apiKey, forHTTPHeaderField: "API-KEY")
-//        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         request.timeoutInterval = APIConfig.timeoutInterval
         
         let chatRequest = ChatRequest(
