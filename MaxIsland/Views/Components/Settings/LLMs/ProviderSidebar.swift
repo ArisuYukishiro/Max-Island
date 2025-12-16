@@ -16,6 +16,7 @@ struct ProviderSidebar: View {
             Spacer()
         }
         .frame(width: 200)
+        .cornerRadius(16)
     }
 }
 
