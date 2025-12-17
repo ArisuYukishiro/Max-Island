@@ -54,6 +54,7 @@
 		52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F62EDED40300E4DE14 /* ErrorView.swift */; };
 		52A932F92EDED41A00E4DE14 /* LoadingView.swift  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */; };
 		52A932FD2EDEF73800E4DE14 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52A932FC2EDEF73800E4DE14 /* MarkdownUI */; };
+		52EDC83B2EF2B4390081C170 /* LLMConfigStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */; };
 		69E8E7192EE69FFA005280B4 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8E7182EE69FFA005280B4 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		52A932F62EDED40300E4DE14 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingView.swift  .swift"; sourceTree = "<group>"; };
 		52A932FA2EDEDA9D00E4DE14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfigStorageManager.swift; sourceTree = "<group>"; };
 		69E8E7182EE69FFA005280B4 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +210,7 @@
 		528EA6002EE140C700C37845 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */,
 				5271F35D2EEA5FDD00A0B4B5 /* IslandStateManager.swift */,
 				528EA6012EE140D500C37845 /* ChatStorageManager.swift */,
 				69E8E7182EE69FFA005280B4 /* ThemeManager.swift */,
@@ -508,6 +511,7 @@
 				5255A4CB2EEFF84500AF04DD /* APIKeySection.swift in Sources */,
 				52A932DC2EDD39EA00E4DE14 /* ExpandedView.swift in Sources */,
 				5271F3772EEA830E00A0B4B5 /* AboutSettingView.swift in Sources */,
+				52EDC83B2EF2B4390081C170 /* LLMConfigStorageManager.swift in Sources */,
 				5255A4C12EEFF68D00AF04DD /* ActiveModelBanner.swift in Sources */,
 				528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */,
 				52A932F12EDED34E00E4DE14 /* ChatModel.swift in Sources */,
