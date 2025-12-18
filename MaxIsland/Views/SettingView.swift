@@ -7,6 +7,7 @@ enum SettingSection: String, CaseIterable {
     case llmConfig = "LLM Config"
     case notifications = "Notifications"
     case advanced = "Advanced"
+    case shortcut = "Shortcut"
     case about = "About"
     
     var icon: String {
@@ -21,6 +22,8 @@ enum SettingSection: String, CaseIterable {
             return "bell.fill"
         case .advanced:
             return "slider.horizontal.3"
+        case .shortcut:
+            return "keyboard"
         case .about:
             return "info.circle.fill"
         }
@@ -74,8 +77,11 @@ struct SettingView: View {
             NotificationsSettingView()
         case .advanced:
             AdvancedSettingView()
+        case .shortcut:
+            ShortCutSettingView()
         case .about:
             AboutSettingView()
+       
         }
     }
 }
