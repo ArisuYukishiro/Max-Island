@@ -9,7 +9,6 @@ struct ConfigurationPanel: View {
     let getActiveModel: () -> LLMModel?
     
     var body: some View {
-        ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 if let activeModel = getActiveModel() {
                     ActiveModelBanner(
@@ -35,7 +34,6 @@ struct ConfigurationPanel: View {
                 ActionButtons()
             }
             .padding(24)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
