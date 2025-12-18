@@ -5,7 +5,7 @@ struct ProviderSidebar: View {
     let apiKeys: [LLMProvider: String]
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(spacing: 8) {
             SidebarHeader()
             
             SidebarContent(
@@ -15,29 +15,33 @@ struct ProviderSidebar: View {
             
             Spacer()
         }
-        .frame(width: 200)
+        .frame(height: 80)
         .cornerRadius(16)
     }
 }
 
 private struct SidebarHeader: View {
     var body: some View {
-        Text("Providers")
-            .font(.system(size: 11, weight: .semibold))
-            .foregroundColor(.secondary)
-            .padding(.horizontal, 16)
-            .padding(.top, 16)
-            .padding(.bottom, 8)
+        HStack {
+            Text("Providers")
+                .font(.system(size: 11, weight: .semibold))
+                .foregroundColor(.secondary)
+                .padding(.leading, 16)
+            
+            Spacer()
+        }
+        .padding(.top, 12)
     }
 }
+
 
 private struct SidebarContent: View {
     @Binding var selectedProvider: LLMProvider
     let apiKeys: [LLMProvider: String]
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 4) {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
                 ForEach(LLMProvider.allCases, id: \.self) { provider in
                     ProviderButton(
                         provider: provider,
@@ -48,7 +52,8 @@ private struct SidebarContent: View {
                     }
                 }
             }
-            .padding(.horizontal, 8)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 12)
         }
     }
 }

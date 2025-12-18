@@ -7,7 +7,7 @@ struct LLMConfigSettingView: View {
     @State private var showApiKey = false
     
     var body: some View {
-        HStack(spacing: 0) {
+        VStack(spacing: 0) {
             ProviderSidebar(
                 selectedProvider: $selectedProvider,
                 apiKeys: apiKeys
@@ -15,14 +15,16 @@ struct LLMConfigSettingView: View {
             
             Divider()
             
-            ConfigurationPanel(
-                selectedProvider: selectedProvider,
-                selectedModel: $selectedModel,
-                apiKeys: $apiKeys,
-                showApiKey: $showApiKey,
-                getProviderForModel: getProviderForModel,
-                getActiveModel: getActiveModel
-            )
+            ScrollView(.vertical, showsIndicators: true) {
+                ConfigurationPanel(
+                    selectedProvider: selectedProvider,
+                    selectedModel: $selectedModel,
+                    apiKeys: $apiKeys,
+                    showApiKey: $showApiKey,
+                    getProviderForModel: getProviderForModel,
+                    getActiveModel: getActiveModel
+                )
+            }
         }
     }
     
