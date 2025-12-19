@@ -3,7 +3,13 @@ import SwiftUI
 
 struct SettingsSidebar: View {
     @Binding var selectedSection: SettingSection
+    @Binding var columnVisibility: NavigationSplitViewVisibility
     @ObservedObject private var themeManager = ThemeManager.shared
+    
+    private var backgroundColor: Color {
+        let isDark = themeManager.currentTheme == .dark
+        return isDark ? Color.black.opacity(0.3) : Color.gray.opacity(0.1)
+    }
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -12,8 +18,9 @@ struct SettingsSidebar: View {
                 VStack(alignment: .leading, spacing: 4) {
                     ForEach(SettingSection.allCases, id: \.self) { section in
                         SidebarItem(
+                            columnVisibility: $columnVisibility,
                             section: section,
-                            isSelected: selectedSection == section
+                            isSelected: selectedSection == section,
                         ) {
                             selectedSection = section
                         }
@@ -22,16 +29,20 @@ struct SettingsSidebar: View {
                 .padding(.vertical, 8)
             }
         }
-        .frame(width: 200)
-        .background(themeManager.currentTheme == .dark ? Color.black.opacity(0.3) : Color.gray.opacity(0.1))
+        .background(backgroundColor)
     }
 }
 
 struct SidebarItem: View {
+    @Binding var columnVisibility: NavigationSplitViewVisibility
     let section: SettingSection
     let isSelected: Bool
     let action: () -> Void
     @ObservedObject private var themeManager = ThemeManager.shared
+    
+    private var isCompact: Bool {
+           columnVisibility == .detailOnly
+       }
     
     var body: some View {
         Button(action: action) {
@@ -40,12 +51,14 @@ struct SidebarItem: View {
                     .font(.system(size: 14))
                     .frame(width: 20)
                 
-                Text(section.rawValue)
-                    .font(.system(size: 13))
-                
-                Spacer()
-            }
-            .padding(.horizontal, 10)
+                if !isCompact {
+                    Text(section.rawValue)
+                        .font(.system(size: 13))
+                    Spacer()
+                }
+             }
+            .frame(maxWidth: .infinity, alignment: isCompact ? .center : .leading)
+            .padding(.horizontal, isCompact ? 8 : 10)
             .padding(.vertical, 10)
             .background(
                 isSelected ?

@@ -1,9 +1,18 @@
 import SwiftUI
 
 struct APIKeySection: View {
-    let provider: LLMProvider
-    @Binding var apiKeys: [LLMProvider: String]
-    @Binding var showApiKey: Bool
+    @ObservedObject var llmConfigManager: LLMConfigManager
+    
+    
+    var currentApiKey: Binding<String> {
+        Binding(
+            get: { llmConfigManager.apiKeys[llmConfigManager.provider] ?? "" },
+            set: { newValue in
+                llmConfigManager.apiKeys[llmConfigManager.provider] = newValue
+                llmConfigManager.saveConfigLLM()
+            }
+        )
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -12,22 +21,20 @@ struct APIKeySection: View {
             
             HStack {
                 Group {
-                    if showApiKey {
-                        TextField("Enter your API key", text: Binding(
-                            get: { apiKeys[provider] ?? "" },
-                            set: { apiKeys[provider] = $0 }
-                        ))
+                    if llmConfigManager.showApiKey {
+                        TextField("Enter your API key", text: currentApiKey)
+                            .textFieldStyle(.roundedBorder)
+                            .id("apikey-\(llmConfigManager.provider.rawValue)")
                     } else {
-                        SecureField("Enter your API key", text: Binding(
-                            get: { apiKeys[provider] ?? "" },
-                            set: { apiKeys[provider] = $0 }
-                        ))
+                        SecureField("Enter your API key", text: currentApiKey)
+                            .textFieldStyle(.roundedBorder)
+                            .id("apikey-\(llmConfigManager.provider.rawValue)")
                     }
                 }
                 .textFieldStyle(.roundedBorder)
                 
-                Button(action: { showApiKey.toggle() }) {
-                    Image(systemName: showApiKey ? "eye.slash" : "eye")
+                Button(action: { llmConfigManager.showApiKey.toggle() }) {
+                    Image(systemName: llmConfigManager.showApiKey ? "eye.slash" : "eye")
                         .foregroundColor(.secondary)
                 }
                 .buttonStyle(.plain)
