@@ -53,6 +53,7 @@
 		52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F62EDED40300E4DE14 /* ErrorView.swift */; };
 		52A932F92EDED41A00E4DE14 /* LoadingView.swift  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */; };
 		52A932FD2EDEF73800E4DE14 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52A932FC2EDEF73800E4DE14 /* MarkdownUI */; };
+		52C9818F2EF5258600AE3E3B /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9818E2EF5257300AE3E3B /* LLMService.swift */; };
 		52EDC83B2EF2B4390081C170 /* LLMConfigStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */; };
 		69E8E7192EE69FFA005280B4 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8E7182EE69FFA005280B4 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,7 @@
 		52A932F62EDED40300E4DE14 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingView.swift  .swift"; sourceTree = "<group>"; };
 		52A932FA2EDEDA9D00E4DE14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		52C9818E2EF5257300AE3E3B /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
 		52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfigStorageManager.swift; sourceTree = "<group>"; };
 		69E8E7182EE69FFA005280B4 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -329,6 +331,7 @@
 		52A0B3692EDD33460094E9F1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				52C9818E2EF5257300AE3E3B /* LLMService.swift */,
 				52A932EE2EDED31600E4DE14 /* ChatApiService.swift */,
 			);
 			path = Services;
@@ -522,6 +525,7 @@
 				5255A4C72EEFF78A00AF04DD /* ProviderButton.swift in Sources */,
 				528EA6022EE140D500C37845 /* ChatStorageManager.swift in Sources */,
 				52A0B36C2EDD33CE0094E9F1 /* IslandContent.swift in Sources */,
+				52C9818F2EF5258600AE3E3B /* LLMService.swift in Sources */,
 				5271F3752EEA830100A0B4B5 /* AdvancedSettingView.swift in Sources */,
 				52A932E02EDD3AE100E4DE14 /* DynamicIsland.swift in Sources */,
 				5271F36D2EEA7D6700A0B4B5 /* SettingSidebar.swift in Sources */,

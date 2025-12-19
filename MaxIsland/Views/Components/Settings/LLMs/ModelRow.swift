@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ModelRow: View {
-    let model: LLMModel
+    let model: ModelInfo
     let isSelected: Bool
     let action: () -> Void
     
@@ -9,10 +9,10 @@ struct ModelRow: View {
         Button(action: action) {
             HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(model.name)
+                    Text(model.displayName)
                         .font(.system(size: 13, weight: .medium))
                     
-                    Text(model.description)
+                    Text(model.modelName)
                         .font(.system(size: 11))
                         .foregroundColor(.secondary)
                 }

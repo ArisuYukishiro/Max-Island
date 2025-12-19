@@ -6,6 +6,8 @@ enum APIError: Error {
     case decodingError
     case serverError(String)
     case missingAPIKey
+    case providerNotFound(String)
+    case modelNotFound(String)
 }
 
 class ChatAPIService {
@@ -14,29 +16,16 @@ class ChatAPIService {
     
     init(llmConfigManager: LLMConfigManager) {
         self.llmConfigManager = llmConfigManager
-      #if DEBUG
-        print("🔧 ChatAPIService initialized with manager: ",llmConfigManager.selectedModel)
-        print("new config", llmConfigManager.printAllVariables())
-      #endif
     }
     
     func sendMessage(_ message: String) async throws -> String {
-  
-    #if DEBUG
-      print("=== SEND MESSAGE DEBUG ===")
-      print("🔧 Manager instance ID: \(ObjectIdentifier(llmConfigManager))")
-      print("📦 Manager.selectedModel: \(llmConfigManager.selectedModel)")
-      print("📦 Manager.selectedProvider: \(llmConfigManager.selectedProvider.rawValue)")
-      print("📦 Manager.currentAPIKey isEmpty: \(llmConfigManager.currentAPIKey.isEmpty)")
-      print("========================")
-      #endif
         
         guard !llmConfigManager.currentAPIKey.isEmpty else {
               throw APIError.missingAPIKey
         }
         
         let modelName = llmConfigManager.selectedModel
-        let provider = llmConfigManager.selectedProvider.rawValue.lowercased()
+        let provider = llmConfigManager.selectedProvider
         let apiKey = llmConfigManager.currentAPIKey
         
         
@@ -51,10 +40,10 @@ class ChatAPIService {
         }
         
         #if DEBUG
-        print("🌐 API Request URL: \(url.absoluteString)")
-        print("📤 Sending message: \(message)")
-        print("🤖 Model: \(modelName)")
-        print("🔧 Provider: \(provider)")
+        print("API Request URL: \(url.absoluteString)")
+        print("Sending message: \(message)")
+        print("Model: \(modelName)")
+        print("Provider: \(provider)")
         print("API Key:\(apiKey)")
         #endif
         
@@ -87,14 +76,14 @@ class ChatAPIService {
         do {
             let chatResponse = try JSONDecoder().decode(ChatResponse.self, from: data)
             #if DEBUG
-            print("✅ Response received: \(chatResponse.response)")
+            print("Response received: \(chatResponse.response)")
             #endif
             return chatResponse.response
         } catch {
             #if DEBUG
-            print("❌ Decoding error: \(error)")
+            print("Decoding error: \(error)")
             if let jsonString = String(data: data, encoding: .utf8) {
-                print("📄 Raw response: \(jsonString)")
+                print("Raw response: \(jsonString)")
             }
             #endif
             throw APIError.decodingError

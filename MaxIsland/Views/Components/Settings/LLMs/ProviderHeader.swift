@@ -1,19 +1,16 @@
 import SwiftUI
 
 struct ProviderHeader: View {
-    let provider: LLMProvider
+    let provider: String
     
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: provider.icon)
-                .font(.system(size: 24))
-                .foregroundColor(.accentColor)
-            
             VStack(alignment: .leading, spacing: 2) {
-                Text(provider.rawValue)
+                Text(providerDisplayName(provider))
                     .font(.system(size: 20, weight: .semibold))
+                    
                 
-                Text("Configure your \(provider.rawValue) integration")
+                Text("Configure your \(providerDisplayName(provider)) integration")
                     .font(.system(size: 13))
                     .foregroundColor(.secondary)
             }
@@ -21,3 +18,4 @@ struct ProviderHeader: View {
         .padding(.bottom, 8)
     }
 }
+

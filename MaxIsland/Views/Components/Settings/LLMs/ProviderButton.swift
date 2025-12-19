@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProviderButton: View {
-    let provider: LLMProvider
+    let provider: String
     let isSelected: Bool
     let hasApiKey: Bool
     let action: () -> Void
@@ -9,12 +9,8 @@ struct ProviderButton: View {
     var body: some View {
         Button(action: action) {
             HStack(spacing: 10) {
-                Image(systemName: provider.icon)
-                    .font(.system(size: 14))
-                    .frame(width: 20)
-                    .foregroundColor(isSelected ? .accentColor : .secondary)
-                
-                Text(provider.rawValue)
+
+                Text(providerDisplayName(provider))
                     .font(.system(size: 13))
                 
                 Spacer()
