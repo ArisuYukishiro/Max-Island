@@ -32,7 +32,17 @@ struct SettingView: View {
     @State private var selectedSection: SettingSection = .appearance
     @State private var columnVisibility: NavigationSplitViewVisibility = .all
     @ObservedObject private var themeManager = ThemeManager.shared
+    @StateObject private var llmConfigManager = LLMConfigManager.shared
+    @State private var isLoadingProviders: Bool = false
+    @State private var loadError: String?
+
+    private let llmService: LLMService
     
+    init(isPresented: Binding<Bool>) {
+        self._isPresented = isPresented
+        self.llmService = LLMService(llmConfigManager: LLMConfigManager.shared)
+    }
+
     var body: some View {
         NavigationSplitView(columnVisibility: $columnVisibility){
             SettingsSidebar(selectedSection: $selectedSection, columnVisibility: $columnVisibility)
@@ -47,7 +57,9 @@ struct SettingView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(themeManager.currentTheme == .dark ? Color.black : Color.white)
-        }.navigationSplitViewStyle(.balanced)
+        }
+        .navigationSplitViewStyle(.balanced)
+        .onAppear{fetchProvidersAndModels()}
     }
     
     @ViewBuilder
@@ -67,4 +79,41 @@ struct SettingView: View {
             AboutSettingView()
         }
     }
+    private func fetchProvidersAndModels() {
+          guard !isLoadingProviders else { return }
+          
+          isLoadingProviders = true
+          loadError = nil
+          
+          Task {
+              do {
+                  let providers = try await llmService.getProviderAndModel()
+                  
+                  await MainActor.run {
+                      isLoadingProviders = false
+                      print("Successfully loaded \(providers.count) providers")
+                      llmConfigManager.printAllVariables()
+                  }
+              } catch {
+                  await MainActor.run {
+                      isLoadingProviders = false
+                      
+                      switch error {
+                      case APIError.invalidURL:
+                          loadError = "Invalid API URL configuration"
+                      case APIError.invalidResponse:
+                          loadError = "Invalid response from server"
+                      case APIError.serverError(let code):
+                          loadError = "Server error (code: \(code))"
+                      case APIError.decodingError:
+                          loadError = "Failed to decode server response"
+                      default:
+                          loadError = "Failed to load providers: \(error.localizedDescription)"
+                      }
+                      
+                      print("Error loading providers: \(error)")
+                  }
+              }
+          }
+      }
 }

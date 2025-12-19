@@ -9,8 +9,7 @@ struct ConfigurationPanel: View {
             if let activeModel = llmConfigManager.getActiveModel() {
                 ActiveModelBanner(
                     model: activeModel,
-                    provider: llmConfigManager.getProviderForModel(llmConfigManager.selectedModel)
-                )
+                    provider: llmConfigManager.getProviderForModel(llmConfigManager.selectedModel) ?? llmConfigManager.selectedProvider                )
             }
             
             ProviderHeader(provider: llmConfigManager.selectedProvider)

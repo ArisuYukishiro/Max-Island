@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct ActiveModelBanner: View {
-    let model: LLMModel
-    let provider: LLMProvider
+    let model: ModelInfo
+    let provider: String
     
     var body: some View {
         HStack(spacing: 12) {
@@ -15,13 +15,13 @@ struct ActiveModelBanner: View {
                     .font(.system(size: 11, weight: .semibold))
                     .foregroundColor(.secondary)
                 
-                Text(model.name)
+                Text(model.displayName)
                     .font(.system(size: 14, weight: .medium))
             }
             
             Spacer()
             
-            Text(provider.rawValue)
+            Text(providerDisplayName(provider))
                 .font(.system(size: 12))
                 .foregroundColor(.secondary)
                 .padding(.horizontal, 8)

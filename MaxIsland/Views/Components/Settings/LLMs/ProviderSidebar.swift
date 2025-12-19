@@ -37,7 +37,7 @@ private struct SidebarContent: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                ForEach(LLMProvider.allCases, id: \.self) { provider in
+                ForEach(llmConfigManager.getProviders(), id: \.self) { provider in
                     ProviderButton(
                         provider: provider,
                         isSelected: llmConfigManager.selectedProvider == provider,

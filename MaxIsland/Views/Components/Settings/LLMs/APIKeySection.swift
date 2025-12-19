@@ -3,12 +3,11 @@ import SwiftUI
 struct APIKeySection: View {
     @ObservedObject var llmConfigManager: LLMConfigManager
     
-    
     var currentApiKey: Binding<String> {
         Binding(
-            get: { llmConfigManager.apiKeys[llmConfigManager.provider] ?? "" },
+            get: { llmConfigManager.apiKeys[llmConfigManager.selectedProvider] ?? "" },
             set: { newValue in
-                llmConfigManager.apiKeys[llmConfigManager.provider] = newValue
+                llmConfigManager.apiKeys[llmConfigManager.selectedProvider] = newValue
                 llmConfigManager.saveConfigLLM()
             }
         )
@@ -25,14 +24,14 @@ struct APIKeySection: View {
                         TextField("Enter your API key", text: currentApiKey)
                             .textFieldStyle(.roundedBorder)
                             .textSelection(.enabled)
-                            .id("apikey-\(llmConfigManager.provider.rawValue)")
+                            .id("apikey-\(llmConfigManager.selectedProvider)")
                     } else {
                         SecureField("Enter your API key", text: currentApiKey)
                             .textFieldStyle(.roundedBorder)
                             .textSelection(.enabled)
-                            .id("apikey-\(llmConfigManager.provider.rawValue)")
+                            .id("apikey-\(llmConfigManager.selectedProvider)")
                     }
-                }                
+                }
                 Button(action: { llmConfigManager.showApiKey.toggle() }) {
                     Image(systemName: llmConfigManager.showApiKey ? "eye.slash" : "eye")
                         .foregroundColor(.secondary)

@@ -27,9 +27,9 @@ class ChatViewModel: ObservableObject {
         guard !trimmedText.isEmpty else { return }
         
         guard !llmConfigManager.currentAPIKey.isEmpty else {
-            errorMessage = "Please configure an API key for \(llmConfigManager.selectedProvider.rawValue) in Settings"
+            errorMessage = "Please configure an API key for \(llmConfigManager.selectedProvider) in Settings"
             let errorMsg = Message(
-                text: "⚠️ API key not configured. Please add your API key in Settings.",
+                text: "API key not configured. Please add your API key in Settings.",
                 isUser: false
             )
             messages.append(errorMsg)
@@ -46,7 +46,7 @@ class ChatViewModel: ObservableObject {
         
         #if DEBUG
         print("🚀 Sending message with:")
-        print("   Provider: \(llmConfigManager.selectedProvider.rawValue)")
+        print("   Provider: \(llmConfigManager.selectedProvider)")
         print("   Model: \(llmConfigManager.selectedModel)")
         print("   API Key: [\(llmConfigManager.currentAPIKey.prefix(10))...]")
         #endif
@@ -87,7 +87,11 @@ class ChatViewModel: ObservableObject {
         case .serverError(let message):
             errorMessage = "Server error: \(message)"
         case .missingAPIKey:
-            errorMessage = "API key not configured for \(llmConfigManager.selectedProvider.rawValue)"
+            errorMessage = "API key not configured for \(llmConfigManager.selectedProvider)"
+        case .providerNotFound:
+            errorMessage = "Provider not found"
+        case .modelNotFound:
+            errorMessage = "Model Not found"
         }
         
         let errorMsg = Message(
@@ -105,6 +109,6 @@ class ChatViewModel: ObservableObject {
     }
     
     var currentProviderInfo: String {
-        "\(llmConfigManager.selectedProvider.rawValue) - \(llmConfigManager.selectedModel)"
+        "\(llmConfigManager.selectedProvider) - \(llmConfigManager.selectedModel)"
     }
 }

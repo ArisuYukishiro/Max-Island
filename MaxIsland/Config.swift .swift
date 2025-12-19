@@ -45,6 +45,7 @@ struct APIConfig {
 
     struct Endpoints {
         static let chat = "/chat"
+        static let providerAndModels = "/models"
     }
     
     static let timeoutInterval: TimeInterval = 30
