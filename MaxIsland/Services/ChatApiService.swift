@@ -5,42 +5,45 @@ enum APIError: Error {
     case invalidResponse
     case decodingError
     case serverError(String)
+    case missingAPIKey
+    case providerNotFound(String)
+    case modelNotFound(String)
 }
 
 class ChatAPIService {
     private let baseURL = APIConfig.baseURL
-    private let apiKey = APIConfig.apiKey
-    private let modelName: String
-    private let provider: String
+    private let llmConfigManager: LLMConfigManager
     
-//    init(apiKey: String, modelName: String = "openai/gpt-oss-20b", provider: String = "groq") {
-//        self.apiKey = apiKey
-//        self.modelName = modelName
-//        self.provider = provider
-//    }
-//
-    
-    init(modelName: String = "openai/gpt-oss-20b", provider: String = "groq"){
-                self.modelName = modelName
-                self.provider = provider
+    init(llmConfigManager: LLMConfigManager) {
+        self.llmConfigManager = llmConfigManager
     }
     
     func sendMessage(_ message: String) async throws -> String {
+        
+        guard !llmConfigManager.currentAPIKey.isEmpty else {
+              throw APIError.missingAPIKey
+        }
+        
+        let modelName = llmConfigManager.selectedModel
+        let provider = llmConfigManager.selectedProvider
+        let apiKey = llmConfigManager.currentAPIKey
+        
+        
         var urlComponents = URLComponents(string: "\(baseURL)\(APIConfig.Endpoints.chat)")
-        urlComponents?.queryItems = [
-            URLQueryItem(name: "model_name", value: modelName),
-            URLQueryItem(name: "provider", value: provider)
-        ]
+            urlComponents?.queryItems = [
+                URLQueryItem(name: "model_name", value: modelName),
+                URLQueryItem(name: "provider", value: provider)
+            ]
 
         guard let url = urlComponents?.url else {
             throw APIError.invalidURL
         }
         
         #if DEBUG
-        print("🌐 API Request URL: \(url.absoluteString)")
-        print("📤 Sending message: \(message)")
-        print("🤖 Model: \(modelName)")
-        print("🔧 Provider: \(provider)")
+        print("API Request URL: \(url.absoluteString)")
+        print("Sending message: \(message)")
+        print("Model: \(modelName)")
+        print("Provider: \(provider)")
         print("API Key:\(apiKey)")
         #endif
         
@@ -73,14 +76,14 @@ class ChatAPIService {
         do {
             let chatResponse = try JSONDecoder().decode(ChatResponse.self, from: data)
             #if DEBUG
-            print("✅ Response received: \(chatResponse.response)")
+            print("Response received: \(chatResponse.response)")
             #endif
             return chatResponse.response
         } catch {
             #if DEBUG
-            print("❌ Decoding error: \(error)")
+            print("Decoding error: \(error)")
             if let jsonString = String(data: data, encoding: .utf8) {
-                print("📄 Raw response: \(jsonString)")
+                print("Raw response: \(jsonString)")
             }
             #endif
             throw APIError.decodingError

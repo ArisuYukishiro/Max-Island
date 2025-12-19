@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LLMConfigSettingView: View {
-    @StateObject private var llmConfigManager = LLMConfigManager()
+    @StateObject private var llmConfigManager = LLMConfigManager.shared
     @State private var showApiKey = false
 
     var body: some View {
