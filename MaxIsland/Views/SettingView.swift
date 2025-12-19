@@ -75,8 +75,11 @@ struct SettingView: View {
             NotificationsSettingView()
         case .advanced:
             AdvancedSettingView()
+        case .shortcut:
+            ShortCutSettingView()
         case .about:
             AboutSettingView()
+       
         }
     }
     private func fetchProvidersAndModels() {
