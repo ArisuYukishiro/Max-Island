@@ -2,37 +2,34 @@ import SwiftUI
 
 
 enum SettingSection: String, CaseIterable {
-    case appearance = "Appearance"
-    case general = "General"
+//    case appearance = "Appearance"
+//    case general = "General"
     case llmConfig = "LLM Config"
-    case notifications = "Notifications"
-    case advanced = "Advanced"
-    case shortcut = "Shortcut"
-    case about = "About"
+//    case notifications = "Notifications"
+//    case advanced = "Advanced"
+//    case about = "About"
     
     var icon: String {
         switch self {
-        case .appearance:
-            return "paintbrush.fill"
-        case .general:
-            return "gearshape.fill"
+//        case .appearance:
+//            return "paintbrush.fill"
+//        case .general:
+//            return "gearshape.fill"
         case .llmConfig:
             return "brain.fill"
-        case .notifications:
-            return "bell.fill"
-        case .advanced:
-            return "slider.horizontal.3"
-        case .shortcut:
-            return "keyboard"
-        case .about:
-            return "info.circle.fill"
+//        case .notifications:
+//            return "bell.fill"
+//        case .advanced:
+//            return "slider.horizontal.3"
+//        case .about:
+//            return "info.circle.fill"
         }
     }
 }
 
 struct SettingView: View {
     @Binding var isPresented: Bool
-    @State private var selectedSection: SettingSection = .appearance
+    @State private var selectedSection: SettingSection = .llmConfig
     @State private var columnVisibility: NavigationSplitViewVisibility = .all
     @ObservedObject private var themeManager = ThemeManager.shared
     @StateObject private var llmConfigManager = LLMConfigManager.shared
