@@ -7,28 +7,77 @@
 
 import SwiftUI
 
+class LLMConfigManager: ObservableObject {
+    @Published var selectedProvider: LLMProvider = .claude
+    @Published var apiKeys: [LLMProvider: String] = [:]
+    @Published var selectedModel: String = "claude-sonnet-4.5"
+    @Published var showApiKey: Bool = false
 
-class LLMConfigStorageManager {
+    var provider: LLMProvider {
+        selectedProvider
+    }
+        
+    var currentAPIKey: String {
+        apiKeys[selectedProvider] ?? ""
+    }
     
-    static let shared = LLMConfigStorageManager()
-    private let LLMConfigKey = "LLMConfig"
+    func saveConfigLLM() {
+        print("Value Saved: ",printAllVariables())
+        UserDefaults.standard.set(selectedProvider.rawValue, forKey: "selectedProvider")
+        UserDefaults.standard.set(selectedModel, forKey: "selectedModel")
+        
+        let keysData = try? JSONEncoder().encode(apiKeys)
+        UserDefaults.standard.set(keysData, forKey: "apiKeys")
+    }
     
-    func saveLLMConfig(_ config : LLMModel){
-        if let encoded = try? JSONEncoder().encode(config) {
-            UserDefaults.standard.set(encoded, forKey:LLMConfigKey)
+    func loadConfigLLM() {
+        if let providerRaw = UserDefaults.standard.string(forKey: "selectedProvider"),
+           let provider = LLMProvider(rawValue: providerRaw) {
+            selectedProvider = provider
+        }
+        
+        if let model = UserDefaults.standard.string(forKey: "selectedModel") {
+            selectedModel = model
+        }
+        
+        if let keysData = UserDefaults.standard.data(forKey: "apiKeys"),
+           let keys = try? JSONDecoder().decode([LLMProvider: String].self, from: keysData) {
+            apiKeys = keys
         }
     }
     
-    func loadLLMConfig() -> LLMModel? {
-        guard let data = UserDefaults.standard.data(forKey: LLMConfigKey),
-              let model = try? JSONDecoder().decode(LLMModel.self, from: data) else {
-            return nil
+     func getProviderForModel(_ modelId: String) -> LLMProvider {
+        for provider in LLMProvider.allCases {
+            if provider.models.contains(where: { $0.id == modelId }) {
+                return provider
+            }
         }
-        return model
+        return selectedProvider
     }
     
-    func clearLLMConfigKey() {
-        UserDefaults.standard.removeObject(forKey: LLMConfigKey)
+     func getActiveModel() -> LLMModel? {
+        for provider in LLMProvider.allCases {
+            if let model = provider.models.first(where: { $0.id == selectedModel }) {
+                return model
+            }
+        }
+        return nil
     }
     
+    func printAllVariables() {
+        print("========== LLM Configuration ==========")
+        print("Selected Provider: \(selectedProvider.rawValue)")
+        print("Selected Model: \(selectedModel)")
+        print("Current API Key: \(currentAPIKey.isEmpty ? "[Empty]" : "[Set - \(currentAPIKey.prefix(10))...]")")
+        print("\nAll API Keys:")
+        if apiKeys.isEmpty {
+            print("  [No API keys configured]")
+        } else {
+            for (provider, key) in apiKeys {
+                let maskedKey = key.isEmpty ? "[Empty]" : "[\(key.prefix(10))...\(key.suffix(4))]"
+                print("  \(provider.rawValue): \(maskedKey)")
+            }
+        }
+        print("======================================")
+    }
 }

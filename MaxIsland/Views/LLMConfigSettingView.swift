@@ -1,48 +1,25 @@
 import SwiftUI
 
 struct LLMConfigSettingView: View {
-    @State private var selectedProvider: LLMProvider = .claude
-    @State private var apiKeys: [LLMProvider: String] = [:]
-    @State private var selectedModel: String = "claude-sonnet-4.5"
+    @StateObject private var llmConfigManager = LLMConfigManager()
     @State private var showApiKey = false
-    
+
     var body: some View {
         VStack(spacing: 0) {
-            ProviderSidebar(
-                selectedProvider: $selectedProvider,
-                apiKeys: apiKeys
-            )
+            ProviderSidebar(llmConfigManager: llmConfigManager)
             
             Divider()
             
             ScrollView(.vertical, showsIndicators: true) {
                 ConfigurationPanel(
-                    selectedProvider: selectedProvider,
-                    selectedModel: $selectedModel,
-                    apiKeys: $apiKeys,
                     showApiKey: $showApiKey,
-                    getProviderForModel: getProviderForModel,
-                    getActiveModel: getActiveModel
-                )
+                    llmConfigManager: llmConfigManager
+                ).environmentObject(llmConfigManager)
             }
         }
-    }
-    
-    private func getProviderForModel(_ modelId: String) -> LLMProvider {
-        for provider in LLMProvider.allCases {
-            if provider.models.contains(where: { $0.id == modelId }) {
-                return provider
-            }
+        .onAppear {
+                 llmConfigManager.loadConfigLLM()
+                 llmConfigManager.printAllVariables()
         }
-        return selectedProvider
-    }
-    
-    private func getActiveModel() -> LLMModel? {
-        for provider in LLMProvider.allCases {
-            if let model = provider.models.first(where: { $0.id == selectedModel }) {
-                return model
-            }
-        }
-        return nil
     }
 }

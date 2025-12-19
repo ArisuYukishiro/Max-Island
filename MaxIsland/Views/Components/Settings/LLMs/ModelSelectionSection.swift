@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct ModelSelectionSection: View {
-    let provider: LLMProvider
-    @Binding var selectedModel: String
-    let getProviderForModel: (String) -> LLMProvider
+    @ObservedObject var llmConfigManager: LLMConfigManager
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -15,12 +13,12 @@ struct ModelSelectionSection: View {
                 .foregroundColor(.secondary)
             
             VStack(spacing: 8) {
-                ForEach(provider.models) { model in
+                ForEach(llmConfigManager.provider.models) { model in
                     ModelRow(
                         model: model,
-                        isSelected: selectedModel == model.id
+                        isSelected: llmConfigManager.selectedModel == model.id
                     ) {
-                        selectedModel = model.id
+                        llmConfigManager.selectedModel = model.id
                     }
                 }
             }

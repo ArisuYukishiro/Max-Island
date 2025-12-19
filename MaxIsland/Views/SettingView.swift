@@ -38,7 +38,7 @@ struct SettingView: View {
             SettingsSidebar(selectedSection: $selectedSection, columnVisibility: $columnVisibility)
                 .navigationSplitViewColumnWidth(min: 200, ideal: 200, max: 200)
             //NOTE : find way to remove sidebar toggle without moving sidebar outside of control window
-            // toolbar(removing: .sidebarToggle)
+            //toolbar(removing: .sidebarToggle)
         }
         detail: {
             VStack(spacing: 0) {
