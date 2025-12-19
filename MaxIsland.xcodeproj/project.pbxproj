@@ -56,6 +56,7 @@
 		52C9818F2EF5258600AE3E3B /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9818E2EF5257300AE3E3B /* LLMService.swift */; };
 		52EDC83B2EF2B4390081C170 /* LLMConfigStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */; };
 		69E8E7192EE69FFA005280B4 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8E7182EE69FFA005280B4 /* ThemeManager.swift */; };
+		69F2211D2EF15B1800C2BCDB /* ShortcutSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F2211C2EF15B1300C2BCDB /* ShortcutSettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		52C9818E2EF5257300AE3E3B /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
 		52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfigStorageManager.swift; sourceTree = "<group>"; };
 		69E8E7182EE69FFA005280B4 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		69F2211C2EF15B1300C2BCDB /* ShortcutSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -313,6 +315,7 @@
 		52A0B3682EDD33390094E9F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				69F2211C2EF15B1300C2BCDB /* ShortcutSettingView.swift */,
 				5271F37A2EEBD47F00A0B4B5 /* LLMConfigSettingView.swift */,
 				5271F3762EEA830A00A0B4B5 /* AboutSettingView.swift */,
 				5271F3742EEA82FD00A0B4B5 /* AdvancedSettingView.swift */,
@@ -435,7 +438,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					52A0B3362EDD318A0094E9F1 = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -461,6 +464,7 @@
 			mainGroup = 52A0B32E2EDD318A0094E9F1;
 			packageReferences = (
 				52A932FB2EDEF73800E4DE14 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+				69F2211B2EF148D900C2BCDB /* XCRemoteSwiftPackageReference "HotKey" */,
 			);
 			productRefGroup = 52A0B3382EDD318A0094E9F1 /* Products */;
 			projectDirPath = "";
@@ -527,6 +531,7 @@
 				52A0B36C2EDD33CE0094E9F1 /* IslandContent.swift in Sources */,
 				52C9818F2EF5258600AE3E3B /* LLMService.swift in Sources */,
 				5271F3752EEA830100A0B4B5 /* AdvancedSettingView.swift in Sources */,
+				69F2211D2EF15B1800C2BCDB /* ShortcutSettingView.swift in Sources */,
 				52A932E02EDD3AE100E4DE14 /* DynamicIsland.swift in Sources */,
 				5271F36D2EEA7D6700A0B4B5 /* SettingSidebar.swift in Sources */,
 				5271F36F2EEA7F8A00A0B4B5 /* AppearanceSettingView.swift in Sources */,
@@ -617,6 +622,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -641,6 +647,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -680,6 +687,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -697,6 +705,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -710,10 +719,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MaxIsland/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
 				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
@@ -723,6 +733,7 @@
 				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MaxIsland/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -748,10 +759,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MaxIsland/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
 				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
@@ -761,6 +773,7 @@
 				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MaxIsland/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -780,10 +793,10 @@
 		52A0B3602EDD318C0094E9F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
@@ -798,10 +811,10 @@
 		52A0B3612EDD318C0094E9F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
@@ -816,9 +829,9 @@
 		52A0B3632EDD318C0094E9F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ArisuSak.MaxIslandUITests;
@@ -832,9 +845,9 @@
 		52A0B3642EDD318C0094E9F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ArisuSak.MaxIslandUITests;
@@ -893,6 +906,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.4.1;
+			};
+		};
+		69F2211B2EF148D900C2BCDB /* XCRemoteSwiftPackageReference "HotKey" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/HotKey";
+			requirement = {
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
