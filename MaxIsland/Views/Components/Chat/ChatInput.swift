@@ -26,7 +26,7 @@ struct ChatInputView: View {
                         .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
                         .padding(.horizontal, 12)
                 }
-                TextField("", text: $text, axis: .horizontal)
+                TextField("", text: $text, axis: .vertical)
                     .focused($isFocused)
                     .padding(.horizontal, 12)
                     .frame(height: 30)
