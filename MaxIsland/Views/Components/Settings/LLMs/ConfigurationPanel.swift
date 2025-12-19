@@ -1,39 +1,41 @@
 import SwiftUI
 
 struct ConfigurationPanel: View {
-    let selectedProvider: LLMProvider
-    @Binding var selectedModel: String
-    @Binding var apiKeys: [LLMProvider: String]
     @Binding var showApiKey: Bool
-    let getProviderForModel: (String) -> LLMProvider
-    let getActiveModel: () -> LLMModel?
+    @ObservedObject var llmConfigManager: LLMConfigManager
     
     var body: some View {
-            VStack(alignment: .leading, spacing: 24) {
-                if let activeModel = getActiveModel() {
-                    ActiveModelBanner(
-                        model: activeModel,
-                        provider: getProviderForModel(selectedModel)
-                    )
-                }
-                
-                ProviderHeader(provider: selectedProvider)
-                
-                APIKeySection(
-                    provider: selectedProvider,
-                    apiKeys: $apiKeys,
-                    showApiKey: $showApiKey
+        VStack(alignment: .leading, spacing: 24) {
+            if let activeModel = llmConfigManager.getActiveModel() {
+                ActiveModelBanner(
+                    model: activeModel,
+                    provider: llmConfigManager.getProviderForModel(llmConfigManager.selectedModel)
                 )
-                
-                ModelSelectionSection(
-                    provider: selectedProvider,
-                    selectedModel: $selectedModel,
-                    getProviderForModel: getProviderForModel
-                )
-                
-                ActionButtons()
             }
-            .padding(24)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            
+            ProviderHeader(provider: llmConfigManager.selectedProvider)
+            
+            APIKeySection(
+                llmConfigManager: llmConfigManager
+            )
+            
+            ModelSelectionSection(
+                llmConfigManager: llmConfigManager
+            )
+        }
+        .padding(24)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .onAppear {
+            llmConfigManager.loadConfigLLM()
+        }
+        .onChange(of: llmConfigManager.selectedProvider) { oldValue, newValue in
+            llmConfigManager.saveConfigLLM()
+        }
+        .onChange(of: llmConfigManager.selectedModel) { oldValue, newValue in
+            llmConfigManager.saveConfigLLM()
+        }
+        .onChange(of: llmConfigManager.apiKeys) { oldValue, newValue in
+            llmConfigManager.saveConfigLLM()
+        }
     }
 }

@@ -1,18 +1,14 @@
 import SwiftUI
 
 struct ProviderSidebar: View {
-    @Binding var selectedProvider: LLMProvider
-    let apiKeys: [LLMProvider: String]
-    
+    @ObservedObject var llmConfigManager: LLMConfigManager
+
     var body: some View {
         VStack(spacing: 8) {
             SidebarHeader()
             
-            SidebarContent(
-                selectedProvider: $selectedProvider,
-                apiKeys: apiKeys
-            )
-            
+            SidebarContent(llmConfigManager: llmConfigManager)
+
             Spacer()
         }
         .frame(height: 80)
@@ -36,19 +32,18 @@ private struct SidebarHeader: View {
 
 
 private struct SidebarContent: View {
-    @Binding var selectedProvider: LLMProvider
-    let apiKeys: [LLMProvider: String]
-    
+    @ObservedObject var llmConfigManager: LLMConfigManager
+
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 ForEach(LLMProvider.allCases, id: \.self) { provider in
                     ProviderButton(
                         provider: provider,
-                        isSelected: selectedProvider == provider,
-                        hasApiKey: apiKeys[provider]?.isEmpty == false
+                        isSelected: llmConfigManager.selectedProvider == provider,
+                        hasApiKey: llmConfigManager.apiKeys[provider]?.isEmpty == false
                     ) {
-                        selectedProvider = provider
+                        llmConfigManager.selectedProvider = provider
                     }
                 }
             }
