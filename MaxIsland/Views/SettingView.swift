@@ -2,27 +2,13 @@ import SwiftUI
 
 
 enum SettingSection: String, CaseIterable {
-//    case appearance = "Appearance"
-//    case general = "General"
     case llmConfig = "LLM Config"
-//    case notifications = "Notifications"
-//    case advanced = "Advanced"
-//    case about = "About"
+
     
     var icon: String {
         switch self {
-//        case .appearance:
-//            return "paintbrush.fill"
-//        case .general:
-//            return "gearshape.fill"
         case .llmConfig:
             return "brain.fill"
-//        case .notifications:
-//            return "bell.fill"
-//        case .advanced:
-//            return "slider.horizontal.3"
-//        case .about:
-//            return "info.circle.fill"
         }
     }
 }
@@ -65,18 +51,8 @@ struct SettingView: View {
     @ViewBuilder
     private var contentView: some View {
         switch selectedSection {
-//        case .appearance:
-//            AppearanceSettingView()
-//        case .general:
-//            GeneralSettingView()
         case .llmConfig:
             LLMConfigSettingView()
-//        case .notifications:
-//            NotificationsSettingView()
-//        case .advanced:
-//            AdvancedSettingView()
-//        case .about:
-//            AboutSettingView()
         }
     }
     private func fetchProvidersAndModels() {
