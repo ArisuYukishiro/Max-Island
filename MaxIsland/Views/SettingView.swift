@@ -65,18 +65,18 @@ struct SettingView: View {
     @ViewBuilder
     private var contentView: some View {
         switch selectedSection {
-        case .appearance:
-            AppearanceSettingView()
-        case .general:
-            GeneralSettingView()
+//        case .appearance:
+//            AppearanceSettingView()
+//        case .general:
+//            GeneralSettingView()
         case .llmConfig:
             LLMConfigSettingView()
-        case .notifications:
-            NotificationsSettingView()
-        case .advanced:
-            AdvancedSettingView()
-        case .about:
-            AboutSettingView()
+//        case .notifications:
+//            NotificationsSettingView()
+//        case .advanced:
+//            AdvancedSettingView()
+//        case .about:
+//            AboutSettingView()
         }
     }
     private func fetchProvidersAndModels() {
