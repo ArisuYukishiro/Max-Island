@@ -33,35 +33,24 @@ enum SettingSection: String, CaseIterable {
 struct SettingView: View {
     @Binding var isPresented: Bool
     @State private var selectedSection: SettingSection = .appearance
+    @State private var columnVisibility: NavigationSplitViewVisibility = .all
     @ObservedObject private var themeManager = ThemeManager.shared
     
     var body: some View {
-        HStack(spacing: 0) {
-            SettingsSidebar(selectedSection: $selectedSection)
-            
-            Divider()
-                .background(themeManager.currentTheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2))
-            
-            VStack {
-                HStack {
-                    Text(selectedSection.rawValue)
-                        .font(.title2)
-                        .bold()
-                    
-                    Spacer()
-                }
-                .padding()
-                
-                Divider()
-                
-                ScrollView {
-                    contentView
+        NavigationSplitView(columnVisibility: $columnVisibility){
+            SettingsSidebar(selectedSection: $selectedSection, columnVisibility: $columnVisibility)
+                .navigationSplitViewColumnWidth(min: 200, ideal: 200, max: 200)
+            //NOTE : find way to remove sidebar toggle without moving sidebar outside of control window
+            //toolbar(removing: .sidebarToggle)
+        }
+        detail: {
+            VStack(spacing: 0) {
+                contentView
                         .padding()
-                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
-        .background(themeManager.currentTheme == .dark ? Color.black : Color.white)
+            .background(themeManager.currentTheme == .dark ? Color.black : Color.white)
+        }.navigationSplitViewStyle(.balanced)
     }
     
     @ViewBuilder

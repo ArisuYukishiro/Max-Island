@@ -3,12 +3,9 @@ import SwiftUI
 @main
 struct DynamicIslandApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
-    var body: some Scene {
-        Settings {
-            EmptyView()
-        }
-    }
+    @State private var showSettings = false
+
+    var body: some Scene {}
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate {

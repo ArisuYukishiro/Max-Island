@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5255A4BF2EEFF66500AF04DD /* ConfigurationPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4BE2EEFF66100AF04DD /* ConfigurationPanel.swift */; };
 		5255A4C12EEFF68D00AF04DD /* ActiveModelBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C02EEFF68800AF04DD /* ActiveModelBanner.swift */; };
-		5255A4C32EEFF6CB00AF04DD /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C22EEFF6C700AF04DD /* ActionButton.swift */; };
 		5255A4C52EEFF73500AF04DD /* ProviderSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C42EEFF73300AF04DD /* ProviderSidebar.swift */; };
 		5255A4C72EEFF78A00AF04DD /* ProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C62EEFF78600AF04DD /* ProviderButton.swift */; };
 		5255A4C92EEFF82B00AF04DD /* ProviderHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C82EEFF82A00AF04DD /* ProviderHeader.swift */; };
@@ -79,7 +78,6 @@
 /* Begin PBXFileReference section */
 		5255A4BE2EEFF66100AF04DD /* ConfigurationPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationPanel.swift; sourceTree = "<group>"; };
 		5255A4C02EEFF68800AF04DD /* ActiveModelBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveModelBanner.swift; sourceTree = "<group>"; };
-		5255A4C22EEFF6C700AF04DD /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		5255A4C42EEFF73300AF04DD /* ProviderSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderSidebar.swift; sourceTree = "<group>"; };
 		5255A4C62EEFF78600AF04DD /* ProviderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderButton.swift; sourceTree = "<group>"; };
 		5255A4C82EEFF82A00AF04DD /* ProviderHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderHeader.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 				5255A4C82EEFF82A00AF04DD /* ProviderHeader.swift */,
 				5255A4C62EEFF78600AF04DD /* ProviderButton.swift */,
 				5255A4C42EEFF73300AF04DD /* ProviderSidebar.swift */,
-				5255A4C22EEFF6C700AF04DD /* ActionButton.swift */,
 			);
 			path = LLMs;
 			sourceTree = "<group>";
@@ -549,7 +546,6 @@
 				52A932E22EDD3CA600E4DE14 /* NotchWindowController.swift in Sources */,
 				52A932F52EDED3D300E4DE14 /* MessageBubble.swift in Sources */,
 				5255A4C92EEFF82B00AF04DD /* ProviderHeader.swift in Sources */,
-				5255A4C32EEFF6CB00AF04DD /* ActionButton.swift in Sources */,
 				69E8E7192EE69FFA005280B4 /* ThemeManager.swift in Sources */,
 				5255A4BF2EEFF66500AF04DD /* ConfigurationPanel.swift in Sources */,
 			);

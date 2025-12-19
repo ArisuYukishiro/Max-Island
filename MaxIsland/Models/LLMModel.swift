@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum LLMProvider: String, CaseIterable {
+enum LLMProvider: String, CaseIterable, Codable, Hashable {
     case claude = "Claude"
     case openai = "OpenAI"
     case gemini = "Gemini"

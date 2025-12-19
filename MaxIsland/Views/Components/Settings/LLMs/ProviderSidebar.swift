@@ -1,54 +1,54 @@
 import SwiftUI
 
 struct ProviderSidebar: View {
-    @Binding var selectedProvider: LLMProvider
-    let apiKeys: [LLMProvider: String]
-    
+    @ObservedObject var llmConfigManager: LLMConfigManager
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(spacing: 8) {
             SidebarHeader()
             
-            SidebarContent(
-                selectedProvider: $selectedProvider,
-                apiKeys: apiKeys
-            )
-            
+            SidebarContent(llmConfigManager: llmConfigManager)
+
             Spacer()
         }
-        .frame(width: 200)
+        .frame(height: 80)
         .cornerRadius(16)
     }
 }
 
 private struct SidebarHeader: View {
     var body: some View {
-        Text("Providers")
-            .font(.system(size: 11, weight: .semibold))
-            .foregroundColor(.secondary)
-            .padding(.horizontal, 16)
-            .padding(.top, 16)
-            .padding(.bottom, 8)
+        HStack {
+            Text("Providers")
+                .font(.system(size: 11, weight: .semibold))
+                .foregroundColor(.secondary)
+                .padding(.leading, 16)
+            
+            Spacer()
+        }
+        .padding(.top, 12)
     }
 }
 
+
 private struct SidebarContent: View {
-    @Binding var selectedProvider: LLMProvider
-    let apiKeys: [LLMProvider: String]
-    
+    @ObservedObject var llmConfigManager: LLMConfigManager
+
     var body: some View {
-        ScrollView {
-            VStack(spacing: 4) {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
                 ForEach(LLMProvider.allCases, id: \.self) { provider in
                     ProviderButton(
                         provider: provider,
-                        isSelected: selectedProvider == provider,
-                        hasApiKey: apiKeys[provider]?.isEmpty == false
+                        isSelected: llmConfigManager.selectedProvider == provider,
+                        hasApiKey: llmConfigManager.apiKeys[provider]?.isEmpty == false
                     ) {
-                        selectedProvider = provider
+                        llmConfigManager.selectedProvider = provider
                     }
                 }
             }
-            .padding(.horizontal, 8)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 12)
         }
     }
 }
