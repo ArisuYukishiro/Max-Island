@@ -8,11 +8,13 @@
 import SwiftUI
 
 class LLMConfigManager: ObservableObject {
+    
+    static let shared = LLMConfigManager()
     @Published var selectedProvider: LLMProvider = .claude
     @Published var apiKeys: [LLMProvider: String] = [:]
-    @Published var selectedModel: String = "claude-sonnet-4.5"
+    @Published var selectedModel: String = ""
     @Published var showApiKey: Bool = false
-
+    
     var provider: LLMProvider {
         selectedProvider
     }

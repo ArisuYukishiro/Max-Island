@@ -24,15 +24,15 @@ struct APIKeySection: View {
                     if llmConfigManager.showApiKey {
                         TextField("Enter your API key", text: currentApiKey)
                             .textFieldStyle(.roundedBorder)
+                            .textSelection(.enabled)
                             .id("apikey-\(llmConfigManager.provider.rawValue)")
                     } else {
                         SecureField("Enter your API key", text: currentApiKey)
                             .textFieldStyle(.roundedBorder)
+                            .textSelection(.enabled)
                             .id("apikey-\(llmConfigManager.provider.rawValue)")
                     }
-                }
-                .textFieldStyle(.roundedBorder)
-                
+                }                
                 Button(action: { llmConfigManager.showApiKey.toggle() }) {
                     Image(systemName: llmConfigManager.showApiKey ? "eye.slash" : "eye")
                         .foregroundColor(.secondary)

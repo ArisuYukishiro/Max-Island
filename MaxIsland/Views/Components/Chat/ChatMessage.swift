@@ -1,10 +1,12 @@
 import SwiftUI
 
 struct ChatMessage: View {
-    @StateObject private var viewModel = ChatViewModel()
+    @StateObject private var llmConfigManager = LLMConfigManager.shared
+    @StateObject private var viewModel = ChatViewModel(llmConfigManager: .shared)
     @ObservedObject private var stateManager = IslandStateManager.shared
     @ObservedObject private var islandAnimation = IslandAnimationManager.shared
-        
+
+    
     var body: some View {
         if stateManager.islandState == .expanded {
             if islandAnimation.hasAnimationCompleted == true {
@@ -89,7 +91,7 @@ struct ChatMessage: View {
             
             ChatInputView(
                 text: $viewModel.messageText,
-                placeholder: "Message"
+                placeholder: "Message (\(llmConfigManager.selectedModel))"
             ) { sentText in
                 Task { await viewModel.sendMessage(text: sentText) }
             }
@@ -97,5 +99,8 @@ struct ChatMessage: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .transition(.opacity)
+        .onAppear {
+            llmConfigManager.loadConfigLLM()
+        }
     }
 }
