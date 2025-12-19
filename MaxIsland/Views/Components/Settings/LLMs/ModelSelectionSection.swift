@@ -12,13 +12,22 @@ struct ModelSelectionSection: View {
                 .font(.system(size: 12))
                 .foregroundColor(.secondary)
             
-            VStack(spacing: 8) {
-                ForEach(llmConfigManager.provider.models) { model in
-                    ModelRow(
-                        model: model,
-                        isSelected: llmConfigManager.selectedModel == model.id
-                    ) {
-                        llmConfigManager.selectedModel = model.id
+            if llmConfigManager.providers.isEmpty {
+                Text("No models available. Please check your connection.")
+                    .font(.system(size: 12))
+                    .foregroundColor(.secondary)
+                    .padding()
+            } else {
+                VStack(spacing: 8) {
+                    let models = llmConfigManager.getModelsForProvider(llmConfigManager.selectedProvider)
+                    
+                    ForEach(models, id: \.modelName) { model in
+                        ModelRow(
+                            model: model,
+                            isSelected: llmConfigManager.selectedModel == model.modelName
+                        ) {
+                            llmConfigManager.selectedModel = model.modelName
+                        }
                     }
                 }
             }
@@ -28,3 +37,4 @@ struct ModelSelectionSection: View {
         .cornerRadius(8)
     }
 }
+
