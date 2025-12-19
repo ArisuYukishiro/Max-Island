@@ -5,32 +5,46 @@ enum APIError: Error {
     case invalidResponse
     case decodingError
     case serverError(String)
+    case missingAPIKey
 }
 
 class ChatAPIService {
     private let baseURL = APIConfig.baseURL
-    private let apiKey = APIConfig.apiKey
-    private let modelName: String
-    private let provider: String
+    private let llmConfigManager: LLMConfigManager
     
-//    init(apiKey: String, modelName: String = "openai/gpt-oss-20b", provider: String = "groq") {
-//        self.apiKey = apiKey
-//        self.modelName = modelName
-//        self.provider = provider
-//    }
-//
-    
-    init(modelName: String = "openai/gpt-oss-20b", provider: String = "groq"){
-                self.modelName = modelName
-                self.provider = provider
+    init(llmConfigManager: LLMConfigManager) {
+        self.llmConfigManager = llmConfigManager
+      #if DEBUG
+        print("🔧 ChatAPIService initialized with manager: ",llmConfigManager.selectedModel)
+        print("new config", llmConfigManager.printAllVariables())
+      #endif
     }
     
     func sendMessage(_ message: String) async throws -> String {
+  
+    #if DEBUG
+      print("=== SEND MESSAGE DEBUG ===")
+      print("🔧 Manager instance ID: \(ObjectIdentifier(llmConfigManager))")
+      print("📦 Manager.selectedModel: \(llmConfigManager.selectedModel)")
+      print("📦 Manager.selectedProvider: \(llmConfigManager.selectedProvider.rawValue)")
+      print("📦 Manager.currentAPIKey isEmpty: \(llmConfigManager.currentAPIKey.isEmpty)")
+      print("========================")
+      #endif
+        
+        guard !llmConfigManager.currentAPIKey.isEmpty else {
+              throw APIError.missingAPIKey
+        }
+        
+        let modelName = llmConfigManager.selectedModel
+        let provider = llmConfigManager.selectedProvider.rawValue.lowercased()
+        let apiKey = llmConfigManager.currentAPIKey
+        
+        
         var urlComponents = URLComponents(string: "\(baseURL)\(APIConfig.Endpoints.chat)")
-        urlComponents?.queryItems = [
-            URLQueryItem(name: "model_name", value: modelName),
-            URLQueryItem(name: "provider", value: provider)
-        ]
+            urlComponents?.queryItems = [
+                URLQueryItem(name: "model_name", value: modelName),
+                URLQueryItem(name: "provider", value: provider)
+            ]
 
         guard let url = urlComponents?.url else {
             throw APIError.invalidURL

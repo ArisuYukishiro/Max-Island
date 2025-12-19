@@ -37,9 +37,11 @@ enum LLMProvider: String, CaseIterable, Codable, Hashable {
             ]
         case .groq:
             return [
-                LLMModel(id: "llama-3-70b", name: "LLaMA 3 70B", description: "High performance", key: ""),
-                LLMModel(id: "mixtral-8x7b", name: "Mixtral 8x7B", description: "Mixture of experts", key: ""),
-                LLMModel(id: "gemma-7b", name: "Gemma 7B", description: "Lightweight model", key: "")
+                LLMModel(id: "openai/gpt-oss-120b", name: "GPT OSS 120B", description: "120B parameters", key: ""),
+                LLMModel(id: "openai/gpt-oss-20b", name: "GPT OSS 20B", description: "20B parameters", key: ""),
+                LLMModel(id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B", description: "Versatile 70B model", key: ""),
+                LLMModel(id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Fast 8B model", key: ""),
+                LLMModel(id: "groq/compound", name: "Groq Compound", description: "Compound model", key: "")
             ]
         }
     }
