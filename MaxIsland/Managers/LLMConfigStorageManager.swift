@@ -22,7 +22,9 @@ class LLMConfigManager: ObservableObject {
     }
     
     
+    //TODO: fix the background thread
     func updateProviders(_ providersData: [String: [ModelInfo]]) {
+        //Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates.
          self.providers = providersData
          saveProvidersToUserDefaults()
      }
@@ -58,7 +60,6 @@ class LLMConfigManager: ObservableObject {
     }
     
     func saveConfigLLM() {
-        print("Value Saved: ",printAllVariables())
         UserDefaults.standard.set(selectedProvider, forKey: "selectedProvider")
         UserDefaults.standard.set(selectedModel, forKey: "selectedModel")
         
