@@ -40,8 +40,13 @@ struct ChatInputView: View {
                                 .padding(.leading, 12)
                         }
                     })
-                    .onSubmit {
-                        sendMessage()
+                    .onKeyPress{ press in
+                        if press.key == .return && press.modifiers.isEmpty
+                        {
+                            sendMessage()
+                            return .handled
+                        }
+                        return .ignored
                     }
             }
             .background(
