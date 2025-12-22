@@ -19,20 +19,27 @@ struct ChatInputView: View {
     }
     
     var body: some View {
-        HStack(alignment: .center, spacing: 12) {
+        HStack(alignment: .bottom, spacing: 12) {
             ZStack(alignment: .leading) {
-                if text.isEmpty {
-                    Text(placeholder)
-                        .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
-                        .padding(.horizontal, 12)
-                }
-                TextField("", text: $text, axis: .vertical)
+                TextEditor(text: $text)
                     .focused($isFocused)
-                    .padding(.horizontal, 12)
-                    .frame(height: 30)
-                    .textFieldStyle(.plain)
+                    .textEditorStyle(.plain)
+                    .lineSpacing(2)
+                    .padding(.all, 8)
+                    .font(.system(size: 12))
+                    .scrollContentBackground(.hidden)
                     .foregroundColor(Color.theme.text)
                     .accentColor(Color.theme.accent)
+                    .frame(minHeight: 30, maxHeight: 80)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .overlay(alignment: .leading, content: {
+                        if text.isEmpty {
+                            Text(placeholder)
+                                .foregroundStyle(.gray)
+                                .allowsHitTesting(false)
+                                .padding(.leading, 12)
+                        }
+                    })
                     .onSubmit {
                         sendMessage()
                     }
@@ -56,7 +63,6 @@ struct ChatInputView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     private func sendMessage() {
