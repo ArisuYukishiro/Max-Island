@@ -95,7 +95,6 @@ struct ChatMessage: View {
             ) { sentText in
                 Task { await viewModel.sendMessage(text: sentText) }
             }
-            .frame(height: 45)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .transition(.opacity)
