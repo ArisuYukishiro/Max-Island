@@ -6,17 +6,13 @@ struct DynamicIslandApp: App {
     @State private var showSettings = false
 
     var body: some Scene {
-        
-        WindowGroup("MaxIsland") {
-            // Use an empty view as a placeholder since the app uses a custom NSWindowController.
+        Settings{
             EmptyView()
         }
-        
         .commands {
             TextEditingCommands()
         }
     }
-    
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate {
