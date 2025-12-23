@@ -71,10 +71,10 @@ struct ChatInputView: View {
     }
     
     private func sendMessage() {
+        print("text send ", text)
         let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedText.isEmpty else { return }
         
         onSend(trimmedText)
-        text = ""
     }
 }
