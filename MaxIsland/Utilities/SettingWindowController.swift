@@ -19,7 +19,7 @@ class SettingWindowController: NSWindowController {
         } else  if screenFrame.height < 1000 {
             yPosition = (screenFrame.height - windowHeight) / 4 + screenFrame.origin.y
         } else {
-            yPosition = 0
+            yPosition = (screenFrame.height - windowHeight) / 2 + screenFrame.origin.y
         }
         
         let settingsWindow = NSWindow(
