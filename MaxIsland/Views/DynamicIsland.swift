@@ -10,25 +10,35 @@ struct DynamicIsland: View {
 
     var body: some View {
         ZStack {
+            if stateManager.islandState == .expanded {
+                // Inner shadow
+                NotchShape(topCornerRadius: topCorner, bottomCornerRadius: bottomCorner)
+                    .fill(themeManager.currentTheme == .dark ? Color.black.opacity(0.7) : Color.white.opacity(0.7))
+                    .blur(radius: 4)
+                    .offset(y: 2)
+                    .padding(.bottom, 10)
+            }
+            
+            // Main shape
             NotchShape(topCornerRadius: topCorner, bottomCornerRadius: bottomCorner)
                 .fill(themeManager.currentTheme == .dark ? .black : .white)
             
             
-//            Spacer()
-//                .frame(
-//                 width: islandWidth,
-//                 height: islandHeight
-//                )
-//                .glassEffect(
-//                .regular,
-//                    in: NotchShape(
-//                        topCornerRadius: topCorner,
-//                        bottomCornerRadius: bottomCorner
-//                     )
-//                )
-//                .animation(.spring(response: 0.4, dampingFraction: 0.8), value: islandState)
-                  
-        
+            //            Spacer()
+            //                .frame(
+            //                 width: islandWidth,
+            //                 height: islandHeight
+            //                )
+            //                .glassEffect(
+            //                .regular,
+            //                    in: NotchShape(
+            //                        topCornerRadius: topCorner,
+            //                        bottomCornerRadius: bottomCorner
+            //                     )
+            //                )
+            //                .animation(.spring(response: 0.4, dampingFraction: 0.8), value: islandState)
+            
+            
             Group {
                 switch stateManager.islandState {
                 case .compact:
@@ -41,26 +51,51 @@ struct DynamicIsland: View {
                 }
             }
             
-            VStack {
-                HStack {
-                    Spacer()
-                    
-                    Button(action: {
-                        NotificationCenter.default.post(name: NSNotification.Name("OpenSettings"), object: nil)
-                    }) {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundColor(themeManager.currentTheme == .dark ? .white : .black)
-                            .font(.system(size: 14, weight: .bold))
-                            .background(.thinMaterial)
-                            .clipShape(Circle())
+            if stateManager.islandState == .expanded &&  islandAnimation.hasAnimationCompleted == false {
+                VStack {
+                    HStack(spacing: 12 ) {
+                        Spacer()
+
+                        Button(action: {
+                            stateManager.islandState = .compact
+                        }){
+                            Image(systemName: "house.fill")
+                                .foregroundColor(themeManager.currentTheme == .dark ? .white : .black)
+                                .font(.system(size: 14, weight: .bold))
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 6)
+                        .background(
+                         RoundedRectangle(cornerRadius: 8)
+                        .fill(themeManager.currentTheme == .dark
+                         ? Color.white.opacity(0.15) : Color.black.opacity(0.08)))
+                        .keyboardShortcut("h", modifiers: [.command])
+                                
+                                                
+                        Button(action: {
+                            NotificationCenter.default.post(name: NSNotification.Name("OpenSettings"), object: nil)
+                        }) {
+                            Image(systemName: "gearshape.fill")
+                                .foregroundColor(themeManager.currentTheme == .dark ? .white : .black)
+                                .font(.system(size: 14, weight: .bold))
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 6)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(themeManager.currentTheme == .dark
+                                      ? Color.white.opacity(0.15)
+                                      : Color.black.opacity(0.08))
+                        )
+                        .keyboardShortcut(",", modifiers: [.command, .shift])
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding(.trailing, stateManager.islandState == .compact ? 16 : 32)
-                    .padding(.top, stateManager.islandState == .compact ? 6 : 8)
-                    .keyboardShortcut(",", modifiers: [.command, .shift])
+                    .padding(.horizontal, 48)
+                    .padding(.top, 12)
+                    
+                    Spacer()
                 }
-                
-                Spacer()
             }
         }
 
@@ -122,21 +157,60 @@ struct DynamicIsland: View {
         print("screen width", screenWidth)
         switch stateManager.islandState {
         case .compact:
-            return min(max(screenWidth * 0.25, 150), 250)
+            if screenWidth >= 2560 {
+                return 350
+            } else if screenWidth >= 1800 {
+                return 300
+            } else if screenWidth >= 1400 {
+                return 250
+            } else {
+                return max(screenWidth * 0.15, 150)
+            }
         case .expanded:
-            return min(max(screenWidth * 0.5, 400), 600)
+            if screenWidth >= 2560 {
+                return 650
+            } else if screenWidth >= 1800 {
+                return 600
+            } else if screenWidth >= 1400 {
+                return 600
+            } else {
+                return max(screenWidth * 0.4, 400)
+            }
         }
     }
 
     
     private var islandHeight: CGFloat {
-          switch stateManager.islandState {
-          case .compact:
-              return 32
-          case .expanded:
-              return 300
-          }
-      }
+        guard let screen = NSScreen.main else {
+            return stateManager.islandState == .compact ? 32 : 300
+        }
+        
+        let screenWidth = screen.visibleFrame.width
+        
+        switch stateManager.islandState {
+        case .compact:
+            if screenWidth >= 2560 {
+                return 40
+            } else if screenWidth >= 1800 {
+                return 38
+            } else if screenWidth >= 1400 {
+                return 32
+            } else {
+                return 32
+            }
+            
+        case .expanded:
+            if screenWidth >= 2560 {
+                return 350
+            } else if screenWidth >= 1800 {
+                return 320
+            } else if screenWidth >= 1400 {
+                return 300
+            } else {
+                return 280
+            }
+        }
+    }
       
     private var topCorner: CGFloat {
         switch stateManager.islandState {
@@ -150,9 +224,9 @@ struct DynamicIsland: View {
     private var bottomCorner: CGFloat {
         switch stateManager.islandState {
         case .compact:
-            return 12
+            return 16
         case .expanded:
-            return 20
+            return 16
         }
     }
     
