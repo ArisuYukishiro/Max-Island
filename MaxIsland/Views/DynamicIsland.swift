@@ -150,9 +150,9 @@ struct DynamicIsland: View {
     private var bottomCorner: CGFloat {
         switch stateManager.islandState {
         case .compact:
-            return 18.5
+            return 12
         case .expanded:
-            return 45
+            return 20
         }
     }
     
