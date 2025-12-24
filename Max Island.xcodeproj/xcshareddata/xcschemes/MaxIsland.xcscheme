@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52A0B3362EDD318A0094E9F1"
-               BuildableName = "MaxIsland.app"
-               BlueprintName = "MaxIsland"
-               ReferencedContainer = "container:MaxIsland.xcodeproj">
+               BuildableName = "Max Island.app"
+               BlueprintName = "Max Island"
+               ReferencedContainer = "container:Max Island.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52A0B3472EDD318C0094E9F1"
-               BuildableName = "MaxIslandTests.xctest"
-               BlueprintName = "MaxIslandTests"
-               ReferencedContainer = "container:MaxIsland.xcodeproj">
+               BuildableName = "Max IslandTests.xctest"
+               BlueprintName = "Max IslandTests"
+               ReferencedContainer = "container:Max Island.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52A0B3512EDD318C0094E9F1"
-               BuildableName = "MaxIslandUITests.xctest"
-               BlueprintName = "MaxIslandUITests"
-               ReferencedContainer = "container:MaxIsland.xcodeproj">
+               BuildableName = "Max IslandUITests.xctest"
+               BlueprintName = "Max IslandUITests"
+               ReferencedContainer = "container:Max Island.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52A0B3362EDD318A0094E9F1"
-            BuildableName = "MaxIsland.app"
-            BlueprintName = "MaxIsland"
-            ReferencedContainer = "container:MaxIsland.xcodeproj">
+            BuildableName = "Max Island.app"
+            BlueprintName = "Max Island"
+            ReferencedContainer = "container:Max Island.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52A0B3362EDD318A0094E9F1"
-            BuildableName = "MaxIsland.app"
-            BlueprintName = "MaxIsland"
-            ReferencedContainer = "container:MaxIsland.xcodeproj">
+            BuildableName = "Max Island.app"
+            BlueprintName = "Max Island"
+            ReferencedContainer = "container:Max Island.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

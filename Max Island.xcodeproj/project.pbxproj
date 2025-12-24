@@ -54,6 +54,7 @@
 		52A932F92EDED41A00E4DE14 /* LoadingView.swift  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */; };
 		52A932FD2EDEF73800E4DE14 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52A932FC2EDEF73800E4DE14 /* MarkdownUI */; };
 		52C9818F2EF5258600AE3E3B /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9818E2EF5257300AE3E3B /* LLMService.swift */; };
+		52E25F812EFBE47200AADF45 /* Max Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 52E25F802EFBE47200AADF45 /* Max Icon.icon */; };
 		52EDC83B2EF2B4390081C170 /* LLMConfigStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */; };
 		69E8E7192EE69FFA005280B4 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8E7182EE69FFA005280B4 /* ThemeManager.swift */; };
 		69F2211D2EF15B1800C2BCDB /* ShortcutSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F2211C2EF15B1300C2BCDB /* ShortcutSettingView.swift */; };
@@ -100,15 +101,12 @@
 		5271F37A2EEBD47F00A0B4B5 /* LLMConfigSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfigSettingView.swift; sourceTree = "<group>"; };
 		528EA6012EE140D500C37845 /* ChatStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStorageManager.swift; sourceTree = "<group>"; };
 		528EA6042EE17FA700C37845 /* KeybindHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindHook.swift; sourceTree = "<group>"; };
-		52A0B3372EDD318A0094E9F1 /* MaxIsland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaxIsland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A0B33A2EDD318A0094E9F1 /* MaxIslandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxIslandApp.swift; sourceTree = "<group>"; };
 		52A0B33C2EDD318A0094E9F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52A0B33E2EDD318C0094E9F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52A0B3412EDD318C0094E9F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52A0B3432EDD318C0094E9F1 /* MaxIsland.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MaxIsland.entitlements; sourceTree = "<group>"; };
-		52A0B3482EDD318C0094E9F1 /* MaxIslandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaxIslandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A0B34C2EDD318C0094E9F1 /* MaxIslandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxIslandTests.swift; sourceTree = "<group>"; };
-		52A0B3522EDD318C0094E9F1 /* MaxIslandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaxIslandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A0B3562EDD318C0094E9F1 /* MaxIslandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxIslandUITests.swift; sourceTree = "<group>"; };
 		52A0B3582EDD318C0094E9F1 /* MaxIslandUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxIslandUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		52A0B36B2EDD33CE0094E9F1 /* IslandContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandContent.swift; sourceTree = "<group>"; };
@@ -128,6 +126,10 @@
 		52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingView.swift  .swift"; sourceTree = "<group>"; };
 		52A932FA2EDEDA9D00E4DE14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		52C9818E2EF5257300AE3E3B /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
+		52E25F802EFBE47200AADF45 /* Max Icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "Max Icon.icon"; sourceTree = "<group>"; };
+		52E25F822EFBE4A400AADF45 /* Max Island.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Max Island.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E25F832EFBE6EA00AADF45 /* Max IslandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Max IslandTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E25F842EFBE6EA00AADF45 /* Max IslandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Max IslandUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfigStorageManager.swift; sourceTree = "<group>"; };
 		69E8E7182EE69FFA005280B4 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		69F2211C2EF15B1300C2BCDB /* ShortcutSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSettingView.swift; sourceTree = "<group>"; };
@@ -233,18 +235,10 @@
 				52A0B3392EDD318A0094E9F1 /* MaxIsland */,
 				52A0B34B2EDD318C0094E9F1 /* MaxIslandTests */,
 				52A0B3552EDD318C0094E9F1 /* MaxIslandUITests */,
-				52A0B3382EDD318A0094E9F1 /* Products */,
+				52E25F822EFBE4A400AADF45 /* Max Island.app */,
+				52E25F832EFBE6EA00AADF45 /* Max IslandTests.xctest */,
+				52E25F842EFBE6EA00AADF45 /* Max IslandUITests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		52A0B3382EDD318A0094E9F1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				52A0B3372EDD318A0094E9F1 /* MaxIsland.app */,
-				52A0B3482EDD318C0094E9F1 /* MaxIslandTests.xctest */,
-				52A0B3522EDD318C0094E9F1 /* MaxIslandUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		52A0B3392EDD318A0094E9F1 /* MaxIsland */ = {
@@ -265,6 +259,7 @@
 				52A0B3432EDD318C0094E9F1 /* MaxIsland.entitlements */,
 				52A0B3402EDD318C0094E9F1 /* Preview Content */,
 				52A932EC2EDED01C00E4DE14 /* Config.swift .swift */,
+				52E25F802EFBE47200AADF45 /* Max Icon.icon */,
 			);
 			path = MaxIsland;
 			sourceTree = "<group>";
@@ -371,9 +366,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		52A0B3362EDD318A0094E9F1 /* MaxIsland */ = {
+		52A0B3362EDD318A0094E9F1 /* Max Island */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52A0B35C2EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "MaxIsland" */;
+			buildConfigurationList = 52A0B35C2EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "Max Island" */;
 			buildPhases = (
 				52A0B3332EDD318A0094E9F1 /* Sources */,
 				52A0B3342EDD318A0094E9F1 /* Frameworks */,
@@ -386,17 +381,17 @@
 			fileSystemSynchronizedGroups = (
 				69E8E71A2EE6A0AC005280B4 /* Theme */,
 			);
-			name = MaxIsland;
+			name = "Max Island";
 			packageProductDependencies = (
 				52A932FC2EDEF73800E4DE14 /* MarkdownUI */,
 			);
 			productName = MaxIsland;
-			productReference = 52A0B3372EDD318A0094E9F1 /* MaxIsland.app */;
+			productReference = 52E25F822EFBE4A400AADF45 /* Max Island.app */;
 			productType = "com.apple.product-type.application";
 		};
-		52A0B3472EDD318C0094E9F1 /* MaxIslandTests */ = {
+		52A0B3472EDD318C0094E9F1 /* Max IslandTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52A0B35F2EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "MaxIslandTests" */;
+			buildConfigurationList = 52A0B35F2EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "Max IslandTests" */;
 			buildPhases = (
 				52A0B3442EDD318C0094E9F1 /* Sources */,
 				52A0B3452EDD318C0094E9F1 /* Frameworks */,
@@ -407,14 +402,14 @@
 			dependencies = (
 				52A0B34A2EDD318C0094E9F1 /* PBXTargetDependency */,
 			);
-			name = MaxIslandTests;
+			name = "Max IslandTests";
 			productName = MaxIslandTests;
-			productReference = 52A0B3482EDD318C0094E9F1 /* MaxIslandTests.xctest */;
+			productReference = 52E25F832EFBE6EA00AADF45 /* Max IslandTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		52A0B3512EDD318C0094E9F1 /* MaxIslandUITests */ = {
+		52A0B3512EDD318C0094E9F1 /* Max IslandUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52A0B3622EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "MaxIslandUITests" */;
+			buildConfigurationList = 52A0B3622EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "Max IslandUITests" */;
 			buildPhases = (
 				52A0B34E2EDD318C0094E9F1 /* Sources */,
 				52A0B34F2EDD318C0094E9F1 /* Frameworks */,
@@ -425,9 +420,9 @@
 			dependencies = (
 				52A0B3542EDD318C0094E9F1 /* PBXTargetDependency */,
 			);
-			name = MaxIslandUITests;
+			name = "Max IslandUITests";
 			productName = MaxIslandUITests;
-			productReference = 52A0B3522EDD318C0094E9F1 /* MaxIslandUITests.xctest */;
+			productReference = 52E25F842EFBE6EA00AADF45 /* Max IslandUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -453,7 +448,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 52A0B3322EDD318A0094E9F1 /* Build configuration list for PBXProject "MaxIsland" */;
+			buildConfigurationList = 52A0B3322EDD318A0094E9F1 /* Build configuration list for PBXProject "Max Island" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -466,13 +461,13 @@
 				52A932FB2EDEF73800E4DE14 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 				69F2211B2EF148D900C2BCDB /* XCRemoteSwiftPackageReference "HotKey" */,
 			);
-			productRefGroup = 52A0B3382EDD318A0094E9F1 /* Products */;
+			productRefGroup = 52A0B32E2EDD318A0094E9F1;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52A0B3362EDD318A0094E9F1 /* MaxIsland */,
-				52A0B3472EDD318C0094E9F1 /* MaxIslandTests */,
-				52A0B3512EDD318C0094E9F1 /* MaxIslandUITests */,
+				52A0B3362EDD318A0094E9F1 /* Max Island */,
+				52A0B3472EDD318C0094E9F1 /* Max IslandTests */,
+				52A0B3512EDD318C0094E9F1 /* Max IslandUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -482,6 +477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E25F812EFBE47200AADF45 /* Max Icon.icon in Resources */,
 				52A0B3422EDD318C0094E9F1 /* Preview Assets.xcassets in Resources */,
 				52A0B33F2EDD318C0094E9F1 /* Assets.xcassets in Resources */,
 			);
@@ -577,12 +573,12 @@
 /* Begin PBXTargetDependency section */
 		52A0B34A2EDD318C0094E9F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 52A0B3362EDD318A0094E9F1 /* MaxIsland */;
+			target = 52A0B3362EDD318A0094E9F1 /* Max Island */;
 			targetProxy = 52A0B3492EDD318C0094E9F1 /* PBXContainerItemProxy */;
 		};
 		52A0B3542EDD318C0094E9F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 52A0B3362EDD318A0094E9F1 /* MaxIsland */;
+			target = 52A0B3362EDD318A0094E9F1 /* Max Island */;
 			targetProxy = 52A0B3532EDD318C0094E9F1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -713,8 +709,9 @@
 		52A0B35D2EDD318C0094E9F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Max Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = MaxIsland/MaxIsland.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -736,6 +733,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MaxIsland/Info.plist;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs to monitor keyboard events to provide quick access shortcuts.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -753,8 +751,9 @@
 		52A0B35E2EDD318C0094E9F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Max Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = MaxIsland/MaxIsland.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -776,6 +775,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MaxIsland/Info.plist;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs to monitor keyboard events to provide quick access shortcuts.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -804,7 +804,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MaxIsland.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MaxIsland";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Max Island.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Max Island";
 			};
 			name = Debug;
 		};
@@ -822,7 +822,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MaxIsland.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MaxIsland";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Max Island.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Max Island";
 			};
 			name = Release;
 		};
@@ -863,7 +863,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		52A0B3322EDD318A0094E9F1 /* Build configuration list for PBXProject "MaxIsland" */ = {
+		52A0B3322EDD318A0094E9F1 /* Build configuration list for PBXProject "Max Island" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52A0B35A2EDD318C0094E9F1 /* Debug */,
@@ -872,7 +872,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52A0B35C2EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "MaxIsland" */ = {
+		52A0B35C2EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "Max Island" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52A0B35D2EDD318C0094E9F1 /* Debug */,
@@ -881,7 +881,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52A0B35F2EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "MaxIslandTests" */ = {
+		52A0B35F2EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "Max IslandTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52A0B3602EDD318C0094E9F1 /* Debug */,
@@ -890,7 +890,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52A0B3622EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "MaxIslandUITests" */ = {
+		52A0B3622EDD318C0094E9F1 /* Build configuration list for PBXNativeTarget "Max IslandUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52A0B3632EDD318C0094E9F1 /* Debug */,
