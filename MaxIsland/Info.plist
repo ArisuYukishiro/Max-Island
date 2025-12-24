@@ -6,7 +6,5 @@
 	<array>
 		<dict/>
 	</array>
-    <key>NSAppleEventsUsageDescription</key>
-    <string>This app needs to monitor keyboard events to provide quick access shortcuts.</string>
 </dict>
 </plist>
