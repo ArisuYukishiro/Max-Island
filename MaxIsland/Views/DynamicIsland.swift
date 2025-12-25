@@ -7,6 +7,7 @@ struct DynamicIsland: View {
     @ObservedObject private var themeManager = ThemeManager.shared
     @ObservedObject private var stateManager = IslandStateManager.shared
     @ObservedObject private var islandAnimation = IslandAnimationManager.shared
+    @ObservedObject var layout = IslandLayoutManager.shared
 
     var body: some View {
         ZStack {
@@ -122,6 +123,7 @@ struct DynamicIsland: View {
         .onExitCommand {
             toggleState(to: .compact)
         }
+        .onChange(of: layout.visibleWidth) { _, _ in updateWindowSize() }
         
     }
     
@@ -150,10 +152,11 @@ struct DynamicIsland: View {
     }
 
     private var islandWidth: CGFloat {
-        guard let screenWidth = NSScreen.main?.visibleFrame.width else {
-            return stateManager.islandState == .compact ? 240 : 580
-        }
+//        guard let screenWidth = NSScreen.main?.visibleFrame.width else {
+//            return stateManager.islandState == .compact ? 240 : 580
+//        }
         
+        let screenWidth = layout.visibleWidth
         print("screen width", screenWidth)
         switch stateManager.islandState {
         case .compact:
@@ -181,11 +184,11 @@ struct DynamicIsland: View {
 
     
     private var islandHeight: CGFloat {
-        guard let screen = NSScreen.main else {
-            return stateManager.islandState == .compact ? 32 : 300
-        }
+//        guard let screen = NSScreen.main else {
+//            return stateManager.islandState == .compact ? 32 : 300
+//        }
         
-        let screenWidth = screen.visibleFrame.width
+        let screenWidth = layout.visibleWidth
         
         switch stateManager.islandState {
         case .compact:
@@ -245,6 +248,7 @@ struct DynamicIsland: View {
     }
     
     private func updateWindowSize() {
+        
         guard let window = NSApp.windows.first,
               let screen = NSScreen.main else { return }
         
