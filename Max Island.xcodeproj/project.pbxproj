@@ -56,6 +56,7 @@
 		52C9818F2EF5258600AE3E3B /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9818E2EF5257300AE3E3B /* LLMService.swift */; };
 		52E25F812EFBE47200AADF45 /* Max Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 52E25F802EFBE47200AADF45 /* Max Icon.icon */; };
 		52EDC83B2EF2B4390081C170 /* LLMConfigStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */; };
+		6925B05A2EFCD33300DFEE66 /* IslandLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925B0592EFCD32900DFEE66 /* IslandLayoutManager.swift */; };
 		69E8E7192EE69FFA005280B4 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8E7182EE69FFA005280B4 /* ThemeManager.swift */; };
 		69F2211D2EF15B1800C2BCDB /* ShortcutSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F2211C2EF15B1300C2BCDB /* ShortcutSettingView.swift */; };
 /* End PBXBuildFile section */
@@ -131,6 +132,7 @@
 		52E25F832EFBE6EA00AADF45 /* Max IslandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Max IslandTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E25F842EFBE6EA00AADF45 /* Max IslandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Max IslandUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfigStorageManager.swift; sourceTree = "<group>"; };
+		6925B0592EFCD32900DFEE66 /* IslandLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandLayoutManager.swift; sourceTree = "<group>"; };
 		69E8E7182EE69FFA005280B4 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		69F2211C2EF15B1300C2BCDB /* ShortcutSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +215,7 @@
 		528EA6002EE140C700C37845 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				6925B0592EFCD32900DFEE66 /* IslandLayoutManager.swift */,
 				52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */,
 				5271F35D2EEA5FDD00A0B4B5 /* IslandStateManager.swift */,
 				528EA6012EE140D500C37845 /* ChatStorageManager.swift */,
@@ -541,6 +544,7 @@
 				5271F3732EEA82F600A0B4B5 /* NotificationsSettingView.swift in Sources */,
 				5271F3622EEA601100A0B4B5 /* SkeletonMessageBubble.swift in Sources */,
 				5271F3632EEA601100A0B4B5 /* SkeletonChatInput.swift in Sources */,
+				6925B05A2EFCD33300DFEE66 /* IslandLayoutManager.swift in Sources */,
 				5271F3652EEA69BD00A0B4B5 /* SettingView.swift in Sources */,
 				52A932F32EDED3A700E4DE14 /* ChatViewModel.swift in Sources */,
 				52A932E22EDD3CA600E4DE14 /* NotchWindowController.swift in Sources */,
