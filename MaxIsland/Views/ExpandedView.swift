@@ -14,7 +14,7 @@ struct ExpandedView: View {
                 LinearGradient(
                     gradient: Gradient(stops: [
                         .init(color: .clear, location: 0),
-                        .init(color: .black, location: 0.10),
+                        .init(color: .black, location: 0.05),
                         .init(color: .black, location: 1)
                     ]),
                     startPoint: .top,
