@@ -14,7 +14,7 @@ Copy the config and fill in your API details:
 cp MaxIsland/Config/Secrets.xcconfig.example MaxIsland/Config/Secrets.xcconfig
 ```
 
-Then edit `Secrets.xcconfig` with your API base URL and key.
+Then edit `Secrets.xcconfig` with your API base URL.
 
 ## Requirements
 
