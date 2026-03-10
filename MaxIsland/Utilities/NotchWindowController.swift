@@ -27,8 +27,8 @@ class NotchWindowController: NSWindowController {
         let size = NotchWindowController.calculateNotchSize(for: screen.visibleFrame.width)
         
         let windowRect = NSRect(
-            x: (screenFrame.width - size.width) / 2,
-            y: screenFrame.height - size.height,
+            x: screenFrame.origin.x + (screenFrame.width - size.width) / 2,
+            y: screenFrame.maxY - size.height,
             width: size.width,
             height: size.height
         )
@@ -71,8 +71,8 @@ class NotchWindowController: NSWindowController {
         let size = NotchWindowController.calculateNotchSize(for: screen.visibleFrame.width)
         
         let newOrigin = NSPoint(
-            x: (screenFrame.width - size.width) / 2,
-            y: screenFrame.height - size.height
+            x: screenFrame.origin.x + (screenFrame.width - size.width) / 2,
+            y: screenFrame.maxY - size.height
         )
         
         // Animate the transition to the new resolution layout
