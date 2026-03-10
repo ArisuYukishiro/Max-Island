@@ -8,145 +8,52 @@ MaxIsland creates a floating, interactive Dynamic Island-style interface that si
 
 ## Features
 
-- **Dynamic Island Interface**: iPhone-inspired Dynamic Island design adapted for macOS
+- **Dynamic Island Interface**: Authentic iPhone-inspired Dynamic Island design adapted for macOS with smooth animations and authentic notch-style UI
 - **Two Display Modes**:
-  - Compact mode (240x37) for minimal screen presence
-  - Expanded mode (580x300) for full chat interaction
-- **AI Chat Integration**: Built-in chat interface with API connectivity
-- **Markdown Support**: Rich text formatting in chat messages
-- **Smooth Animations**: Fluid transitions between compact and expanded states
-- **Always Accessible**: Lives in the menu bar area for quick access
-- **Custom Notch Shape**: Authentic notch-style UI with rounded corners
+  - **Compact Mode**: Minimal 240x37 floating indicator that stays out of your way
+  - **Expanded Mode**: Full-featured 580x300 chat interface with rich interactions
+- **AI-Powered Chat**: Built-in intelligent chat assistant with real-time API connectivity
+- **Rich Text Support**: Full markdown rendering for formatted messages, code blocks, and lists
+- **Seamless Animations**: Fluid transitions between compact and expanded states with smooth resizing effects
+- **Always Accessible**: Lives in the menu bar area for instant access without cluttering your Dock
+- **Menu Bar Integration**: Quick access to settings, clear chat history, and app preferences
+- **Modern macOS Design**: Native SwiftUI interface that feels right at home on your Mac
+- **Lightweight**: Minimal resource usage while maintaining smooth performance
 
 ## Requirements
 
 - macOS 13.0 or later
-- Xcode 14.0 or later (for building from source)
 
 ## Installation
 
-### Building from Source
+[Download links will be added here]
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd MaxIsland
-```
+## How to Use
 
-2. Open the project in Xcode:
-```bash
-open MaxIsland.xcodeproj
-```
+1. **Launch MaxIsland** - The app will appear at the top center of your screen in compact mode
+2. **Toggle Modes** - Click the indicator circle to expand or collapse the interface
+3. **Start Chatting** - In expanded mode, type your message and press Enter or click Send
+4. **Access Menu** - Click the menu bar icon for additional options
+5. **Clear History** - Use the menu to clear your chat history when needed
 
-3. Configure your API endpoint in `Config.swift`
-
-4. Build and run the project (⌘R)
-
-## Configuration
-
-Before running the app, you need to configure the API endpoint:
-
-1. Open `Config.swift`
-2. Update the `baseURL` with your chat API endpoint
-3. Ensure your API follows the expected request/response format:
-
-**Request Format:**
-```json
-{
-  "message": "Your message here"
-}
-```
-
-**Response Format:**
-```json
-{
-  "response": "AI response here"
-}
-```
-
-## Usage
-
-1. Launch MaxIsland - the app will appear at the top center of your screen in compact mode
-2. Click the green/red indicator circle to toggle between compact and expanded modes
-3. In expanded mode, use the chat interface to interact with your AI assistant
-4. The app runs as a menu bar accessory and won't appear in the Dock
-
-## Project Structure
-
-```
-MaxIsland/
-├── MaxIsland/
-│   ├── MaxIslandApp.swift          # App entry point and delegate
-│   ├── ContentView.swift            # Main content view
-│   ├── Config.swift                 # API configuration
-│   ├── Models/
-│   │   ├── IslandContent.swift     # Island state models
-│   │   └── ChatModel.swift         # Chat data models
-│   ├── ViewModels/
-│   │   └── ChatViewModel.swift     # Chat logic and state
-│   ├── Views/
-│   │   ├── DynamicIsland.swift     # Main Dynamic Island view
-│   │   ├── CompactView.swift       # Compact state UI
-│   │   ├── ExpandedView.swift      # Expanded state UI
-│   │   └── Components/
-│   │       ├── ChatInput.swift     # Chat input field
-│   │       ├── ChatMessage.swift   # Chat message display
-│   │       ├── MessageBubble.swift # Individual message bubbles
-│   │       ├── LoadingView.swift   # Loading indicator
-│   │       ├── ErrorView.swift     # Error display
-│   │       └── Shapes/
-│   │           ├── NotchShape.swift    # Custom notch shape
-│   │           └── RoundedCorner.swift # Custom corner radius
-│   ├── Services/
-│   │   └── ChatApiService.swift    # API communication
-│   └── Utilities/
-│       └── NotchWindowController.swift # Window management
-└── README.md
-```
-
-## Architecture
-
-The app follows the MVVM (Model-View-ViewModel) architecture pattern:
-
-- **Models**: Define data structures for chat messages and island states
-- **Views**: SwiftUI views for the UI components
-- **ViewModels**: Handle business logic and state management
-- **Services**: Manage external API communications
-- **Utilities**: Helper classes for window management
-
-## Development
-
-### Key Technologies
-
-- SwiftUI for the user interface
-- Async/await for API calls
-- Combine for reactive state management
-- URLSession for network requests
-
-### Running Tests
-
-```bash
-# Run unit tests
-⌘U in Xcode
-
-# Or via command line
-xcodebuild test -scheme MaxIsland
-```
+The app runs as a menu bar accessory and won't appear in the Dock, keeping your workspace clean and organized.
 
 ## Troubleshooting
 
 **Island not appearing:**
-- Check that accessibility permissions are granted
-- Ensure the app is running (check Activity Monitor)
 
-**Chat not working:**
-- Verify API endpoint configuration in Config.swift
-- Check network connectivity
-- Review console logs for error messages
+- Check that accessibility permissions are granted in System Settings
+- Make sure the app is running (you should see it in your menu bar)
+
+**Chat not responding:**
+
+- Check your internet connection
+- Try restarting the app from the menu bar
 
 **Window positioning issues:**
+
 - Try restarting the app
-- Check display settings if using multiple monitors
+- If using multiple monitors, ensure the app appears on your primary display
 
 ## License
 
