@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		525522A72F5FDC4F0089E27F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525522A62F5FDC4D0089E27F /* Config.swift */; };
 		5255A4BF2EEFF66500AF04DD /* ConfigurationPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4BE2EEFF66100AF04DD /* ConfigurationPanel.swift */; };
 		5255A4C12EEFF68D00AF04DD /* ActiveModelBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C02EEFF68800AF04DD /* ActiveModelBanner.swift */; };
 		5255A4C52EEFF73500AF04DD /* ProviderSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255A4C42EEFF73300AF04DD /* ProviderSidebar.swift */; };
@@ -28,6 +29,7 @@
 		5271F3752EEA830100A0B4B5 /* AdvancedSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3742EEA82FD00A0B4B5 /* AdvancedSettingView.swift */; };
 		5271F3772EEA830E00A0B4B5 /* AboutSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F3762EEA830A00A0B4B5 /* AboutSettingView.swift */; };
 		5271F37B2EEBD48500A0B4B5 /* LLMConfigSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271F37A2EEBD47F00A0B4B5 /* LLMConfigSettingView.swift */; };
+		528238BD2F5FE25700BE41E1 /* Secrets.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = 528238BC2F5FE25500BE41E1 /* Secrets.xcconfig.example */; };
 		528EA6022EE140D500C37845 /* ChatStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6012EE140D500C37845 /* ChatStorageManager.swift */; };
 		528EA6052EE17FA700C37845 /* KeybindHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA6042EE17FA700C37845 /* KeybindHook.swift */; };
 		52A0B33B2EDD318A0094E9F1 /* MaxIslandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0B33A2EDD318A0094E9F1 /* MaxIslandApp.swift */; };
@@ -53,7 +55,6 @@
 		52A932E72EDDA9ED00E4DE14 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932E62EDDA9ED00E4DE14 /* ChatMessage.swift */; };
 		52A932E92EDE844100E4DE14 /* ChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932E82EDE844100E4DE14 /* ChatInput.swift */; };
 		52A932EB2EDE943F00E4DE14 /* NotchShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932EA2EDE943F00E4DE14 /* NotchShape.swift */; };
-		52A932ED2EDED01C00E4DE14 /* Config.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932EC2EDED01C00E4DE14 /* Config.swift .swift */; };
 		52A932EF2EDED31600E4DE14 /* ChatApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932EE2EDED31600E4DE14 /* ChatApiService.swift */; };
 		52A932F12EDED34E00E4DE14 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F02EDED34E00E4DE14 /* ChatModel.swift */; };
 		52A932F32EDED3A700E4DE14 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F22EDED3A700E4DE14 /* ChatViewModel.swift */; };
@@ -87,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52270F3F2F5FD8FE00929AA8 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		525522A62F5FDC4D0089E27F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		5255A4BE2EEFF66100AF04DD /* ConfigurationPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationPanel.swift; sourceTree = "<group>"; };
 		5255A4C02EEFF68800AF04DD /* ActiveModelBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveModelBanner.swift; sourceTree = "<group>"; };
 		5255A4C42EEFF73300AF04DD /* ProviderSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderSidebar.swift; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 		5271F3742EEA82FD00A0B4B5 /* AdvancedSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingView.swift; sourceTree = "<group>"; };
 		5271F3762EEA830A00A0B4B5 /* AboutSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingView.swift; sourceTree = "<group>"; };
 		5271F37A2EEBD47F00A0B4B5 /* LLMConfigSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfigSettingView.swift; sourceTree = "<group>"; };
+		528238BC2F5FE25500BE41E1 /* Secrets.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.xcconfig.example; sourceTree = "<group>"; };
 		528EA6012EE140D500C37845 /* ChatStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStorageManager.swift; sourceTree = "<group>"; };
 		528EA6042EE17FA700C37845 /* KeybindHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindHook.swift; sourceTree = "<group>"; };
 		52A0B33A2EDD318A0094E9F1 /* MaxIslandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxIslandApp.swift; sourceTree = "<group>"; };
@@ -129,7 +133,6 @@
 		52A932E62EDDA9ED00E4DE14 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		52A932E82EDE844100E4DE14 /* ChatInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInput.swift; sourceTree = "<group>"; };
 		52A932EA2EDE943F00E4DE14 /* NotchShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchShape.swift; sourceTree = "<group>"; };
-		52A932EC2EDED01C00E4DE14 /* Config.swift .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Config.swift .swift"; sourceTree = "<group>"; };
 		52A932EE2EDED31600E4DE14 /* ChatApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatApiService.swift; sourceTree = "<group>"; };
 		52A932F02EDED34E00E4DE14 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		52A932F22EDED3A700E4DE14 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -183,6 +186,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52270F422F5FD97100929AA8 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				528238BC2F5FE25500BE41E1 /* Secrets.xcconfig.example */,
+				525522A62F5FDC4D0089E27F /* Config.swift */,
+				52270F3F2F5FD8FE00929AA8 /* Secrets.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		5255A4CC2EEFF84E00AF04DD /* LLMs */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +278,7 @@
 		52A0B3392EDD318A0094E9F1 /* MaxIsland */ = {
 			isa = PBXGroup;
 			children = (
+				52270F422F5FD97100929AA8 /* Config */,
 				69E8E71A2EE6A0AC005280B4 /* Theme */,
 				528EA6032EE17F8D00C37845 /* Hooks */,
 				528EA6002EE140C700C37845 /* Managers */,
@@ -279,7 +293,6 @@
 				52A0B33E2EDD318C0094E9F1 /* Assets.xcassets */,
 				52A0B3432EDD318C0094E9F1 /* MaxIsland.entitlements */,
 				52A0B3402EDD318C0094E9F1 /* Preview Content */,
-				52A932EC2EDED01C00E4DE14 /* Config.swift .swift */,
 				52E25F802EFBE47200AADF45 /* Max Icon.icon */,
 			);
 			path = MaxIsland;
@@ -515,6 +528,7 @@
 			files = (
 				52E25F812EFBE47200AADF45 /* Max Icon.icon in Resources */,
 				52A0B3422EDD318C0094E9F1 /* Preview Assets.xcassets in Resources */,
+				528238BD2F5FE25700BE41E1 /* Secrets.xcconfig.example in Resources */,
 				52A0B33F2EDD318C0094E9F1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,7 +570,6 @@
 				52587C212EEFC423001AFB0F /* LLMModel.swift in Sources */,
 				52A0B33D2EDD318A0094E9F1 /* ContentView.swift in Sources */,
 				5271F3712EEA82EC00A0B4B5 /* GeneralSettingView.swift in Sources */,
-				52A932ED2EDED01C00E4DE14 /* Config.swift .swift in Sources */,
 				52A0B33B2EDD318A0094E9F1 /* MaxIslandApp.swift in Sources */,
 				5255A4C72EEFF78A00AF04DD /* ProviderButton.swift in Sources */,
 				528EA6022EE140D500C37845 /* ChatStorageManager.swift in Sources */,
@@ -577,6 +590,7 @@
 				52A932DA2EDD39D500E4DE14 /* CompactView.swift in Sources */,
 				52A932E92EDE844100E4DE14 /* ChatInput.swift in Sources */,
 				5271F3732EEA82F600A0B4B5 /* NotificationsSettingView.swift in Sources */,
+				525522A72F5FDC4F0089E27F /* Config.swift in Sources */,
 				5271F3622EEA601100A0B4B5 /* SkeletonMessageBubble.swift in Sources */,
 				5271F3632EEA601100A0B4B5 /* SkeletonChatInput.swift in Sources */,
 				6925B05A2EFCD33300DFEE66 /* IslandLayoutManager.swift in Sources */,
@@ -626,6 +640,7 @@
 /* Begin XCBuildConfiguration section */
 		52A0B35A2EDD318C0094E9F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52270F3F2F5FD8FE00929AA8 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -691,6 +706,7 @@
 		};
 		52A0B35B2EDD318C0094E9F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52270F3F2F5FD8FE00929AA8 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -748,6 +764,7 @@
 		};
 		52A0B35D2EDD318C0094E9F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52270F3F2F5FD8FE00929AA8 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "Max Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -790,6 +807,7 @@
 		};
 		52A0B35E2EDD318C0094E9F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52270F3F2F5FD8FE00929AA8 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "Max Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
