@@ -2,26 +2,37 @@ import SwiftUI
 import AppKit
 
 class NotchWindowController: NSWindowController {
+    
+    // 1. Centralized logic for sizing so it's consistent everywhere
+    private static func calculateNotchSize(for screenWidth: CGFloat) -> (width: CGFloat, height: CGFloat) {
+        if screenWidth >= 2560 {
+            return (350, 42)
+        } else if screenWidth >= 1800 {
+            return (300, 38)
+        } else if screenWidth >= 1400 {
+            return (250, 32)
+        } else {
+            return (max(screenWidth * 0.15, 150), 32)
+        }
+    }
+
     convenience init() {
-        // Get screen dimensions
         guard let screen = NSScreen.main else {
             self.init(window: nil)
             return
         }
         
+        // Initial Calculation
         let screenFrame = screen.frame
-        let notchWidth: CGFloat = 240
-        let notchHeight: CGFloat = 37
+        let size = NotchWindowController.calculateNotchSize(for: screen.visibleFrame.width)
         
-        // Position at top center (where notch is)
         let windowRect = NSRect(
-            x: (screenFrame.width - notchWidth) / 2,
-            y: screenFrame.height - notchHeight,
-            width: notchWidth,
-            height: notchHeight
+            x: (screenFrame.width - size.width) / 2,
+            y: screenFrame.height - size.height,
+            width: size.width,
+            height: size.height
         )
         
-        // Create window
         let window = NotchWindow(
             contentRect: windowRect,
             styleMask: [.borderless, .fullSizeContentView],
@@ -29,21 +40,47 @@ class NotchWindowController: NSWindowController {
             defer: false
         )
         
-        // Window configuration
+        // Window Setup
         window.isOpaque = false
         window.backgroundColor = .clear
         window.level = .statusBar
         window.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle]
-        window.isMovableByWindowBackground = false
         window.hasShadow = false
         
-        // Set SwiftUI content
         let contentView = NSHostingView(rootView: DynamicIsland())
-        contentView.frame = window.contentView?.bounds ?? .zero
         contentView.autoresizingMask = [.width, .height]
         window.contentView = contentView
         
         self.init(window: window)
+        
+        // Listen for resolution/display changes
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleScreenChange),
+            name: NSApplication.didChangeScreenParametersNotification,
+            object: nil
+        )
+    }
+    
+    @objc func handleScreenChange(notification: Notification) {
+        // Use window.screen if available, otherwise main screen
+        guard let window = self.window,
+              let screen = window.screen ?? NSScreen.main else { return }
+        
+        let screenFrame = screen.frame
+        let size = NotchWindowController.calculateNotchSize(for: screen.visibleFrame.width)
+        
+        let newOrigin = NSPoint(
+            x: (screenFrame.width - size.width) / 2,
+            y: screenFrame.height - size.height
+        )
+        
+        // Animate the transition to the new resolution layout
+        window.setFrame(
+            NSRect(origin: newOrigin, size: CGSize(width: size.width, height: size.height)),
+            display: true,
+            animate: true
+        )
     }
 }
 
