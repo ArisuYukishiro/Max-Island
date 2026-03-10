@@ -252,8 +252,8 @@ struct DynamicIsland: View {
         
         let screenFrame = screen.frame
         let newFrame = NSRect(
-            x: (screenFrame.width - islandWidth) / 2,
-            y: screenFrame.height - islandHeight,
+            x: screenFrame.origin.x + (screenFrame.width - islandWidth) / 2,
+            y: screenFrame.maxY - islandHeight,
             width: islandWidth,
             height: islandHeight
         )
