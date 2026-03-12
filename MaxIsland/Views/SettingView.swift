@@ -2,13 +2,15 @@ import SwiftUI
 
 
 enum SettingSection: String, CaseIterable {
+    case appearanceConfig = "Appearance"
     case llmConfig = "LLM Config"
-
     
     var icon: String {
         switch self {
         case .llmConfig:
             return "brain.fill"
+        case .appearanceConfig:
+            return "pencil.and.ellipsis.rectangle"
         }
     }
 }
@@ -53,6 +55,9 @@ struct SettingView: View {
         switch selectedSection {
         case .llmConfig:
             LLMConfigSettingView()
+        case .appearanceConfig:
+            AppearanceSettingView()
+            
         }
     }
     private func fetchProvidersAndModels() {
