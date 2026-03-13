@@ -62,6 +62,8 @@
 		52A932F72EDED40300E4DE14 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F62EDED40300E4DE14 /* ErrorView.swift */; };
 		52A932F92EDED41A00E4DE14 /* LoadingView.swift  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */; };
 		52A932FD2EDEF73800E4DE14 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52A932FC2EDEF73800E4DE14 /* MarkdownUI */; };
+		52C517CE2F644A6300F588F3 /* ThemePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C517CD2F644A6100F588F3 /* ThemePickerView.swift */; };
+		52C517D22F644AD800F588F3 /* MonitorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C517D12F644AD100F588F3 /* MonitorPickerView.swift */; };
 		52C9818F2EF5258600AE3E3B /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9818E2EF5257300AE3E3B /* LLMService.swift */; };
 		52E25F812EFBE47200AADF45 /* Max Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 52E25F802EFBE47200AADF45 /* Max Icon.icon */; };
 		52EDC83B2EF2B4390081C170 /* LLMConfigStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDC83A2EF2B4260081C170 /* LLMConfigStorageManager.swift */; };
@@ -140,6 +142,8 @@
 		52A932F62EDED40300E4DE14 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		52A932F82EDED41A00E4DE14 /* LoadingView.swift  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadingView.swift  .swift"; sourceTree = "<group>"; };
 		52A932FA2EDEDA9D00E4DE14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		52C517CD2F644A6100F588F3 /* ThemePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerView.swift; sourceTree = "<group>"; };
+		52C517D12F644AD100F588F3 /* MonitorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorPickerView.swift; sourceTree = "<group>"; };
 		52C9818E2EF5257300AE3E3B /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
 		52E25F802EFBE47200AADF45 /* Max Icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "Max Icon.icon"; sourceTree = "<group>"; };
 		52E25F822EFBE4A400AADF45 /* Max Island.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Max Island.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +227,7 @@
 		5271F36A2EEA759C00A0B4B5 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				52C517CC2F64483700F588F3 /* Apperances */,
 				5255A4CC2EEFF84E00AF04DD /* LLMs */,
 				5271F36C2EEA7D6700A0B4B5 /* SettingSidebar.swift */,
 			);
@@ -406,6 +411,15 @@
 			path = Shapes;
 			sourceTree = "<group>";
 		};
+		52C517CC2F64483700F588F3 /* Apperances */ = {
+			isa = PBXGroup;
+			children = (
+				52C517D12F644AD100F588F3 /* MonitorPickerView.swift */,
+				52C517CD2F644A6100F588F3 /* ThemePickerView.swift */,
+			);
+			path = Apperances;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,6 +574,7 @@
 				5271F3672EEA70BF00A0B4B5 /* SettingWindowController.swift in Sources */,
 				5255A4CB2EEFF84500AF04DD /* APIKeySection.swift in Sources */,
 				52A932DC2EDD39EA00E4DE14 /* ExpandedView.swift in Sources */,
+				52C517CE2F644A6300F588F3 /* ThemePickerView.swift in Sources */,
 				5271F3772EEA830E00A0B4B5 /* AboutSettingView.swift in Sources */,
 				52EDC83B2EF2B4390081C170 /* LLMConfigStorageManager.swift in Sources */,
 				5255A4C12EEFF68D00AF04DD /* ActiveModelBanner.swift in Sources */,
@@ -590,6 +605,7 @@
 				52A932DA2EDD39D500E4DE14 /* CompactView.swift in Sources */,
 				52A932E92EDE844100E4DE14 /* ChatInput.swift in Sources */,
 				5271F3732EEA82F600A0B4B5 /* NotificationsSettingView.swift in Sources */,
+				52C517D22F644AD800F588F3 /* MonitorPickerView.swift in Sources */,
 				525522A72F5FDC4F0089E27F /* Config.swift in Sources */,
 				5271F3622EEA601100A0B4B5 /* SkeletonMessageBubble.swift in Sources */,
 				5271F3632EEA601100A0B4B5 /* SkeletonChatInput.swift in Sources */,
