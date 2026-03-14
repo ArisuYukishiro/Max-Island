@@ -2,7 +2,8 @@ import SwiftUI
 import AppKit
 
 class NotchWindowController: NSWindowController {
-    
+    @ObservedObject private var stateManager = IslandStateManager.shared
+
     private static func calculateNotchSize(for screenWidth: CGFloat) -> (width: CGFloat, height: CGFloat) {
         if screenWidth >= 2560 {
             return (350, 42)
@@ -15,11 +16,12 @@ class NotchWindowController: NSWindowController {
         }
     }
     //TODO : fix the carry state of  handscreenchange size of notch when switch from one monitor to another with different resolution, maybe need to listen for screen change and update the notch size accordingly
+    //TODO : add carry state of of island collape or open when switch monitor
     convenience init() {
         // guard let screen = NSScreen.main else {
         //     self.init(window: nil)
         //     return
-        // }
+        // }dyan
 
         let storedID = UserDefaults.standard.integer(forKey: "PreferredMonitorID")
 
@@ -66,7 +68,7 @@ class NotchWindowController: NSWindowController {
         
         self.init(window: window)
         
-        // Listen for resolution/display changes
+        // Listen for resolution changes
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleScreenChange),
@@ -83,7 +85,6 @@ class NotchWindowController: NSWindowController {
     }
     
     @objc func handleScreenChange(notification: Notification) {
-        // Use window.screen if available, otherwise main screen
         guard let window = self.window,
               let screen = window.screen ?? NSScreen.main else { return }
         
@@ -95,12 +96,13 @@ class NotchWindowController: NSWindowController {
             y: screenFrame.maxY - size.height
         )
         
-        // Animate the transition to the new resolution layout
         window.setFrame(
             NSRect(origin: newOrigin, size: CGSize(width: size.width, height: size.height)),
             display: true,
             animate: true
         )
+
+        NotificationCenter.default.post(name: NSNotification.Name("NotchSizeDidChange"), object: nil)
     }
 
     @objc func handlePreferredMonitorChange(_ notification: Notification) {
