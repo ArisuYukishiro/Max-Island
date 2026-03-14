@@ -3,7 +3,6 @@ import AppKit
 
 class NotchWindowController: NSWindowController {
     
-    // 1. Centralized logic for sizing so it's consistent everywhere
     private static func calculateNotchSize(for screenWidth: CGFloat) -> (width: CGFloat, height: CGFloat) {
         if screenWidth >= 2560 {
             return (350, 42)
@@ -15,14 +14,29 @@ class NotchWindowController: NSWindowController {
             return (max(screenWidth * 0.15, 150), 32)
         }
     }
-
+    //TODO : fix the carry state of  handscreenchange size of notch when switch from one monitor to another with different resolution, maybe need to listen for screen change and update the notch size accordingly
     convenience init() {
-        guard let screen = NSScreen.main else {
+        // guard let screen = NSScreen.main else {
+        //     self.init(window: nil)
+        //     return
+        // }
+
+        let storedID = UserDefaults.standard.integer(forKey: "PreferredMonitorID")
+
+        let screen: NSScreen
+        if storedID != 0,
+        let preferred = NSScreen.screens.first(where: {
+            let id = $0.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID
+            return Int(id ?? 0) == storedID
+        }) {
+            screen = preferred
+        } else if let main = NSScreen.main {
+            screen = main
+        } else {
             self.init(window: nil)
             return
         }
         
-        // Initial Calculation
         let screenFrame = screen.frame
         let size = NotchWindowController.calculateNotchSize(for: screen.visibleFrame.width)
         
@@ -40,7 +54,6 @@ class NotchWindowController: NSWindowController {
             defer: false
         )
         
-        // Window Setup
         window.isOpaque = false
         window.backgroundColor = .clear
         window.level = .statusBar
@@ -58,6 +71,13 @@ class NotchWindowController: NSWindowController {
             self,
             selector: #selector(handleScreenChange),
             name: NSApplication.didChangeScreenParametersNotification,
+            object: nil
+        )
+        // listen for preferred monitor changes
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handlePreferredMonitorChange(_:)),
+            name: .preferredMonitorDidChange,
             object: nil
         )
     }
@@ -81,6 +101,24 @@ class NotchWindowController: NSWindowController {
             display: true,
             animate: true
         )
+    }
+
+    @objc func handlePreferredMonitorChange(_ notification: Notification) {
+        guard let displayID = notification.userInfo?["displayID"] as? Int else { return }
+        let targetScreen = NSScreen.screens.first {
+            let id = $0.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID
+            return Int(id ?? 0) == displayID
+        } ?? NSScreen.main
+
+        guard let screen = targetScreen, let window = self.window else { return }
+        let size = NotchWindowController.calculateNotchSize(for: screen.visibleFrame.width)
+        let newFrame = NSRect(
+            x: screen.frame.origin.x + (screen.frame.width - size.width) / 2,
+            y: screen.frame.maxY - size.height,
+            width: size.width,
+            height: size.height
+        )
+        window.setFrame(newFrame, display: true, animate: true)
     }
 }
 
