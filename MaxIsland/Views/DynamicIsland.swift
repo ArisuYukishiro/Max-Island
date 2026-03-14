@@ -248,7 +248,7 @@ struct DynamicIsland: View {
     private func updateWindowSize() {
         
         guard let window = NSApp.windows.first,
-              let screen = NSScreen.main else { return }
+              let screen = window.screen ?? NSScreen.main else { return }
         
         let screenFrame = screen.frame
         let newFrame = NSRect(
