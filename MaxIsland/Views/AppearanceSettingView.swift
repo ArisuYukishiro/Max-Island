@@ -3,7 +3,7 @@ import SwiftUI
 struct AppearanceSettingView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            ThemePickerView()
+//            ThemePickerView()
             MonitorPickerView()
             Spacer()
         }

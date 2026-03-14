@@ -18,7 +18,7 @@ struct MonitorPickerView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
             Text("Island Monitor")
                 .font(.headline)
 
@@ -26,19 +26,21 @@ struct MonitorPickerView: View {
                 Text("No displays detected.")
                     .foregroundColor(.secondary)
             } else {
-                ForEach(screens, id: \.self) { screen in
-                    MonitorRowView(
-                        screen: screen,
-                        isSelected: displayID(for: screen) == (preferredMonitorID == 0 ? displayID(for: NSScreen.main) : preferredMonitorID),
-                        isMain: screen == NSScreen.main
-                    ) {
-                        let id = displayID(for: screen)
-                        preferredMonitorID = id
-                        NotificationCenter.default.post(
-                            name: .preferredMonitorDidChange,
-                            object: nil,
-                            userInfo: ["displayID": id]
-                        )
+                VStack(spacing: 12){
+                    ForEach(screens, id: \.self) { screen in
+                        MonitorRowView(
+                            screen: screen,
+                            isSelected: displayID(for: screen) == (preferredMonitorID == 0 ? displayID(for: NSScreen.main) : preferredMonitorID),
+                            isMain: screen == NSScreen.main
+                        ) {
+                            let id = displayID(for: screen)
+                            preferredMonitorID = id
+                            NotificationCenter.default.post(
+                                name: .preferredMonitorDidChange,
+                                object: nil,
+                                userInfo: ["displayID": id]
+                            )
+                        }
                     }
                 }
             }
@@ -63,30 +65,56 @@ private struct MonitorRowView: View {
     let isMain: Bool
     let onSelect: () -> Void
 
+    private var screenAspectRatio: CGFloat {
+        let width = screen.frame.width
+        let height = screen.frame.height
+        return width / height
+    }
+
     var body: some View {
         Button(action: onSelect) {
-            HStack(spacing: 12) {
-                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(isSelected ? .accentColor : .secondary)
-
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(screen.localizedName)
-                        .fontWeight(isSelected ? .semibold : .regular)
-                    if isMain {
-                        Text("Main Display")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                    Text("\(Int(screen.frame.width)) × \(Int(screen.frame.height))")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+            VStack(spacing: 12) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color(nsColor: .controlBackgroundColor))
+                        .aspectRatio(screenAspectRatio, contentMode: .fit)
+                    
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(isSelected ? Color.accentColor.opacity(0.15) : Color.secondary.opacity(0.1))
+                        .aspectRatio(screenAspectRatio, contentMode: .fit)
+                        .padding(4)
                 }
-                Spacer()
+                .frame(height: 100)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(
+                            isSelected ? Color.accentColor : Color.secondary.opacity(0.3),
+                            lineWidth: isSelected ? 2 : 1
+                        )
+                )
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(screen.localizedName)
+                                .font(.system(.body, design: .default))
+                                .fontWeight(isSelected ? .semibold : .regular)
+                            
+                            Text("\(Int(screen.frame.width)) × \(Int(screen.frame.height))")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .padding(12)
+            .background(Color(nsColor: .controlBackgroundColor).opacity(0.5))
+            .cornerRadius(10)
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .padding(.vertical, 4)
     }
 }
 
