@@ -151,70 +151,7 @@ struct DynamicIsland: View {
         }
     }
 
-    private var islandWidth: CGFloat {
-//        guard let screenWidth = NSScreen.main?.visibleFrame.width else {
-//            return stateManager.islandState == .compact ? 240 : 580
-//        }
-        
-        let screenWidth = layout.visibleWidth
-        print("screen width", screenWidth)
-        switch stateManager.islandState {
-        case .compact:
-            if screenWidth >= 2560 {
-                return 350
-            } else if screenWidth >= 1800 {
-                return 300
-            } else if screenWidth >= 1400 {
-                return 250
-            } else {
-                return max(screenWidth * 0.15, 150)
-            }
-        case .expanded:
-            if screenWidth >= 2560 {
-                return 650
-            } else if screenWidth >= 1800 {
-                return 600
-            } else if screenWidth >= 1400 {
-                return 600
-            } else {
-                return max(screenWidth * 0.4, 400)
-            }
-        }
-    }
 
-    
-    private var islandHeight: CGFloat {
-//        guard let screen = NSScreen.main else {
-//            return stateManager.islandState == .compact ? 32 : 300
-//        }
-        
-        let screenWidth = layout.visibleWidth
-        
-        switch stateManager.islandState {
-        case .compact:
-            if screenWidth >= 2560 {
-                return 40
-            } else if screenWidth >= 1800 {
-                return 38
-            } else if screenWidth >= 1400 {
-                return 32
-            } else {
-                return 32
-            }
-            
-        case .expanded:
-            if screenWidth >= 2560 {
-                return 350
-            } else if screenWidth >= 1800 {
-                return 320
-            } else if screenWidth >= 1400 {
-                return 300
-            } else {
-                return 280
-            }
-        }
-    }
-      
     private var topCorner: CGFloat {
         switch stateManager.islandState {
         case .compact:
@@ -248,16 +185,25 @@ struct DynamicIsland: View {
     }
     
     private func updateWindowSize() {
+        guard let window = NSApp.windows.first else { return }
+
+        let windowCenter = CGPoint(x: window.frame.midX, y: window.frame.midY)
+        let screen = NSScreen.screens.first { $0.frame.contains(windowCenter) } ?? NSScreen.main
+            
         
-        guard let window = NSApp.windows.first,
-              let screen = window.screen ?? NSScreen.main else { return }
-        
+        guard let screen = screen else { return }
+
         let screenFrame = screen.frame
+        let actualVisibleWidth = screen.visibleFrame.width
+
+        let width = calculateIslandWidth(for: actualVisibleWidth, state: stateManager.islandState)
+        let height = calculateIslandHeight(for: actualVisibleWidth, state: stateManager.islandState)
+
         let newFrame = NSRect(
-            x: screenFrame.origin.x + (screenFrame.width - islandWidth) / 2,
-            y: screenFrame.maxY - islandHeight,
-            width: islandWidth,
-            height: islandHeight
+            x: screenFrame.origin.x + (screenFrame.width - width) / 2,
+            y: screenFrame.maxY - height,
+            width: width,
+            height: height
         )
         print(newFrame)
         
@@ -273,6 +219,56 @@ struct DynamicIsland: View {
                     islandAnimation.hasAnimationCompleted = false
                     print("Expansion animation completed successfully")
                 }
+            }
+        }
+    }
+
+    private func calculateIslandWidth(for screenWidth: CGFloat, state: IslandState) -> CGFloat {
+        switch state {
+        case .compact:
+            if screenWidth >= 2560 {
+                return 350
+            } else if screenWidth >= 1800 {
+                return 300
+            } else if screenWidth >= 1400 {
+                return 250
+            } else {
+                return max(screenWidth * 0.15, 150)
+            }
+        case .expanded:
+            if screenWidth >= 2560 {
+                return 650
+            } else if screenWidth >= 1800 {
+                return 600
+            } else if screenWidth >= 1400 {
+                return 600
+            } else {
+                return max(screenWidth * 0.4, 400)
+            }
+        }
+    }
+
+    private func calculateIslandHeight(for screenWidth: CGFloat, state: IslandState) -> CGFloat {
+        switch state {
+        case .compact:
+            if screenWidth >= 2560 {
+                return 40
+            } else if screenWidth >= 1800 {
+                return 38
+            } else if screenWidth >= 1400 {
+                return 32
+            } else {
+                return 32
+            }
+        case .expanded:
+            if screenWidth >= 2560 {
+                return 350
+            } else if screenWidth >= 1800 {
+                return 320
+            } else if screenWidth >= 1400 {
+                return 300
+            } else {
+                return 280
             }
         }
     }

@@ -15,7 +15,8 @@ class NotchWindowController: NSWindowController {
             return (max(screenWidth * 0.15, 150), 32)
         }
     }
-    //TODO : fix the carry state of  handscreenchange size of notch when switch from one monitor to another with different resolution, maybe need to listen for screen change and update the notch size accordingly
+
+    //TODO: fix state when open in screen one than change screeen , the island become  in compact state  and move to second monitor
     convenience init() {
         // guard let screen = NSScreen.main else {
         //     self.init(window: nil)
@@ -84,11 +85,18 @@ class NotchWindowController: NSWindowController {
     }
     
     @objc func handleScreenChange(notification: Notification) {
-        guard let window = self.window,
-              let screen = window.screen ?? NSScreen.main else { return }
+        guard let window = self.window else { return }
+        
+        let windowCenter = CGPoint(x: window.frame.midX, y: window.frame.midY)
+        let activeScreen = NSScreen.screens.first { $0.frame.contains(windowCenter) } ?? NSScreen.main
+        
+        guard let screen = activeScreen else { return }
         
         let screenFrame = screen.frame
         let size = NotchWindowController.calculateNotchSize(for: screen.visibleFrame.width)
+        
+        IslandLayoutManager.shared.screenFrame = screenFrame
+        IslandLayoutManager.shared.visibleWidth = screen.visibleFrame.width
         
         let newOrigin = NSPoint(
             x: screenFrame.origin.x + (screenFrame.width - size.width) / 2,
@@ -103,6 +111,7 @@ class NotchWindowController: NSWindowController {
 
         NotificationCenter.default.post(name: NSNotification.Name("MonitorDidChange"), object: nil)
     }
+    
 
     @objc func handlePreferredMonitorChange(_ notification: Notification) {
         guard let displayID = notification.userInfo?["displayID"] as? Int else { return }
