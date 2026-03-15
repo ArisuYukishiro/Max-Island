@@ -122,7 +122,7 @@ struct DynamicIsland: View {
             toggleState(to: .compact)
         }
         .onChange(of: layout.visibleWidth) { _, _ in updateWindowSize() }
-        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("MonitorDidChange"))) { _ in
+        .onReceive(NotificationCenter.default.publisher(for: .preferredMonitorDidChange)) { _ in
             updateWindowSize()
         }
     }
